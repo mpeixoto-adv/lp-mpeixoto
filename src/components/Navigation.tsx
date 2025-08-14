@@ -55,16 +55,27 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
       {/* Main Navigation */}
       <div className="bg-background/95 backdrop-blur-sm border-b border-border">
         <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-serif font-bold text-primary">
-              M. Peixoto
-              <span className="block text-sm font-sans font-normal text-muted-foreground">
-                Advogados Associados
-              </span>
-            </h1>
-          </div>
+          <div className="flex items-center justify-between h-20">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <img 
+                src="https://mpeixotoadvogados.com.br/wp-content/uploads/2023/11/Logo_MP_200.png" 
+                alt="M. Peixoto Advogados Associados" 
+                className="h-12 w-auto"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                }}
+              />
+              <div className="hidden">
+                <h1 className="text-2xl font-serif font-bold text-primary">
+                  M. Peixoto
+                  <span className="block text-sm font-sans font-normal text-muted-foreground">
+                    Advogados Associados
+                  </span>
+                </h1>
+              </div>
+            </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">

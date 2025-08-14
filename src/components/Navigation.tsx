@@ -16,6 +16,7 @@ interface NavigationProps {
 
 export const Navigation = ({ onContactClick }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
 
   const servicesItems = [
@@ -28,7 +29,7 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background">
       {/* Top Contact Bar */}
       <div className="bg-primary text-primary-foreground py-2 text-sm">
         <div className="container mx-auto px-4">
@@ -62,7 +63,7 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
       </div>
       
       {/* Main Navigation */}
-      <div className="bg-background border-b border-border">
+      <div className="bg-background border-b border-border shadow-sm">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
@@ -99,24 +100,34 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
             </Link>
             
             {/* Services Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center text-foreground hover:text-accent transition-colors duration-300 font-medium focus:outline-none">
-                Serviços
-                <ChevronDown className="h-4 w-4 ml-1" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-background border border-border shadow-lg">
-                {servicesItems.map((service) => (
-                  <DropdownMenuItem key={service.name} asChild>
-                    <Link
-                      to={service.href}
-                      className="text-foreground hover:text-accent transition-colors cursor-pointer"
-                    >
-                      {service.name}
-                    </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <div className="relative">
+              <DropdownMenu open={isServicesOpen} onOpenChange={setIsServicesOpen}>
+                <DropdownMenuTrigger asChild>
+                  <button className="flex items-center text-foreground hover:text-accent transition-colors duration-300 font-medium focus:outline-none">
+                    Serviços
+                    <ChevronDown className={`h-4 w-4 ml-1 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent 
+                  className="bg-background border border-border shadow-xl mt-2"
+                  align="start"
+                  sideOffset={5}
+                  style={{ zIndex: 9999 }}
+                >
+                  {servicesItems.map((service) => (
+                    <DropdownMenuItem key={service.name} asChild>
+                      <Link
+                        to={service.href}
+                        className="text-foreground hover:text-accent hover:bg-accent/10 transition-colors cursor-pointer px-4 py-2 w-full block"
+                        onClick={() => setIsServicesOpen(false)}
+                      >
+                        {service.name}
+                      </Link>
+                    </DropdownMenuItem>
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
             
             {/* Contato */}
             <a

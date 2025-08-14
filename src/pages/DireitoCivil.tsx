@@ -15,9 +15,9 @@ const DireitoCivil = () => {
     <div className="min-h-screen bg-background">
       <Navigation onContactClick={handleContactClick} />
       
-      <main className="pt-32">
+      <div className="pt-[108px]">
         {/* Hero Section */}
-        <section className="relative py-20 overflow-hidden">
+        <section className="relative bg-gradient-to-b from-primary to-primary-light text-primary-foreground py-24">
           <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/90 to-primary/80">
           </div>
           <div className="relative z-10 container mx-auto px-4">
@@ -371,7 +371,7 @@ const DireitoCivil = () => {
             </div>
           </div>
         </section>
-      </main>
+      </div>
 
       <Footer />
     </div>

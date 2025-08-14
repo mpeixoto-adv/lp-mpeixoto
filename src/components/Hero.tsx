@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import { Scale, Users, Award, Clock } from "lucide-react";
-import heroImage from "@/assets/hero-law-office.jpg";
 
 interface HeroProps {
   onContactClick: () => void;
@@ -17,20 +16,15 @@ export const Hero = ({ onContactClick }: HeroProps) => {
           loop
           playsInline
           className="absolute inset-0 w-full h-full object-cover"
-          poster={heroImage}
           preload="metadata"
         >
           <source 
             src="https://mpeixotoadvogados.com.br/wp-content/uploads/2023/11/video_hero.mp4" 
             type="video/mp4" 
           />
-          {/* Fallback for browsers that don't support video */}
-          <div 
-            className="absolute inset-0 w-full h-full bg-cover bg-center"
-            style={{ backgroundImage: `url(${heroImage})` }}
-          />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-transparent"></div>
+        {/* Dark overlay for better text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary/80 via-primary/60 to-primary/80"></div>
       </div>
 
       {/* Content */}

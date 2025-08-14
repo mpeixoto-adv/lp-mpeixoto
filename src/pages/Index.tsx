@@ -20,12 +20,14 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Navigation onContactClick={handleContactClick} />
-      <Hero onContactClick={handleContactClick} />
-      <Services />
-      <About />
-      <Testimonials />
-      <Contact />
-      <Footer />
+      <div className="pt-[108px]">
+        <Hero onContactClick={handleContactClick} />
+        <Services />
+        <About />
+        <Testimonials />
+        <Contact />
+        <Footer />
+      </div>
     </div>
   );
 };

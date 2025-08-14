@@ -2,10 +2,10 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, Scale, FileText, Handshake, Shield } from "lucide-react";
+import { Phone, Mail, Calculator, FileText, TrendingUp, Shield, Briefcase, PiggyBank } from "lucide-react";
 import justiceScalesImage from "@/assets/justice-scales.jpg";
 
-const DireitoCivil = () => {
+const DireitoTributario = () => {
   const handleContactClick = () => {
     const contactSection = document.getElementById('contact');
     contactSection?.scrollIntoView({ behavior: 'smooth' });
@@ -24,17 +24,17 @@ const DireitoCivil = () => {
             <div className="max-w-4xl mx-auto text-center">
               <div className="flex justify-center mb-6">
                 <div className="p-4 rounded-full bg-accent/20 backdrop-blur-sm">
-                  <Scale className="h-12 w-12 text-accent" />
+                  <Calculator className="h-12 w-12 text-accent" />
                 </div>
               </div>
               <h1 className="text-4xl md:text-5xl font-serif font-bold text-primary-foreground mb-6">
-                Direito Civil
+                Direito Tributário
               </h1>
               <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                Com mais de 15 anos de experiência consolidada, nossa atuação em Direito Civil abrange uma ampla 
-                variedade de relações jurídicas e negócios, oferecendo soluções eficazes e personalizadas. Atuamos 
-                em responsabilidade civil, obrigações contratuais, elaboração de contratos, danos materiais e morais, 
-                sempre com foco na agilidade e eficiência que caracteriza nosso escritório.
+                Uma assessoria tributária eficiente pode beneficiar empresas, mas também pessoas físicas, 
+                otimizando suas obrigações fiscais e financeiras. Com mais de 15 anos de experiência, 
+                oferecemos soluções estratégicas em planejamento tributário, contestação de multas, 
+                recuperação de créditos e consultoria fiscal especializada.
               </p>
               <Button 
                 onClick={handleContactClick}
@@ -54,29 +54,30 @@ const DireitoCivil = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
-                    Direito Civil: Protegendo Seus Interesses
+                    Direito Tributário: Otimizando Suas Obrigações Fiscais
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Nossa atuação abrange uma ampla variedade de relações e negócios jurídicos relacionados ao Direito Civil. 
-                    Isso inclui responsabilidade civil, adimplemento e 
-                    inadimplemento de obrigações contratuais, validade e invalidade de negócios jurídicos, elaboração e revisão de contratos, direitos e danos materiais e imateriais.
+                    Nossa atuação em Direito Tributário abrange desde o planejamento fiscal estratégico até a 
+                    defesa em processos administrativos e judiciais. Auxiliamos empresas e pessoas físicas a 
+                    otimizar sua carga tributária dentro da legalidade, identificando oportunidades de economia 
+                    fiscal e garantindo o cumprimento adequado das obrigações tributárias.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex items-center space-x-3">
+                      <TrendingUp className="h-6 w-6 text-accent" />
+                      <span className="text-sm font-medium text-muted-foreground">Planejamento Estratégico</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
+                      <PiggyBank className="h-6 w-6 text-accent" />
+                      <span className="text-sm font-medium text-muted-foreground">Economia Fiscal</span>
+                    </div>
+                    <div className="flex items-center space-x-3">
                       <Shield className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Proteção de Direitos</span>
+                      <span className="text-sm font-medium text-muted-foreground">Defesa Tributária</span>
                     </div>
                     <div className="flex items-center space-x-3">
-                      <FileText className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Contratos Sólidos</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Handshake className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Negociações Eficazes</span>
-                    </div>
-                    <div className="flex items-center space-x-3">
-                      <Scale className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Justiça Garantida</span>
+                      <Briefcase className="h-6 w-6 text-accent" />
+                      <span className="text-sm font-medium text-muted-foreground">Consultoria Completa</span>
                     </div>
                   </div>
                 </div>
@@ -84,13 +85,13 @@ const DireitoCivil = () => {
                   <div className="rounded-2xl overflow-hidden shadow-card-hover">
                     <img 
                       src={justiceScalesImage} 
-                      alt="Balança da Justiça - Direito Civil" 
+                      alt="Consultoria Tributária - Direito Tributário" 
                       className="w-full h-96 object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent flex items-end">
                       <div className="p-6 text-white">
-                        <p className="text-lg font-semibold mb-1">Consultoria Jurídica</p>
-                        <p className="text-sm opacity-90">Especialistas em Direito Civil</p>
+                        <p className="text-lg font-semibold mb-1">Assessoria Tributária</p>
+                        <p className="text-sm opacity-90">Especialistas em Direito Tributário</p>
                       </div>
                     </div>
                   </div>
@@ -108,10 +109,10 @@ const DireitoCivil = () => {
               {/* Section Title */}
               <div className="text-center mb-12">
                 <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-4">
-                  Nossas Áreas de Atuação em Direito Civil
+                  Nossas Áreas de Atuação em Direito Tributário
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  Oferecemos assessoria jurídica completa e especializada em todas as vertentes do Direito Civil
+                  Oferecemos assessoria completa para otimização fiscal e cumprimento das obrigações tributárias
                 </p>
                 <div className="w-24 h-1 bg-accent mx-auto mt-4" />
               </div>
@@ -119,7 +120,27 @@ const DireitoCivil = () => {
               {/* Grid Layout for Cards */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
                 
-                {/* Uma Visão Detalhada */}
+                {/* Planejamento Tributário */}
+                <Card className="hover:shadow-card-hover transition-all duration-300 h-full">
+                  <CardContent className="p-6">
+                    <div className="flex items-start space-x-3 mb-4">
+                      <div className="p-2.5 rounded-lg bg-accent/10 flex-shrink-0">
+                        <TrendingUp className="h-5 w-5 text-accent" />
+                      </div>
+                      <h3 className="text-xl font-serif font-bold text-primary">
+                        Planejamento Tributário
+                      </h3>
+                    </div>
+                    <p className="text-sm text-muted-foreground leading-relaxed">
+                      Desenvolvemos estratégias personalizadas de planejamento tributário, analisando a estrutura 
+                      do seu negócio para identificar as melhores alternativas fiscais. Nossa abordagem visa a 
+                      economia tributária lícita, através da escolha do regime tributário mais adequado, 
+                      aproveitamento de benefícios fiscais e reorganização societária quando necessário.
+                    </p>
+                  </CardContent>
+                </Card>
+
+                {/* Contestação de Multas */}
                 <Card className="hover:shadow-card-hover transition-all duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
@@ -127,108 +148,86 @@ const DireitoCivil = () => {
                         <Shield className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Uma Visão Detalhada
+                        Contestação de Multas
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Em nossa atuação abrangente em Direito Civil, um dos pilares essenciais é a responsabilidade civil. 
-                      Estamos comprometidos em ajudar nossos clientes a entender e lidar com questões que envolvem responsabilidade 
-                      por atos e danos. Isso abrange desde acidentes de trânsito até responsabilidade contratual e extracontratual. 
-                      Estamos preparados para representar seus interesses de maneira eficaz, seja na negociação de acordos ou 
-                      no contencioso, com o objetivo de garantir que seus direitos estejam protegidos.
+                      Atuamos na defesa administrativa e judicial contra autuações fiscais, analisando 
+                      minuciosamente cada caso para identificar vícios e irregularidades. Nossa equipe 
+                      especializada elabora defesas técnicas robustas, recursos administrativos e ações 
+                      judiciais quando necessário, sempre buscando a anulação ou redução das penalidades.
                     </p>
                   </CardContent>
                 </Card>
 
-                {/* Obrigações Contratuais */}
+                {/* Recuperação de Créditos */}
                 <Card className="hover:shadow-card-hover transition-all duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
                       <div className="p-2.5 rounded-lg bg-accent/10 flex-shrink-0">
-                        <Handshake className="h-5 w-5 text-accent" />
+                        <PiggyBank className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Obrigações Contratuais
+                        Recuperação de Créditos
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Atuamos em todas as fases das relações contratuais, desde a elaboração até a execução e eventual 
-                      resolução de conflitos. Nossa equipe especializada oferece assessoria preventiva para evitar 
-                      inadimplementos e disputas, além de representação eficaz quando necessário. Com processos otimizados e 
-                      resposta ágil, garantimos que seus contratos sejam justos, seguros e adequados às suas necessidades 
-                      específicas.
+                      Identificamos e recuperamos créditos tributários através de análise detalhada dos últimos 
+                      5 anos de recolhimentos. Atuamos na recuperação de PIS, COFINS, ICMS, e outros tributos 
+                      pagos indevidamente, através de compensação administrativa ou restituição judicial, 
+                      maximizando o retorno financeiro para nossos clientes.
                     </p>
                   </CardContent>
                 </Card>
 
-                {/* Validade de Negócios Jurídicos */}
+                {/* Consultoria Fiscal */}
                 <Card className="hover:shadow-card-hover transition-all duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
                       <div className="p-2.5 rounded-lg bg-accent/10 flex-shrink-0">
-                        <Scale className="h-5 w-5 text-accent" />
+                        <Briefcase className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Validade de Negócios Jurídicos
+                        Consultoria Fiscal
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Avaliamos criteriosamente a validade de negócios jurídicos, identificando vícios de consentimento, 
-                      defeitos na forma e outros aspectos que possam comprometer a eficácia dos atos. Nossa análise técnica 
-                      rigorosa permite identificar problemas potenciais e propor soluções preventivas ou corretivas. 
-                      Quando necessário, atuamos na anulação ou declaração de nulidade de negócios jurídicos.
+                      Oferecemos consultoria fiscal contínua para garantir o cumprimento adequado das obrigações 
+                      tributárias e evitar contingências. Nossa assessoria inclui orientação sobre legislação 
+                      tributária, análise de operações, revisão de procedimentos fiscais e acompanhamento de 
+                      mudanças legislativas que impactem seu negócio.
                     </p>
                   </CardContent>
                 </Card>
 
-                {/* Elaboração e Revisão de Contratos */}
-                <Card className="hover:shadow-card-hover transition-all duration-300 h-full">
+                {/* Compliance e Obrigações Acessórias */}
+                <Card className="hover:shadow-card-hover transition-all duration-300 h-full lg:col-span-2">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
                       <div className="p-2.5 rounded-lg bg-accent/10 flex-shrink-0">
                         <FileText className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Elaboração de Contratos
+                        Compliance Tributário e Obrigações Acessórias
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Elaboramos e revisamos contratos com precisão técnica e atenção aos detalhes que fazem a diferença. 
-                      Nosso processo colaborativo garante que cada contrato seja customizado para suas necessidades específicas, 
-                      com cláusulas claras e equilibradas. Nossa expertise assegura documentos sólidos que protegem seus 
-                      interesses e minimizam riscos futuros.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                {/* Direitos e Danos - Spanning 2 columns on large screens */}
-                <Card className="hover:shadow-card-hover transition-all duration-300 h-full lg:col-span-2">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-3 mb-4">
-                      <div className="p-2.5 rounded-lg bg-accent/10 flex-shrink-0">
-                        <Shield className="h-5 w-5 text-accent" />
-                      </div>
-                      <h3 className="text-xl font-serif font-bold text-primary">
-                        Direitos e Danos Materiais e Imateriais
-                      </h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Nossa atuação em danos materiais e morais é abrangente e estratégica, considerando todos os aspectos 
-                      do prejuízo sofrido. Realizamos análise detalhada para quantificar adequadamente os danos, incluindo 
-                      lucros cessantes, danos emergentes e compensação por danos morais. Com experiência sólida em negociação 
-                      e litígio, buscamos sempre a reparação mais adequada e justa, priorizando soluções rápidas quando possível, 
-                      mas sem abrir mão da defesa integral dos direitos de nossos clientes.
+                      Garantimos o cumprimento integral das obrigações tributárias acessórias, incluindo SPED Fiscal, 
+                      SPED Contábil, EFD-Reinf, DCTFWeb, e outras declarações obrigatórias. Nossa equipe mantém-se 
+                      constantemente atualizada sobre as mudanças na legislação, assegurando que sua empresa esteja 
+                      sempre em conformidade com as exigências fiscais, evitando multas e penalidades por descumprimento 
+                      de obrigações acessórias.
                     </p>
                   </CardContent>
                 </Card>
               </div>
 
-              {/* Common Cases - Now with better layout */}
+              {/* Common Cases */}
               <Card className="hover:shadow-card-hover transition-all duration-300 mb-12">
                 <CardContent className="p-8">
                   <div className="text-center mb-8">
                     <h2 className="text-2xl md:text-3xl font-serif font-bold text-primary mb-3">
-                      Casos Mais Comuns em Direito Civil
+                      Casos Mais Comuns em Direito Tributário
                     </h2>
                     <p className="text-muted-foreground">
                       Exemplos práticos de nossa atuação especializada
@@ -238,25 +237,25 @@ const DireitoCivil = () => {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     <div className="space-y-4">
                       <div className="flex items-center space-x-2 mb-3">
-                        <FileText className="h-5 w-5 text-accent" />
-                        <h3 className="font-semibold text-primary text-lg">Contratos e Negociações</h3>
+                        <Calculator className="h-5 w-5 text-accent" />
+                        <h3 className="font-semibold text-primary text-lg">Impostos e Contribuições</h3>
                       </div>
                       <ul className="space-y-2.5 text-sm text-muted-foreground">
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Contratos de prestação de serviços e fornecimento</span>
+                          <span>Planejamento e economia de IRPJ e CSLL</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Rescisão contratual por inadimplemento</span>
+                          <span>Recuperação de PIS e COFINS</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Revisão de cláusulas abusivas</span>
+                          <span>Revisão de ICMS e substituição tributária</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Contratos de compra e venda de bens móveis</span>
+                          <span>Otimização de ISS para prestadores de serviços</span>
                         </li>
                       </ul>
                     </div>
@@ -264,24 +263,24 @@ const DireitoCivil = () => {
                     <div className="space-y-4">
                       <div className="flex items-center space-x-2 mb-3">
                         <Shield className="h-5 w-5 text-accent" />
-                        <h3 className="font-semibold text-primary text-lg">Responsabilidade e Indenizações</h3>
+                        <h3 className="font-semibold text-primary text-lg">Defesa e Regularização</h3>
                       </div>
                       <ul className="space-y-2.5 text-sm text-muted-foreground">
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Acidentes de trânsito e responsabilidade civil</span>
+                          <span>Defesa em autuações da Receita Federal</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Danos morais por ofensas à honra e imagem</span>
+                          <span>Parcelamentos especiais e REFIS</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Responsabilidade por vícios em produtos ou serviços</span>
+                          <span>Regularização de pendências fiscais</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Indenizações por danos materiais e lucros cessantes</span>
+                          <span>Certidões negativas de débitos</span>
                         </li>
                       </ul>
                     </div>
@@ -294,10 +293,10 @@ const DireitoCivil = () => {
                 <CardContent className="p-8">
                   <div className="text-center mb-8">
                     <h2 className="text-3xl font-serif font-bold text-primary mb-4">
-                      Nossa Abordagem no Direito Civil
+                      Nossa Abordagem no Direito Tributário
                     </h2>
                     <p className="text-muted-foreground text-lg">
-                      Metodologia eficaz baseada em mais de 15 anos de experiência
+                      Metodologia eficaz para otimização fiscal e segurança jurídica
                     </p>
                   </div>
                   
@@ -306,32 +305,32 @@ const DireitoCivil = () => {
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
                         <FileText className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-2">Análise Técnica</h3>
+                      <h3 className="font-semibold text-primary mb-2">Diagnóstico Fiscal</h3>
                       <p className="text-sm text-muted-foreground">
-                        Avaliação detalhada e rigorosa de cada caso, identificando os pontos-chave 
-                        e possíveis estratégias jurídicas.
+                        Análise completa da situação tributária, identificando oportunidades 
+                        de economia e pontos de atenção.
                       </p>
                     </div>
                     
                     <div className="text-center">
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
-                        <Handshake className="h-8 w-8 text-accent" />
+                        <TrendingUp className="h-8 w-8 text-accent" />
                       </div>
                       <h3 className="font-semibold text-primary mb-2">Estratégia Personalizada</h3>
                       <p className="text-sm text-muted-foreground">
-                        Desenvolvimento de soluções customizadas para cada cliente, 
-                        considerando suas necessidades específicas.
+                        Desenvolvimento de soluções tributárias customizadas, 
+                        alinhadas aos objetivos do negócio.
                       </p>
                     </div>
                     
                     <div className="text-center">
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
-                        <Scale className="h-8 w-8 text-accent" />
+                        <Calculator className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-2">Execução Eficaz</h3>
+                      <h3 className="font-semibold text-primary mb-2">Implementação Segura</h3>
                       <p className="text-sm text-muted-foreground">
-                        Implementação ágil e eficiente das estratégias definidas, 
-                        com acompanhamento constante dos resultados.
+                        Execução das estratégias com total segurança jurídica, 
+                        acompanhamento contínuo e suporte especializado.
                       </p>
                     </div>
                   </div>
@@ -343,11 +342,11 @@ const DireitoCivil = () => {
                 <Card className="bg-gradient-to-br from-primary/5 to-accent/5">
                   <CardContent className="p-8">
                     <h3 className="text-2xl font-serif font-bold text-primary mb-4">
-                      Precisa de Assessoria Jurídica em Direito Civil?
+                      Precisa de Assessoria Tributária Especializada?
                     </h3>
                     <p className="text-muted-foreground mb-6">
-                      Entre em contato conosco para uma consulta personalizada e descubra como podemos ajudá-lo 
-                      com nossa experiência consolidada e atendimento diferenciado.
+                      Entre em contato conosco para uma análise personalizada da sua situação tributária 
+                      e descubra como podemos otimizar suas obrigações fiscais com segurança jurídica.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                       <Button 
@@ -378,4 +377,4 @@ const DireitoCivil = () => {
   );
 };
 
-export default DireitoCivil;
+export default DireitoTributario; 

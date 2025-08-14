@@ -8,6 +8,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import logoMP from "@/assets/logo-mp.jpg";
 
 interface NavigationProps {
   onContactClick: () => void;
@@ -67,27 +68,11 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link to="/" className="block group">
-                <div className="relative bg-gradient-to-r from-primary to-primary-light rounded-lg px-4 py-3 shadow-elegant hover:shadow-accent-glow transition-all duration-300 hover:from-primary-light hover:to-primary group-hover:scale-105">
-                  <img 
-                    src="https://mpeixotoadvogados.com.br/wp-content/uploads/2023/11/Logo_MP_200.png" 
-                    alt="M. Peixoto Advogados Associados" 
-                    className="h-8 w-auto brightness-0 invert"
-                    onError={(e) => {
-                      e.currentTarget.style.display = 'none';
-                      e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                    }}
-                  />
-                  <div className="hidden">
-                    <h1 className="text-lg font-serif font-bold text-primary-foreground">
-                      M. Peixoto
-                      <span className="block text-xs font-sans font-normal text-primary-foreground/90">
-                        Advogados Associados
-                      </span>
-                    </h1>
-                  </div>
-                  {/* Subtle accent line at bottom */}
-                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-accent opacity-60 rounded-full"></div>
-                </div>
+                <img 
+                  src={logoMP}
+                  alt="M. Peixoto Advogados Associados" 
+                  className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                />
               </Link>
             </div>
 

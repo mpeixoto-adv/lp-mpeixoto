@@ -40,7 +40,7 @@ export const Hero = ({ onContactClick }: HeroProps) => {
             <h1 className="text-5xl md:text-7xl font-serif font-bold text-primary-foreground mb-6 leading-tight">
               Abordagem{" "}
               <span className="text-accent">Especializada</span>,<br />
-              Advogados{" "}
+              <span className="text-accent">Advogados</span>{" "}
               <span className="text-primary-foreground">Dedicados</span>
             </h1>
             <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-2xl leading-relaxed">

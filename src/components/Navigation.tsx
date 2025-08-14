@@ -17,12 +17,6 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
-  const menuItems = [
-    { name: "Home", href: "/", isExternal: false },
-    { name: "Sobre Nós", href: "/about", isExternal: false },
-    { name: "Contato", href: "#contact", isExternal: true },
-  ];
-
   const servicesItems = [
     { name: "Direito Civil", href: "/direito-civil" },
     { name: "Direito Consumerista", href: "/direito-consumerista" },
@@ -72,48 +66,52 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <img 
-                src="https://mpeixotoadvogados.com.br/wp-content/uploads/2023/11/Logo_MP_200.png" 
-                alt="M. Peixoto Advogados Associados" 
-                className="h-12 w-auto"
-                onError={(e) => {
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                }}
-              />
-              <div className="hidden">
-                <h1 className="text-2xl font-serif font-bold text-primary">
-                  M. Peixoto
-                  <span className="block text-sm font-sans font-normal text-muted-foreground">
-                    Advogados Associados
-                  </span>
-                </h1>
-              </div>
+              <Link to="/" className="block group">
+                <div className="relative bg-gradient-to-r from-primary to-primary-light rounded-lg px-4 py-3 shadow-elegant hover:shadow-accent-glow transition-all duration-300 hover:from-primary-light hover:to-primary group-hover:scale-105">
+                  <img 
+                    src="https://mpeixotoadvogados.com.br/wp-content/uploads/2023/11/Logo_MP_200.png" 
+                    alt="M. Peixoto Advogados Associados" 
+                    className="h-8 w-auto brightness-0 invert"
+                    onError={(e) => {
+                      e.currentTarget.style.display = 'none';
+                      e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                    }}
+                  />
+                  <div className="hidden">
+                    <h1 className="text-lg font-serif font-bold text-primary-foreground">
+                      M. Peixoto
+                      <span className="block text-xs font-sans font-normal text-primary-foreground/90">
+                        Advogados Associados
+                      </span>
+                    </h1>
+                  </div>
+                  {/* Subtle accent line at bottom */}
+                  <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-3/4 h-0.5 bg-accent opacity-60 rounded-full"></div>
+                </div>
+              </Link>
             </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
-            {menuItems.map((item) => (
-              item.isExternal ? (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-foreground hover:text-accent transition-colors duration-300 font-medium"
-                >
-                  {item.name}
-                </a>
-              ) : (
-                <Link
-                  key={item.name}
-                  to={item.href}
-                  className={`text-foreground hover:text-accent transition-colors duration-300 font-medium ${
-                    location.pathname === item.href ? 'text-accent' : ''
-                  }`}
-                >
-                  {item.name}
-                </Link>
-              )
-            ))}
+            {/* Home */}
+            <Link
+              to="/"
+              className={`text-foreground hover:text-accent transition-colors duration-300 font-medium ${
+                location.pathname === '/' ? 'text-accent' : ''
+              }`}
+            >
+              Home
+            </Link>
+            
+            {/* Sobre */}
+            <Link
+              to="/about"
+              className={`text-foreground hover:text-accent transition-colors duration-300 font-medium ${
+                location.pathname === '/about' ? 'text-accent' : ''
+              }`}
+            >
+              Sobre
+            </Link>
             
             {/* Services Dropdown */}
             <DropdownMenu>
@@ -134,6 +132,14 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
+            
+            {/* Contato */}
+            <a
+              href="#contact"
+              className="text-foreground hover:text-accent transition-colors duration-300 font-medium"
+            >
+              Contato
+            </a>
           </div>
 
           {/* Contact Button */}
@@ -171,29 +177,27 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
         {isMenuOpen && (
           <div className="md:hidden py-4 border-t border-border">
             <div className="flex flex-col space-y-4">
-              {menuItems.map((item) => (
-                item.isExternal ? (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="text-foreground hover:text-accent transition-colors px-4 py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </a>
-                ) : (
-                  <Link
-                    key={item.name}
-                    to={item.href}
-                    className={`text-foreground hover:text-accent transition-colors px-4 py-2 ${
-                      location.pathname === item.href ? 'text-accent' : ''
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                )
-              ))}
+              {/* Home */}
+              <Link
+                to="/"
+                className={`text-foreground hover:text-accent transition-colors px-4 py-2 ${
+                  location.pathname === '/' ? 'text-accent' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Home
+              </Link>
+              
+              {/* Sobre */}
+              <Link
+                to="/about"
+                className={`text-foreground hover:text-accent transition-colors px-4 py-2 ${
+                  location.pathname === '/about' ? 'text-accent' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Sobre
+              </Link>
               
               {/* Mobile Services Menu */}
               <div className="px-4 py-2">
@@ -211,6 +215,16 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                   ))}
                 </div>
               </div>
+              
+              {/* Contato */}
+              <a
+                href="#contact"
+                className="text-foreground hover:text-accent transition-colors px-4 py-2"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Contato
+              </a>
+              
               <div className="px-4 pt-4 space-y-2">
                 <Button 
                   variant="outline" 

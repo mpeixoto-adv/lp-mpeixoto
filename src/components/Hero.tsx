@@ -9,11 +9,27 @@ interface HeroProps {
 export const Hero = ({ onContactClick }: HeroProps) => {
   return (
     <section id="home" className="relative min-h-screen flex items-center">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      >
+      {/* Background Video with Overlay */}
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          poster={heroImage}
+          preload="metadata"
+        >
+          <source 
+            src="https://mpeixotoadvogados.com.br/wp-content/uploads/2023/11/video_hero.mp4" 
+            type="video/mp4" 
+          />
+          {/* Fallback for browsers that don't support video */}
+          <div 
+            className="absolute inset-0 w-full h-full bg-cover bg-center"
+            style={{ backgroundImage: `url(${heroImage})` }}
+          />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/75 to-transparent"></div>
       </div>
 

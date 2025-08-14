@@ -85,6 +85,62 @@ export const About = () => {
           ))}
         </div>
 
+        {/* Team Section */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div>
+            <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
+              Nossa Equipe
+            </h3>
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+              Contamos com uma equipe de advogados experientes e especializados, comprometidos em oferecer 
+              soluções jurídicas eficazes e personalizadas para cada cliente.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Nosso diferencial está na combinação de conhecimento técnico sólido, experiência prática 
+              consolidada e dedicação total aos resultados.
+            </p>
+          </div>
+          <div className="relative">
+            <div className="rounded-2xl overflow-hidden shadow-card-hover">
+              <div className="bg-gradient-to-br from-primary/10 to-accent/10 h-80 flex items-center justify-center">
+                <div className="text-center">
+                  <Users className="h-16 w-16 text-primary mx-auto mb-4" />
+                  <p className="text-lg font-semibold text-primary">Nossa Equipe</p>
+                  <p className="text-sm text-muted-foreground">Profissionais experientes</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Office Environment */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+          <div className="lg:order-2">
+            <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
+              Ambiente Profissional
+            </h3>
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+              Nosso escritório oferece um ambiente moderno e acolhedor, projetado para proporcionar 
+              conforto e confidencialidade durante as consultas e reuniões.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed">
+              Equipado com tecnologia de ponta e espaços adequados para diferentes tipos de atendimento, 
+              garantindo sempre a melhor experiência para nossos clientes.
+            </p>
+          </div>
+          <div className="lg:order-1 relative">
+            <div className="rounded-2xl overflow-hidden shadow-card-hover">
+              <div className="bg-gradient-to-br from-secondary/20 to-accent/10 h-80 flex items-center justify-center">
+                <div className="text-center">
+                  <Award className="h-16 w-16 text-primary mx-auto mb-4" />
+                  <p className="text-lg font-semibold text-primary">Nosso Escritório</p>
+                  <p className="text-sm text-muted-foreground">Ambiente profissional</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Mission Statement */}
         <div className="bg-gradient-primary rounded-2xl p-8 md:p-12 text-center">
           <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary-foreground mb-6">

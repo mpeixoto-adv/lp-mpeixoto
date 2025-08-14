@@ -11,42 +11,59 @@ import {
 } from "lucide-react";
 import justiceImage from "@/assets/justice-scales.jpg";
 
+// Para adicionar suas próprias imagens locais:
+// 1. Adicione as imagens na pasta src/assets/
+// 2. Importe as imagens: import trabalhistaImage from "@/assets/trabalhista.jpg";
+// 3. Use a imagem importada: backgroundImage: trabalhistaImage
+
 const services = [
   {
     icon: Briefcase,
     title: "Trabalhista",
     description: "Atuamos na esfera preventiva, com foco na eliminação ou mitigação dos riscos trabalhistas, garantindo tranquilidade e segurança para nossos clientes.",
-    features: ["Ações trabalhistas", "Consultoria preventiva", "Negociações sindicais", "Compliance trabalhista"]
+    features: ["Ações trabalhistas", "Consultoria preventiva", "Negociações sindicais", "Compliance trabalhista"],
+    backgroundImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070", // Workspace/office image
+    backgroundPosition: "center"
   },
   {
     icon: Calculator,
     title: "Tributário",
     description: "Uma assessoria tributária eficiente pode beneficiar empresas, mas também pessoas físicas, otimizando suas obrigações fiscais e financeiras.",
-    features: ["Planejamento tributário", "Contestação de multas", "Recuperação de créditos", "Consultoria fiscal"]
+    features: ["Planejamento tributário", "Contestação de multas", "Recuperação de créditos", "Consultoria fiscal"],
+    backgroundImage: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2072", // Calculator/finance image
+    backgroundPosition: "center"
   },
   {
     icon: ShoppingCart,
     title: "Consumerista",
     description: "Proteção dos direitos do consumidor com atuação especializada em relações de consumo e defesa contra práticas abusivas.",
-    features: ["Defesa do consumidor", "Ações indenizatórias", "Revisão de contratos", "Práticas abusivas"]
+    features: ["Defesa do consumidor", "Ações indenizatórias", "Revisão de contratos", "Práticas abusivas"],
+    backgroundImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070", // Shopping/consumer image
+    backgroundPosition: "center"
   },
   {
     icon: Building2,
     title: "Empresarial",
     description: "Assessoria jurídica completa para empresas, desde a constituição até operações complexas e reestruturações societárias.",
-    features: ["Constituição de empresas", "Contratos empresariais", "Fusões e aquisições", "Compliance corporativo"]
+    features: ["Constituição de empresas", "Contratos empresariais", "Fusões e aquisições", "Compliance corporativo"],
+    backgroundImage: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070", // Corporate building image
+    backgroundPosition: "center"
   },
   {
     icon: Home,
     title: "Imobiliário",
     description: "Atuação em todas as questões relacionadas ao direito imobiliário, desde compra e venda até regularização fundiária.",
-    features: ["Compra e venda", "Financiamentos", "Regularização", "Locações"]
+    features: ["Compra e venda", "Financiamentos", "Regularização", "Locações"],
+    backgroundImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073", // Real estate image
+    backgroundPosition: "center"
   },
   {
     icon: Heart,
     title: "Familiar",
     description: "O Direito de Família aborda questões legais relacionadas a casamento, divórcio, guarda de filhos, pensão alimentícia e outros aspectos das relações familiares.",
-    features: ["Divórcio e separação", "Guarda de filhos", "Pensão alimentícia", "Acordos matrimoniais"]
+    features: ["Divórcio e separação", "Guarda de filhos", "Pensão alimentícia", "Acordos matrimoniais"],
+    backgroundImage: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=2070", // Family image
+    backgroundPosition: "center"
   }
 ];
 
@@ -71,33 +88,49 @@ export const Services = () => {
             return (
               <Card 
                 key={index} 
-                className="group hover:shadow-card-hover transition-all duration-300 border-border hover:border-accent/50 bg-card/80 backdrop-blur-sm"
+                className="group hover:shadow-card-hover transition-all duration-300 border-border hover:border-accent/50 overflow-hidden relative"
               >
-                <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 p-3 rounded-full bg-accent/10 w-fit group-hover:bg-accent group-hover:text-accent-foreground transition-colors">
-                    <IconComponent className="h-8 w-8 text-accent group-hover:text-accent-foreground" />
-                  </div>
-                  <CardTitle className="text-xl font-serif text-primary">{service.title}</CardTitle>
-                  <CardDescription className="text-muted-foreground leading-relaxed">
-                    {service.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <ul className="space-y-2 mb-6">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-sm text-muted-foreground">
-                        <ArrowRight className="h-4 w-4 text-accent mr-2 flex-shrink-0" />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                  <Button 
-                    variant="outline" 
-                    className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground group-hover:shadow-md"
-                  >
-                    Saiba Mais
-                  </Button>
-                </CardContent>
+                {/* Background Image with Overlay */}
+                <div 
+                  className="absolute inset-0 z-0 transition-transform duration-700 group-hover:scale-110"
+                  style={{
+                    backgroundImage: `url(${service.backgroundImage})`,
+                    backgroundSize: 'cover',
+                    backgroundPosition: service.backgroundPosition || 'center',
+                  }}
+                >
+                  {/* Dark overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-background/95 via-background/90 to-background/95 group-hover:from-background/90 group-hover:via-background/85 group-hover:to-background/90 transition-all duration-300" />
+                </div>
+                
+                {/* Card Content */}
+                <div className="relative z-10">
+                  <CardHeader className="text-center">
+                    <div className="mx-auto mb-4 p-3 rounded-full bg-accent/20 backdrop-blur-sm w-fit group-hover:bg-accent group-hover:text-accent-foreground transition-all duration-300 shadow-lg">
+                      <IconComponent className="h-8 w-8 text-accent group-hover:text-accent-foreground" />
+                    </div>
+                    <CardTitle className="text-xl font-serif text-primary drop-shadow-sm">{service.title}</CardTitle>
+                    <CardDescription className="text-muted-foreground leading-relaxed">
+                      {service.description}
+                    </CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <ul className="space-y-2 mb-6">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-center text-sm text-muted-foreground">
+                          <ArrowRight className="h-4 w-4 text-accent mr-2 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                    <Button 
+                      variant="outline" 
+                      className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground group-hover:shadow-md backdrop-blur-sm"
+                    >
+                      Saiba Mais
+                    </Button>
+                  </CardContent>
+                </div>
               </Card>
             );
           })}

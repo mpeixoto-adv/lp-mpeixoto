@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, Mail, MapPin, Facebook, Twitter, Instagram } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, Facebook, Twitter, Instagram, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 interface NavigationProps {
   onContactClick: () => void;
@@ -13,9 +19,17 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
 
   const menuItems = [
     { name: "Home", href: "/", isExternal: false },
-    { name: "Serviços", href: "/services", isExternal: false },
     { name: "Sobre Nós", href: "/about", isExternal: false },
     { name: "Contato", href: "#contact", isExternal: true },
+  ];
+
+  const servicesItems = [
+    { name: "Direito Civil", href: "/direito-civil" },
+    { name: "Direito Consumerista", href: "/direito-consumerista" },
+    { name: "Direito Empresarial", href: "/direito-empresarial" },
+    { name: "Direito Imobiliário", href: "/direito-imobiliario" },
+    { name: "Direito Trabalhista", href: "/direito-trabalhista" },
+    { name: "Direito Tributário", href: "/direito-tributario" },
   ];
 
   return (
@@ -100,6 +114,26 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                 </Link>
               )
             ))}
+            
+            {/* Services Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center text-foreground hover:text-accent transition-colors duration-300 font-medium focus:outline-none">
+                Serviços
+                <ChevronDown className="h-4 w-4 ml-1" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="bg-background border border-border shadow-lg">
+                {servicesItems.map((service) => (
+                  <DropdownMenuItem key={service.name} asChild>
+                    <Link
+                      to={service.href}
+                      className="text-foreground hover:text-accent transition-colors cursor-pointer"
+                    >
+                      {service.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* Contact Button */}
@@ -160,6 +194,23 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                   </Link>
                 )
               ))}
+              
+              {/* Mobile Services Menu */}
+              <div className="px-4 py-2">
+                <span className="text-foreground font-medium">Serviços</span>
+                <div className="ml-4 mt-2 space-y-2">
+                  {servicesItems.map((service) => (
+                    <Link
+                      key={service.name}
+                      to={service.href}
+                      className="block text-muted-foreground hover:text-accent transition-colors py-1"
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      {service.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
               <div className="px-4 pt-4 space-y-2">
                 <Button 
                   variant="outline" 

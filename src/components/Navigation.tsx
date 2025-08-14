@@ -77,7 +77,7 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
               </Link>
             </div>
 
-          {/* Desktop Menu */}
+          {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
             {/* Home */}
             <Link
@@ -136,6 +136,16 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
             >
               Contato
             </a>
+            
+            {/* Artigos */}
+            <Link
+              to="/artigos"
+              className={`text-foreground hover:text-accent transition-colors duration-300 font-medium ${
+                location.pathname === '/artigos' || location.pathname.startsWith('/artigo/') ? 'text-accent' : ''
+              }`}
+            >
+              Artigos
+            </Link>
           </div>
 
           {/* Contact Button */}
@@ -220,6 +230,17 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
               >
                 Contato
               </a>
+              
+              {/* Artigos */}
+              <Link
+                to="/artigos"
+                className={`text-foreground hover:text-accent transition-colors px-4 py-2 ${
+                  location.pathname === '/artigos' || location.pathname.startsWith('/artigo/') ? 'text-accent' : ''
+                }`}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Artigos
+              </Link>
               
               <div className="px-4 pt-4 space-y-2">
                 <Button 

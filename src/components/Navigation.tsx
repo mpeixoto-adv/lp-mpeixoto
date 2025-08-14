@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, Facebook, Twitter, Instagram } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 
 interface NavigationProps {
@@ -19,8 +19,42 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
-      <div className="container mx-auto px-4">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm">
+      {/* Top Contact Bar */}
+      <div className="bg-primary text-primary-foreground py-2 text-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-2">
+                <Mail className="h-4 w-4" />
+                <span>contato@mpeixotoadvogados.com.br</span>
+              </div>
+              <div className="hidden md:flex items-center space-x-2">
+                <MapPin className="h-4 w-4" />
+                <span>Rua do Mercado, 11 - 16° andar - Centro/RJ</span>
+              </div>
+            </div>
+            <div className="flex items-center space-x-4">
+              <span className="hidden md:inline">Siga-nos:</span>
+              <div className="flex space-x-2">
+                <a href="#" className="hover:text-accent transition-colors">
+                  <Facebook className="h-4 w-4" />
+                </a>
+                <a href="#" className="hover:text-accent transition-colors">
+                  <Twitter className="h-4 w-4" />
+                </a>
+                <a href="#" className="hover:text-accent transition-colors">
+                  <Instagram className="h-4 w-4" />
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Main Navigation */}
+      <div className="bg-background/95 backdrop-blur-sm border-b border-border">
+        <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -137,6 +171,7 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
             </div>
           </div>
         )}
+        </div>
       </div>
     </nav>
   );

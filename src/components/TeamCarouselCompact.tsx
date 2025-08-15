@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import mauricioImg from "@/assets/team/mauricio-peixoto.jpg";
+import anaImg from "@/assets/team/ana-silva.jpg";
 
 interface TeamMember {
   id: number;
@@ -14,25 +16,25 @@ const teamMembers: TeamMember[] = [
     id: 1,
     name: "Dr. Mauricio Peixoto",
     position: "Sócio Fundador",
-    image: "/src/assets/team/mauricio-peixoto.jpg"
+    image: mauricioImg
   },
   {
     id: 2,
     name: "Dra. Ana Silva Santos",
     position: "Sócia",
-    image: "/src/assets/team/ana-silva.jpg"
+    image: anaImg
   },
   {
     id: 3,
     name: "Dr. Carlos Eduardo Lima",
     position: "Advogado Senior",
-    image: "/src/assets/team/carlos-lima.jpg"
+    image: mauricioImg // Placeholder até ter imagem real
   },
   {
     id: 4,
     name: "Dra. Beatriz Costa",
     position: "Advogada",
-    image: "/src/assets/team/beatriz-costa.jpg"
+    image: anaImg // Placeholder até ter imagem real
   }
 ];
 

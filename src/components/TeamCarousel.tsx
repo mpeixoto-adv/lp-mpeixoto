@@ -2,6 +2,8 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, GraduationCap, Award, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import mauricioImg from "@/assets/team/mauricio-peixoto.jpg";
+import anaImg from "@/assets/team/ana-silva.jpg";
 
 interface TeamMember {
   id: number;
@@ -22,7 +24,7 @@ const teamMembers: TeamMember[] = [
     education: "PUC-Rio",
     oab: "OAB/RJ 123.456",
     specialties: ["Direito Empresarial", "Direito Tributário"],
-    image: "/src/assets/team/mauricio-peixoto.jpg", // Substitua pelo caminho real
+    image: mauricioImg,
     description: "Mais de 15 anos de experiência em direito empresarial e tributário, com especialização em operações de M&A e planejamento fiscal."
   },
   {
@@ -32,7 +34,7 @@ const teamMembers: TeamMember[] = [
     education: "UERJ",
     oab: "OAB/RJ 234.567",
     specialties: ["Direito Trabalhista", "Direito Civil"],
-    image: "/src/assets/team/ana-silva.jpg", // Substitua pelo caminho real
+    image: anaImg,
     description: "Especialista em direito trabalhista com vasta experiência em mediação e resolução de conflitos empresariais."
   },
   {
@@ -42,7 +44,7 @@ const teamMembers: TeamMember[] = [
     education: "UFRJ",
     oab: "OAB/RJ 345.678",
     specialties: ["Direito Imobiliário", "Direito de Família"],
-    image: "/src/assets/team/carlos-lima.jpg", // Substitua pelo caminho real
+    image: mauricioImg, // Placeholder até ter imagem real
     description: "Especialização em transações imobiliárias e direito de família, com foco em mediação e conciliação."
   },
   {
@@ -52,7 +54,7 @@ const teamMembers: TeamMember[] = [
     education: "UFF",
     oab: "OAB/RJ 456.789",
     specialties: ["Direito Consumerista", "Direito Digital"],
-    image: "/src/assets/team/beatriz-costa.jpg", // Substitua pelo caminho real
+    image: anaImg, // Placeholder até ter imagem real
     description: "Jovem talento especializada em direito digital e defesa do consumidor, com foco em inovação jurídica."
   }
 ];

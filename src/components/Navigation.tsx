@@ -1,13 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail, MapPin, Facebook, Twitter, Instagram, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+// Removido imports do DropdownMenu - agora usando hover customizado
 import logoMP from "@/assets/logo-mp.jpg";
 
 interface NavigationProps {
@@ -19,6 +14,8 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
 
+  // Agora usando hover simples, não precisamos mais do useEffect para scroll
+
   const servicesItems = [
     { name: "Direito Civil", href: "/direito-civil" },
     { name: "Direito Consumerista", href: "/direito-consumerista" },
@@ -29,9 +26,9 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background">
-      {/* Top Contact Bar */}
-      <div className="bg-primary text-primary-foreground py-2 text-sm">
+    <nav className="fixed top-0 left-0 right-0 z-[100] bg-background">
+      {/* Top Contact Bar - Hidden on mobile */}
+      <div className="hidden md:block bg-primary text-primary-foreground py-2 text-sm">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-6">
@@ -65,14 +62,14 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
       {/* Main Navigation */}
       <div className="bg-background border-b border-border shadow-sm">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link to="/" className="block group">
                 <img 
                   src={logoMP}
                   alt="M. Peixoto Advogados Associados" 
-                  className="h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                  className="h-10 md:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
                 />
               </Link>
             </div>
@@ -99,34 +96,36 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
               Sobre
             </Link>
             
-            {/* Services Dropdown */}
-            <div className="relative">
-              <DropdownMenu open={isServicesOpen} onOpenChange={setIsServicesOpen}>
-                <DropdownMenuTrigger asChild>
-                  <button className="flex items-center text-foreground hover:text-accent transition-colors duration-300 font-medium focus:outline-none">
-                    Serviços
-                    <ChevronDown className={`h-4 w-4 ml-1 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent 
-                  className="bg-background border border-border shadow-xl mt-2"
-                  align="start"
-                  sideOffset={5}
-                  style={{ zIndex: 9999 }}
+            {/* Services Hover Menu */}
+            <div 
+              className="relative z-50"
+              onMouseEnter={() => setIsServicesOpen(true)}
+              onMouseLeave={() => setIsServicesOpen(false)}
+            >
+              <button className="flex items-center text-foreground hover:text-accent transition-colors duration-300 font-medium focus:outline-none">
+                Serviços
+                <ChevronDown className={`h-4 w-4 ml-1 transition-transform duration-200 ${isServicesOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {/* Custom Hover Menu */}
+              {isServicesOpen && (
+                <div 
+                  className="absolute top-full left-1/2 transform -translate-x-1/2 bg-background border border-border shadow-xl rounded-md py-2 min-w-[160px] z-[9999]"
+                  onMouseEnter={() => setIsServicesOpen(true)}
+                  onMouseLeave={() => setIsServicesOpen(false)}
                 >
                   {servicesItems.map((service) => (
-                    <DropdownMenuItem key={service.name} asChild>
-                      <Link
-                        to={service.href}
-                        className="text-foreground hover:text-accent hover:bg-accent/10 transition-colors cursor-pointer px-4 py-2 w-full block"
-                        onClick={() => setIsServicesOpen(false)}
-                      >
-                        {service.name}
-                      </Link>
-                    </DropdownMenuItem>
+                    <Link
+                      key={service.name}
+                      to={service.href}
+                      className="block text-foreground hover:text-accent hover:bg-accent/10 transition-colors cursor-pointer px-4 py-2"
+                      onClick={() => setIsServicesOpen(false)}
+                    >
+                      {service.name}
+                    </Link>
                   ))}
-                </DropdownMenuContent>
-              </DropdownMenu>
+                </div>
+              )}
             </div>
             
             {/* Contato */}

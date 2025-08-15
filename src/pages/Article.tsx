@@ -34,7 +34,7 @@ const ArticlePage = () => {
                 className="inline-flex items-center text-primary-foreground/80 hover:text-primary-foreground mb-6 transition-colors"
               >
                 <ArrowLeft className="h-4 w-4 mr-2" />
-                Voltar aos Artigos
+                Voltar ao Newsletter
               </Link>
               
               <h1 className="text-3xl md:text-5xl font-serif font-bold mb-6">

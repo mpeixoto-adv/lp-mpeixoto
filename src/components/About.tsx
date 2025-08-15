@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, Users, Target, Zap } from "lucide-react";
+import { TeamCarouselCompact } from "@/components/TeamCarouselCompact";
 
 const stats = [
   { number: "15+", label: "Anos de Experiência", icon: Award },
@@ -101,15 +102,7 @@ export const About = () => {
             </p>
           </div>
           <div className="relative">
-            <div className="rounded-2xl overflow-hidden shadow-card-hover">
-              <div className="bg-gradient-to-br from-primary/10 to-accent/10 h-80 flex items-center justify-center">
-                <div className="text-center">
-                  <Users className="h-16 w-16 text-primary mx-auto mb-4" />
-                  <p className="text-lg font-semibold text-primary">Nossa Equipe</p>
-                  <p className="text-sm text-muted-foreground">Profissionais experientes</p>
-                </div>
-              </div>
-            </div>
+            <TeamCarouselCompact />
           </div>
         </div>
 

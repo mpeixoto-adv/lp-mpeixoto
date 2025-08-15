@@ -136,14 +136,14 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
               Contato
             </a>
             
-            {/* Artigos */}
+            {/* Newsletter */}
             <Link
               to="/artigos"
               className={`text-foreground hover:text-accent transition-colors duration-300 font-medium ${
                 location.pathname === '/artigos' || location.pathname.startsWith('/artigo/') ? 'text-accent' : ''
               }`}
             >
-              Artigos
+              Newsletter
             </Link>
           </div>
 
@@ -230,7 +230,7 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                 Contato
               </a>
               
-              {/* Artigos */}
+              {/* Newsletter */}
               <Link
                 to="/artigos"
                 className={`text-foreground hover:text-accent transition-colors px-4 py-2 ${
@@ -238,7 +238,7 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                 }`}
                 onClick={() => setIsMenuOpen(false)}
               >
-                Artigos
+                Newsletter
               </Link>
               
               <div className="px-4 pt-4 space-y-2">

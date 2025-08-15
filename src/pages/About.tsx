@@ -19,6 +19,7 @@ import {
   Mail
 } from "lucide-react";
 import { Footer } from "@/components/Footer";
+import { TeamCarousel } from "@/components/TeamCarousel";
 import { Link } from "react-router-dom";
 
 const AboutPage = () => {
@@ -215,6 +216,23 @@ const AboutPage = () => {
                 </Card>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Nossa Equipe */}
+        <section className="py-20 bg-secondary/30">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
+                Nossa Equipe
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                Profissionais experientes, comprometidos com a excelência e o sucesso de nossos clientes
+              </p>
+              <div className="w-24 h-1 bg-accent mx-auto mt-6" />
+            </div>
+
+            <TeamCarousel />
           </div>
         </section>
 

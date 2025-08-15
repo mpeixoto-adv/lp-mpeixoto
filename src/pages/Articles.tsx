@@ -33,7 +33,7 @@ const ArticlesPage = () => {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
-                Artigos e Notícias
+                Newsletter
               </h1>
               <p className="text-base sm:text-lg md:text-xl text-primary-foreground/90 mb-8">
                 Mantenha-se atualizado com as últimas novidades jurídicas e orientações especializadas

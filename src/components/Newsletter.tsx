@@ -16,7 +16,7 @@ export const Newsletter = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
-            Artigos e Notícias
+            Newsletter
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Mantenha-se informado sobre as últimas mudanças na legislação e dicas jurídicas importantes
@@ -83,7 +83,7 @@ export const Newsletter = () => {
             onClick={() => navigate('/artigos')}
             className="bg-primary hover:bg-primary-light"
           >
-            Ver Todos os Artigos
+            Ver Todas as Notícias
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
         </div>

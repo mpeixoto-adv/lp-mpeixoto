@@ -76,6 +76,11 @@ export const Footer = () => {
                 </a>
               </li>
               <li>
+                <Link to="/artigos" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                  Newsletter
+                </Link>
+              </li>
+              <li>
                 <a href="https://api.whatsapp.com/send?phone=552125331459" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   WhatsApp
                 </a>

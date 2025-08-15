@@ -1,0 +1,163 @@
+import { useState, useEffect } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+interface TeamMember {
+  id: number;
+  name: string;
+  position: string;
+  image: string;
+}
+
+const teamMembers: TeamMember[] = [
+  {
+    id: 1,
+    name: "Dr. Mauricio Peixoto",
+    position: "Sócio Fundador",
+    image: "/src/assets/team/mauricio-peixoto.jpg"
+  },
+  {
+    id: 2,
+    name: "Dra. Ana Silva Santos",
+    position: "Sócia",
+    image: "/src/assets/team/ana-silva.jpg"
+  },
+  {
+    id: 3,
+    name: "Dr. Carlos Eduardo Lima",
+    position: "Advogado Senior",
+    image: "/src/assets/team/carlos-lima.jpg"
+  },
+  {
+    id: 4,
+    name: "Dra. Beatriz Costa",
+    position: "Advogada",
+    image: "/src/assets/team/beatriz-costa.jpg"
+  }
+];
+
+export const TeamCarouselCompact = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Auto-play functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === teamMembers.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000); // Muda a cada 3 segundos
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying]);
+
+  const nextSlide = () => {
+    setIsAutoPlaying(false);
+    setCurrentIndex((prevIndex) => 
+      prevIndex === teamMembers.length - 1 ? 0 : prevIndex + 1
+    );
+  };
+
+  const prevSlide = () => {
+    setIsAutoPlaying(false);
+    setCurrentIndex((prevIndex) => 
+      prevIndex === 0 ? teamMembers.length - 1 : prevIndex - 1
+    );
+  };
+
+  const goToSlide = (index: number) => {
+    setIsAutoPlaying(false);
+    setCurrentIndex(index);
+  };
+
+  const currentMember = teamMembers[currentIndex];
+
+  return (
+    <div className="relative">
+      <div className="rounded-2xl overflow-hidden shadow-card-hover">
+        {/* Main Image Area */}
+        <div className="relative h-80 bg-gradient-to-br from-primary/10 to-accent/10">
+          {/* Navigation Arrows */}
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={prevSlide}
+            className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-primary shadow-md"
+          >
+            <ChevronLeft className="h-4 w-4" />
+          </Button>
+          
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={nextSlide}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-primary shadow-md"
+          >
+            <ChevronRight className="h-4 w-4" />
+          </Button>
+
+          {/* Member Photo */}
+          <div className="w-full h-full flex items-center justify-center">
+            <div className="text-center">
+              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden shadow-lg border-4 border-white">
+                <img
+                  src={currentMember.image}
+                  alt={currentMember.name}
+                  className="w-full h-full object-cover transition-transform duration-500"
+                  onError={(e) => {
+                    // Fallback para quando a imagem não existir
+                    const target = e.target as HTMLImageElement;
+                    target.src = "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTI4IiBoZWlnaHQ9IjEyOCIgdmlld0JveD0iMCAwIDEyOCAxMjgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxMjgiIGhlaWdodD0iMTI4IiBmaWxsPSIjRjNGNEY2Ii8+CjxjaXJjbGUgY3g9IjY0IiBjeT0iNDgiIHI9IjIwIiBmaWxsPSIjRDFENURCIi8+CjxwYXRoIGQ9Ik0zMiA5NkMzMiA3OS45MDUgNDQuOTU0IDY2IDYxIDY2SDY3QzgzLjA0NiA2NiA5NiA3OS45MDUgOTYgOTZWMTA0SDMyVjk2WiIgZmlsbD0iI0QxRDVEQiIvPgo8L3N2Zz4K";
+                  }}
+                />
+              </div>
+              <h4 className="text-lg font-serif font-bold text-primary mb-1">
+                {currentMember.name}
+              </h4>
+              <p className="text-sm text-accent font-medium">
+                {currentMember.position}
+              </p>
+            </div>
+          </div>
+
+          {/* Slide Indicators */}
+          <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
+            <div className="flex space-x-2">
+              {teamMembers.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                    currentIndex === index
+                      ? 'bg-primary w-6'
+                      : 'bg-primary/30 hover:bg-primary/50'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Auto-play indicator */}
+          <div className="absolute top-4 right-4">
+            <button
+              onClick={() => setIsAutoPlaying(!isAutoPlaying)}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                isAutoPlaying ? 'bg-accent animate-pulse' : 'bg-muted-foreground/50'
+              }`}
+              title={isAutoPlaying ? 'Auto-play ativo' : 'Auto-play pausado'}
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* Member Counter */}
+      <div className="text-center mt-4">
+        <p className="text-sm text-muted-foreground">
+          {currentIndex + 1} de {teamMembers.length} profissionais
+        </p>
+      </div>
+    </div>
+  );
+};

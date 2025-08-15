@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 export const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 md:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-6 sm:mb-8">
           {/* Logo and Description */}
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-serif font-bold mb-4">
+            <h3 className="text-xl sm:text-2xl font-serif font-bold mb-4">
               M. Peixoto Advogados Associados
             </h3>
             <p className="text-primary-foreground/80 leading-relaxed mb-4 max-w-md">

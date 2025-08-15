@@ -55,14 +55,14 @@ export const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4">
+    <section id="contact" className="py-12 sm:py-16 md:py-20 bg-secondary/30">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold text-primary mb-6">
             Entre em Contato
           </h2>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Estamos prontos para atendê-lo. Entre em contato conosco e agende sua consulta.
           </p>
         </div>
@@ -71,7 +71,7 @@ export const Contact = () => {
           {/* Contact Form */}
           <Card className="border-border shadow-card-hover bg-card/80 backdrop-blur-sm">
             <CardHeader>
-              <CardTitle className="text-2xl font-serif text-primary flex items-center">
+              <CardTitle className="text-xl sm:text-2xl font-serif text-primary flex items-center">
                 <MessageCircle className="h-6 w-6 text-accent mr-3" />
                 Envie sua Mensagem
               </CardTitle>

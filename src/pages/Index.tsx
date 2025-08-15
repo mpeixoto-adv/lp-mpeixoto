@@ -19,9 +19,9 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background overflow-x-hidden">
       <Navigation onContactClick={handleContactClick} />
-      <div className="pt-[108px]">
+      <div className="pt-[96px] sm:pt-[108px] overflow-x-hidden">
         <Hero onContactClick={handleContactClick} />
         <Services />
         <About />

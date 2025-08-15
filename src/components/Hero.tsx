@@ -28,16 +28,16 @@ export const Hero = ({ onContactClick }: HeroProps) => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 container mx-auto px-4 py-20">
-        <div className="max-w-4xl">
+      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
+        <div className="max-w-4xl w-full">
           <div className="mb-8">
-            <h1 className="text-5xl md:text-7xl font-serif font-bold text-primary-foreground mb-6 leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-serif font-bold text-primary-foreground mb-6 leading-tight break-words">
               Abordagem{" "}
-              <span className="text-accent">Especializada</span>,<br />
+              <span className="text-accent">Especializada</span>,<br className="hidden sm:block" />
               <span className="text-accent">Advogados</span>{" "}
               <span className="text-primary-foreground">Dedicados</span>
             </h1>
-            <p className="text-xl md:text-2xl text-primary-foreground/90 mb-8 max-w-2xl leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-primary-foreground/90 mb-8 max-w-2xl leading-relaxed">
               O escritório M. Peixoto Advogados Associados conta com profissionais de experiência consolidada há mais de 15 anos. 
               Atuamos com agilidade e eficiência para solucionar rapidamente os problemas dos nossos clientes.
             </p>

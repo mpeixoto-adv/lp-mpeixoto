@@ -29,13 +29,13 @@ const ArticlesPage = () => {
       
       <div className="pt-[108px]">
         {/* Hero Section */}
-        <section className="relative bg-gradient-to-b from-primary to-primary-light text-primary-foreground py-20">
-          <div className="container mx-auto px-4">
+        <section className="relative bg-gradient-to-b from-primary to-primary-light text-primary-foreground py-12 sm:py-16 md:py-20">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-serif font-bold mb-6">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-serif font-bold mb-6">
                 Artigos e Notícias
               </h1>
-              <p className="text-xl text-primary-foreground/90 mb-8">
+              <p className="text-base sm:text-lg md:text-xl text-primary-foreground/90 mb-8">
                 Mantenha-se atualizado com as últimas novidades jurídicas e orientações especializadas
               </p>
               
@@ -55,8 +55,8 @@ const ArticlesPage = () => {
         </section>
 
         {/* Articles Grid */}
-        <section className="py-16">
-          <div className="container mx-auto px-4">
+        <section className="py-12 sm:py-14 md:py-16">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             {filteredArticles.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredArticles.map((article) => (

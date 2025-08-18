@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X, Phone, Mail, MapPin, Facebook, Twitter, Instagram, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
@@ -13,8 +13,46 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const location = useLocation();
+  const firstMenuItemRef = useRef<HTMLAnchorElement>(null);
 
-  // Agora usando hover simples, não precisamos mais do useEffect para scroll
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+      // Focus the first menu item for accessibility
+      setTimeout(() => {
+        firstMenuItemRef.current?.focus();
+      }, 100);
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
+  // Close menu when clicking outside or pressing Escape
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener('keydown', handleKeyDown);
+    }
+
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [isMenuOpen]);
+
+  const handleMenuItemClick = () => {
+    setIsMenuOpen(false);
+  };
 
   const servicesItems = [
     { name: "Direito Civil", href: "/direito-civil" },
@@ -178,123 +216,147 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
           </div>
         </div>
 
-        {/* Mobile Menu - Full Screen Overlay */}
+        {/* Mobile Menu - Full Screen Drawer */}
         {isMenuOpen && (
-          <div className="fixed inset-0 bg-primary z-50 md:hidden">
-            <div className="flex flex-col h-full text-primary-foreground">
-              {/* Header with logo and close button */}
-              <div className="flex items-center justify-between p-4 border-b border-primary-foreground/20">
-                <img 
-                  src={logoMP}
-                  alt="M. Peixoto Advogados Associados" 
-                  className="h-10 w-auto object-contain"
-                />
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setIsMenuOpen(false)}
-                  className="text-primary-foreground hover:bg-primary-foreground/10"
-                >
-                  <X className="h-6 w-6" />
-                </Button>
-              </div>
-              
-              {/* Navigation Links */}
-              <div className="flex-1 px-4 py-8">
-                <nav className="space-y-6 text-center">
-                  {/* Home */}
-                  <Link
-                    to="/"
-                    className={`block text-xl font-medium text-primary-foreground hover:text-accent transition-colors py-3 ${
-                      location.pathname === '/' ? 'text-accent' : ''
-                    }`}
+          <>
+            {/* Backdrop */}
+            <div 
+              className="fixed inset-0 bg-black/50 z-40 md:hidden"
+              onClick={() => setIsMenuOpen(false)}
+              aria-hidden="true"
+            />
+            
+            {/* Full Screen Drawer */}
+            <div 
+              className="fixed inset-0 z-50 md:hidden"
+              role="dialog"
+              aria-modal="true"
+              aria-labelledby="mobile-menu-title"
+            >
+              <div className="h-screen bg-background flex flex-col" style={{ 
+                height: '100vh',
+                paddingTop: 'env(safe-area-inset-top)', 
+                paddingBottom: 'env(safe-area-inset-bottom)' 
+              }}>
+                {/* Header with logo and close button */}
+                <div className="flex items-center justify-between p-4 border-b border-border">
+                  <img 
+                    src={logoMP}
+                    alt="M. Peixoto Advogados Associados" 
+                    className="h-10 w-auto object-contain"
+                  />
+                  <Button
+                    variant="ghost"
+                    size="icon"
                     onClick={() => setIsMenuOpen(false)}
+                    className="text-foreground hover:bg-accent/10 h-12 w-12"
+                    aria-label="Close menu"
                   >
-                    HOME
-                  </Link>
-                  
-                  {/* Sobre */}
-                  <Link
-                    to="/about"
-                    className={`block text-xl font-medium text-primary-foreground hover:text-accent transition-colors py-3 ${
-                      location.pathname === '/about' ? 'text-accent' : ''
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    SOBRE NÓS
-                  </Link>
-                  
-                  {/* Services */}
-                  <div className="py-3">
-                    <span className="block text-xl font-medium text-primary-foreground mb-4">SERVIÇOS</span>
-                    <div className="space-y-3">
-                      {servicesItems.map((service) => (
-                        <Link
-                          key={service.name}
-                          to={service.href}
-                          className="block text-lg text-primary-foreground/80 hover:text-accent transition-colors py-2"
-                          onClick={() => setIsMenuOpen(false)}
-                        >
-                          {service.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </div>
-                  
-                  {/* Contato */}
-                  <a
-                    href="#contact"
-                    className="block text-xl font-medium text-primary-foreground hover:text-accent transition-colors py-3"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    CONTATO
-                  </a>
-                  
-                  {/* Newsletter */}
-                  <Link
-                    to="/artigos"
-                    className={`block text-xl font-medium text-primary-foreground hover:text-accent transition-colors py-3 ${
-                      location.pathname === '/artigos' || location.pathname.startsWith('/artigo/') ? 'text-accent' : ''
-                    }`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    NEWSLETTER
-                  </Link>
-                </nav>
+                    <X className="h-6 w-6" />
+                  </Button>
+                </div>
                 
-                {/* Contact Information Section */}
-                <div className="mt-12 space-y-6 text-center">
-                  <a
-                    href="tel:+552125331459"
-                    className="inline-flex items-center justify-center bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors"
-                  >
-                    <Phone className="h-5 w-5 mr-2" />
-                    (21) 2533-1459
-                  </a>
+                {/* Navigation Links */}
+                <div className="flex-1 overflow-y-auto px-6 py-8">
+                  <nav className="space-y-8">
+                    <h2 id="mobile-menu-title" className="sr-only">Navigation menu</h2>
+                    
+                    {/* Home */}
+                    <Link
+                      ref={firstMenuItemRef}
+                      to="/"
+                      className={`block text-2xl font-medium text-foreground hover:text-accent transition-colors py-2 ${
+                        location.pathname === '/' ? 'text-accent' : ''
+                      }`}
+                      onClick={handleMenuItemClick}
+                    >
+                      Home
+                    </Link>
+                    
+                    {/* Sobre */}
+                    <Link
+                      to="/about"
+                      className={`block text-2xl font-medium text-foreground hover:text-accent transition-colors py-2 ${
+                        location.pathname === '/about' ? 'text-accent' : ''
+                      }`}
+                      onClick={handleMenuItemClick}
+                    >
+                      Sobre
+                    </Link>
+                    
+                    {/* Services */}
+                    <div className="py-2">
+                      <span className="block text-2xl font-medium text-foreground mb-4">Serviços</span>
+                      <div className="space-y-4 pl-4">
+                        {servicesItems.map((service) => (
+                          <Link
+                            key={service.name}
+                            to={service.href}
+                            className="block text-lg text-foreground/80 hover:text-accent transition-colors py-2"
+                            onClick={handleMenuItemClick}
+                          >
+                            {service.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                    
+                    {/* Contato */}
+                    <a
+                      href="#contact"
+                      className="block text-2xl font-medium text-foreground hover:text-accent transition-colors py-2"
+                      onClick={handleMenuItemClick}
+                    >
+                      Contato
+                    </a>
+                    
+                    {/* Newsletter */}
+                    <Link
+                      to="/artigos"
+                      className={`block text-2xl font-medium text-foreground hover:text-accent transition-colors py-2 ${
+                        location.pathname === '/artigos' || location.pathname.startsWith('/artigo/') ? 'text-accent' : ''
+                      }`}
+                      onClick={handleMenuItemClick}
+                    >
+                      Newsletter
+                    </Link>
+                  </nav>
                   
-                  <div className="space-y-3 text-primary-foreground/80">
-                    <p className="text-sm">contato@mpeixotoadvogados.com.br</p>
-                    <p className="text-sm">Rua do Mercado, 11 - 16º andar - Centro/RJ</p>
-                  </div>
-                  
-                  <div>
-                    <p className="text-primary-foreground/80 text-sm mb-4">Siga-nos:</p>
-                    <div className="flex justify-center space-x-6">
-                      <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                        <Facebook className="h-6 w-6" />
-                      </a>
-                      <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                        <Twitter className="h-6 w-6" />
-                      </a>
-                      <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
-                        <Instagram className="h-6 w-6" />
-                      </a>
+                  {/* Contact Information Section */}
+                  <div className="mt-12 space-y-6">
+                    <a
+                      href="tel:+552125331459"
+                      className="inline-flex items-center justify-center bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors w-full"
+                      onClick={handleMenuItemClick}
+                    >
+                      <Phone className="h-5 w-5 mr-2" />
+                      (21) 2533-1459
+                    </a>
+                    
+                    <div className="space-y-3 text-foreground/70">
+                      <p className="text-sm">contato@mpeixotoadvogados.com.br</p>
+                      <p className="text-sm">Rua do Mercado, 11 - 16º andar - Centro/RJ</p>
+                    </div>
+                    
+                    <div>
+                      <p className="text-foreground/70 text-sm mb-4">Siga-nos:</p>
+                      <div className="flex space-x-6">
+                        <a href="#" className="text-foreground/70 hover:text-accent transition-colors">
+                          <Facebook className="h-6 w-6" />
+                        </a>
+                        <a href="#" className="text-foreground/70 hover:text-accent transition-colors">
+                          <Twitter className="h-6 w-6" />
+                        </a>
+                        <a href="#" className="text-foreground/70 hover:text-accent transition-colors">
+                          <Instagram className="h-6 w-6" />
+                        </a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
+          </>
         )}
         </div>
       </div>

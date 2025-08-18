@@ -65,13 +65,13 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
           <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <Link to="/" className="block group">
+              <div className="block">
                 <img 
                   src={logoMP}
                   alt="M. Peixoto Advogados Associados" 
-                  className="h-8 sm:h-10 md:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-110"
+                  className="h-12 sm:h-14 md:h-16 lg:h-20 w-auto object-contain"
                 />
-              </Link>
+              </div>
             </div>
 
           {/* Navigation Links */}

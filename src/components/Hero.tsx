@@ -29,66 +29,75 @@ export const Hero = ({ onContactClick }: HeroProps) => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16 md:py-20">
-        <div className="max-w-4xl w-full">
-          <div className="mb-8">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-serif font-bold text-primary-foreground mb-6 leading-tight break-words">
-              Abordagem{" "}
-              <span className="text-accent">Especializada</span>,<br className="hidden sm:block" />
-              <span className="text-accent">Advogados</span>{" "}
-              <span className="text-primary-foreground">Dedicados</span>
-            </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-primary-foreground/90 mb-8 max-w-2xl leading-relaxed">
-              O escritório M. Peixoto Advogados Associados conta com profissionais de experiência consolidada há mais de 15 anos. 
-              Atuamos com agilidade e eficiência para solucionar rapidamente os problemas dos nossos clientes.
-            </p>
-          </div>
+        {/* Centered content wrapper */}
+        <div className="flex items-center justify-center min-h-[60vh]">
+          <div className="max-w-4xl w-full text-center">
+            <div className="mb-8 sm:mb-12">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-serif font-bold text-primary-foreground mb-4 sm:mb-6 leading-tight">
+                Abordagem{" "}
+                <span className="text-accent">Especializada</span>,{" "}
+                <span className="text-accent">Advogados</span>{" "}
+                <span className="text-primary-foreground">Dedicados</span>
+              </h1>
+              <div className="flex justify-center">
+                <p className="text-sm sm:text-base md:text-lg lg:text-xl text-primary-foreground/90 mb-6 sm:mb-8 max-w-3xl leading-relaxed">
+                  <span className="block sm:inline">
+                    O escritório M. Peixoto Advogados Associados conta com profissionais de experiência consolidada há mais de 15 anos.
+                  </span>{" "}
+                  <span className="block sm:inline">
+                    Atuamos com agilidade e eficiência para solucionar rapidamente os problemas dos nossos clientes.
+                  </span>
+                </p>
+              </div>
+            </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <Button 
-              onClick={onContactClick}
-              size="lg"
-              className="bg-accent hover:bg-accent-dark text-accent-foreground font-semibold px-8 py-4 text-lg shadow-accent-glow"
-            >
-              Consulta Gratuita
-            </Button>
-            <Button 
-              variant="outline" 
-              size="lg"
-              className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary font-semibold px-8 py-4 text-lg"
-            >
-              Veja Mais
-            </Button>
-          </div>
+            <div className="flex flex-col items-center gap-4 mb-8 sm:mb-12">
+              <Button 
+                onClick={onContactClick}
+                size="lg"
+                className="bg-accent hover:bg-accent-dark text-accent-foreground font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-accent-glow w-full sm:w-auto max-w-xs"
+              >
+                Consulta Gratuita
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg"
+                className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground bg-transparent font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto max-w-xs transition-all duration-300"
+              >
+                Veja Mais
+              </Button>
+            </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div className="text-center">
-              <div className="flex justify-center mb-2">
-                <Scale className="h-8 w-8 text-accent" />
+            {/* Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 max-w-4xl mx-auto">
+              <div className="text-center">
+                <div className="flex justify-center mb-2">
+                  <Scale className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-bold text-primary-foreground">15+</div>
+                <div className="text-primary-foreground/80 text-xs sm:text-sm">Anos de Experiência</div>
               </div>
-              <div className="text-3xl font-bold text-primary-foreground">15+</div>
-              <div className="text-primary-foreground/80 text-sm">Anos de Experiência</div>
-            </div>
-            <div className="text-center">
-              <div className="flex justify-center mb-2">
-                <Users className="h-8 w-8 text-accent" />
+              <div className="text-center">
+                <div className="flex justify-center mb-2">
+                  <Users className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-bold text-primary-foreground">500+</div>
+                <div className="text-primary-foreground/80 text-xs sm:text-sm">Casos Resolvidos</div>
               </div>
-              <div className="text-3xl font-bold text-primary-foreground">500+</div>
-              <div className="text-primary-foreground/80 text-sm">Casos Resolvidos</div>
-            </div>
-            <div className="text-center">
-              <div className="flex justify-center mb-2">
-                <Award className="h-8 w-8 text-accent" />
+              <div className="text-center">
+                <div className="flex justify-center mb-2">
+                  <Award className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-bold text-primary-foreground">98%</div>
+                <div className="text-primary-foreground/80 text-xs sm:text-sm">Taxa de Sucesso</div>
               </div>
-              <div className="text-3xl font-bold text-primary-foreground">98%</div>
-              <div className="text-primary-foreground/80 text-sm">Taxa de Sucesso</div>
-            </div>
-            <div className="text-center">
-              <div className="flex justify-center mb-2">
-                <Clock className="h-8 w-8 text-accent" />
+              <div className="text-center">
+                <div className="flex justify-center mb-2">
+                  <Clock className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
+                </div>
+                <div className="text-2xl sm:text-3xl font-bold text-primary-foreground">24h</div>
+                <div className="text-primary-foreground/80 text-xs sm:text-sm">Resposta Rápida</div>
               </div>
-              <div className="text-3xl font-bold text-primary-foreground">24h</div>
-              <div className="text-primary-foreground/80 text-sm">Resposta Rápida</div>
             </div>
           </div>
         </div>

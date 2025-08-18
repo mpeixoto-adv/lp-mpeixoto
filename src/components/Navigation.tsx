@@ -178,87 +178,120 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Full Screen Overlay */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
-            <div className="flex flex-col space-y-4">
-              {/* Home */}
-              <Link
-                to="/"
-                className={`text-foreground hover:text-accent transition-colors px-4 py-2 ${
-                  location.pathname === '/' ? 'text-accent' : ''
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Home
-              </Link>
-              
-              {/* Sobre */}
-              <Link
-                to="/about"
-                className={`text-foreground hover:text-accent transition-colors px-4 py-2 ${
-                  location.pathname === '/about' ? 'text-accent' : ''
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Sobre
-              </Link>
-              
-              {/* Mobile Services Menu */}
-              <div className="px-4 py-2">
-                <span className="text-foreground font-medium">Serviços</span>
-                <div className="ml-4 mt-2 space-y-2">
-                  {servicesItems.map((service) => (
-                    <Link
-                      key={service.name}
-                      to={service.href}
-                      className="block text-muted-foreground hover:text-accent transition-colors py-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      {service.name}
-                    </Link>
-                  ))}
-                </div>
+          <div className="fixed inset-0 bg-primary z-50 md:hidden">
+            <div className="flex flex-col h-full text-primary-foreground">
+              {/* Header with logo and close button */}
+              <div className="flex items-center justify-between p-4 border-b border-primary-foreground/20">
+                <img 
+                  src={logoMP}
+                  alt="M. Peixoto Advogados Associados" 
+                  className="h-10 w-auto object-contain"
+                />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsMenuOpen(false)}
+                  className="text-primary-foreground hover:bg-primary-foreground/10"
+                >
+                  <X className="h-6 w-6" />
+                </Button>
               </div>
               
-              {/* Contato */}
-              <a
-                href="#contact"
-                className="text-foreground hover:text-accent transition-colors px-4 py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Contato
-              </a>
-              
-              {/* Newsletter */}
-              <Link
-                to="/artigos"
-                className={`text-foreground hover:text-accent transition-colors px-4 py-2 ${
-                  location.pathname === '/artigos' || location.pathname.startsWith('/artigo/') ? 'text-accent' : ''
-                }`}
-                onClick={() => setIsMenuOpen(false)}
-              >
-                Newsletter
-              </Link>
-              
-              <div className="px-4 pt-4 space-y-2">
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  className="w-full border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                >
-                  <Phone className="h-4 w-4 mr-2" />
-                  (21) 2533-1459
-                </Button>
-                <Button 
-                  onClick={() => {
-                    onContactClick();
-                    setIsMenuOpen(false);
-                  }}
-                  className="w-full bg-primary hover:bg-primary-light text-primary-foreground"
-                >
-                  Contato
-                </Button>
+              {/* Navigation Links */}
+              <div className="flex-1 px-4 py-8">
+                <nav className="space-y-6 text-center">
+                  {/* Home */}
+                  <Link
+                    to="/"
+                    className={`block text-xl font-medium text-primary-foreground hover:text-accent transition-colors py-3 ${
+                      location.pathname === '/' ? 'text-accent' : ''
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    HOME
+                  </Link>
+                  
+                  {/* Sobre */}
+                  <Link
+                    to="/about"
+                    className={`block text-xl font-medium text-primary-foreground hover:text-accent transition-colors py-3 ${
+                      location.pathname === '/about' ? 'text-accent' : ''
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    SOBRE NÓS
+                  </Link>
+                  
+                  {/* Services */}
+                  <div className="py-3">
+                    <span className="block text-xl font-medium text-primary-foreground mb-4">SERVIÇOS</span>
+                    <div className="space-y-3">
+                      {servicesItems.map((service) => (
+                        <Link
+                          key={service.name}
+                          to={service.href}
+                          className="block text-lg text-primary-foreground/80 hover:text-accent transition-colors py-2"
+                          onClick={() => setIsMenuOpen(false)}
+                        >
+                          {service.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Contato */}
+                  <a
+                    href="#contact"
+                    className="block text-xl font-medium text-primary-foreground hover:text-accent transition-colors py-3"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    CONTATO
+                  </a>
+                  
+                  {/* Newsletter */}
+                  <Link
+                    to="/artigos"
+                    className={`block text-xl font-medium text-primary-foreground hover:text-accent transition-colors py-3 ${
+                      location.pathname === '/artigos' || location.pathname.startsWith('/artigo/') ? 'text-accent' : ''
+                    }`}
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    NEWSLETTER
+                  </Link>
+                </nav>
+                
+                {/* Contact Information Section */}
+                <div className="mt-12 space-y-6 text-center">
+                  <a
+                    href="tel:+552125331459"
+                    className="inline-flex items-center justify-center bg-accent text-accent-foreground px-6 py-3 rounded-lg font-medium hover:bg-accent/90 transition-colors"
+                  >
+                    <Phone className="h-5 w-5 mr-2" />
+                    (21) 2533-1459
+                  </a>
+                  
+                  <div className="space-y-3 text-primary-foreground/80">
+                    <p className="text-sm">contato@mpeixotoadvogados.com.br</p>
+                    <p className="text-sm">Rua do Mercado, 11 - 16º andar - Centro/RJ</p>
+                  </div>
+                  
+                  <div>
+                    <p className="text-primary-foreground/80 text-sm mb-4">Siga-nos:</p>
+                    <div className="flex justify-center space-x-6">
+                      <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                        <Facebook className="h-6 w-6" />
+                      </a>
+                      <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                        <Twitter className="h-6 w-6" />
+                      </a>
+                      <a href="#" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                        <Instagram className="h-6 w-6" />
+                      </a>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

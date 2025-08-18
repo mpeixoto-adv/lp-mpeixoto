@@ -132,7 +132,6 @@ All colors MUST be HSL.
   }
 
   html {
-    scroll-behavior: smooth;
     overflow-x: hidden;
   }
 

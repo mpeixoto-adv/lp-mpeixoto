@@ -101,9 +101,9 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
       <div className="bg-background border-b border-border shadow-sm">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
-            {/* Logo */}
+            {/* Logo - Hidden on mobile when menu is open */}
             <div className="flex-shrink-0">
-              <div className="block">
+              <div className={`${isMenuOpen ? 'hidden md:block' : 'block'}`}>
                 <img 
                   src={logoMP}
                   alt="M. Peixoto Advogados Associados" 
@@ -205,14 +205,13 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">
-            <Button
-              variant="ghost"
-              size="icon"
+            <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-foreground"
+              className="inline-flex items-center justify-center h-11 w-11 rounded-md text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 min-h-[44px] min-w-[44px]"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+            </button>
           </div>
         </div>
 
@@ -245,15 +244,13 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                     alt="M. Peixoto Advogados Associados" 
                     className="h-10 w-auto object-contain"
                   />
-                  <Button
-                    variant="ghost"
-                    size="icon"
+                  <button
                     onClick={() => setIsMenuOpen(false)}
-                    className="text-foreground hover:bg-accent/10 h-12 w-12"
+                    className="inline-flex items-center justify-center h-12 w-12 rounded-md text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
                     aria-label="Close menu"
                   >
                     <X className="h-6 w-6" />
-                  </Button>
+                  </button>
                 </div>
                 
                 {/* Navigation Links */}
@@ -265,8 +262,8 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                     <Link
                       ref={firstMenuItemRef}
                       to="/"
-                      className={`block text-2xl font-medium text-foreground hover:text-accent transition-colors py-2 ${
-                        location.pathname === '/' ? 'text-accent' : ''
+                      className={`block text-2xl text-foreground hover:text-accent transition-colors py-2 ${
+                        location.pathname === '/' ? 'font-semibold' : 'font-medium'
                       }`}
                       onClick={handleMenuItemClick}
                     >
@@ -276,8 +273,8 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                     {/* Sobre */}
                     <Link
                       to="/about"
-                      className={`block text-2xl font-medium text-foreground hover:text-accent transition-colors py-2 ${
-                        location.pathname === '/about' ? 'text-accent' : ''
+                      className={`block text-2xl text-foreground hover:text-accent transition-colors py-2 ${
+                        location.pathname === '/about' ? 'font-semibold' : 'font-medium'
                       }`}
                       onClick={handleMenuItemClick}
                     >
@@ -313,8 +310,8 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                     {/* Newsletter */}
                     <Link
                       to="/artigos"
-                      className={`block text-2xl font-medium text-foreground hover:text-accent transition-colors py-2 ${
-                        location.pathname === '/artigos' || location.pathname.startsWith('/artigo/') ? 'text-accent' : ''
+                      className={`block text-2xl text-foreground hover:text-accent transition-colors py-2 ${
+                        location.pathname === '/artigos' || location.pathname.startsWith('/artigo/') ? 'font-semibold' : 'font-medium'
                       }`}
                       onClick={handleMenuItemClick}
                     >

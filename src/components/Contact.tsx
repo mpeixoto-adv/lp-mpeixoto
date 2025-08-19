@@ -152,13 +152,13 @@ export const Contact = () => {
                           <IconComponent className="h-6 w-6 text-accent" />
                         </div>
                       </div>
-                      <div>
+                      <div className="min-w-0 flex-1">
                         <h3 className="text-lg font-serif font-semibold text-primary mb-2">
                           {info.title}
                         </h3>
                         <div className="space-y-1">
                           {info.details.map((detail, idx) => (
-                            <p key={idx} className="text-muted-foreground">
+                            <p key={idx} className="text-muted-foreground break-words overflow-wrap-anywhere max-w-full min-w-0">
                               {detail}
                             </p>
                           ))}

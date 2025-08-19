@@ -12,6 +12,7 @@ interface NavigationProps {
 export const Navigation = ({ onContactClick }: NavigationProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const location = useLocation();
   const firstMenuItemRef = useRef<HTMLAnchorElement>(null);
 
@@ -25,6 +26,7 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
       }, 100);
     } else {
       document.body.style.overflow = 'unset';
+      setIsMobileServicesOpen(false); // Reset accordion when menu closes
     }
 
     // Cleanup on unmount
@@ -52,6 +54,10 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
 
   const handleMenuItemClick = () => {
     setIsMenuOpen(false);
+  };
+
+  const toggleMobileServices = () => {
+    setIsMobileServicesOpen(!isMobileServicesOpen);
   };
 
   const servicesItems = [
@@ -282,20 +288,38 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                     </Link>
                     
                     {/* Services */}
-                    <div className="py-2">
-                      <span className="block text-2xl font-medium text-foreground mb-4">Serviços</span>
-                      <div className="space-y-4 pl-4">
-                        {servicesItems.map((service) => (
-                          <Link
-                            key={service.name}
-                            to={service.href}
-                            className="block text-lg text-foreground/80 hover:text-accent transition-colors py-2"
-                            onClick={handleMenuItemClick}
-                          >
-                            {service.name}
-                          </Link>
-                        ))}
-                      </div>
+                    <div>
+                      <button
+                        onClick={toggleMobileServices}
+                        className="flex items-center text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-md py-2 min-h-[44px]"
+                        aria-expanded={isMobileServicesOpen}
+                        aria-label={`${isMobileServicesOpen ? 'Fechar' : 'Abrir'} menu de serviços`}
+                      >
+                        <span className="text-2xl font-medium text-foreground">Serviços</span>
+                        <ChevronDown 
+                          className={`h-5 w-5 text-foreground transition-transform duration-300 ml-2 ${
+                            isMobileServicesOpen ? 'rotate-180' : ''
+                          }`} 
+                        />
+                      </button>
+                      
+                      {/* Accordion Content */}
+                      {isMobileServicesOpen && (
+                        <div className="overflow-hidden animate-in slide-in-from-top-2 duration-300">
+                          <div className="space-y-4 pl-4 pt-4">
+                            {servicesItems.map((service) => (
+                              <Link
+                                key={service.name}
+                                to={service.href}
+                                className="block text-lg text-foreground/80 hover:text-accent transition-colors py-2"
+                                onClick={handleMenuItemClick}
+                              >
+                                {service.name}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                      )}
                     </div>
                     
                     {/* Contato */}

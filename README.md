@@ -1,73 +1,78 @@
-# Welcome to your Lovable project
+# M.Peixoto - Advogados Associados
 
-## Project info
+Website institucional moderno e responsivo para o escritório de advocacia Maurício Peixoto, especializado em Direito Tributário e Direito Civil.
 
-**URL**: https://lovable.dev/projects/f3f6bacb-8522-402e-842e-a059cb14f86e
+## 🚀 Desenvolvimento Local
 
-## How can I edit this code?
+### Pré-requisitos
 
-There are several ways of editing your application.
+- Node.js 18+ 
+- npm ou yarn
 
-**Use Lovable**
+### Instalação
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f3f6bacb-8522-402e-842e-a059cb14f86e) and start prompting.
 
-Changes made via Lovable will be committed automatically to this repo.
+# Clone o repositório
+git clone https://github.com/your-username/mpeixoto-adv-lp.git
 
-**Use your preferred IDE**
+# Navegue até o diretório do projeto
+cd mpeixoto-adv-lp
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+# Instale as dependências
+npm install
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Inicie o servidor de desenvolvimento
 npm run dev
+
+
+O projeto estará disponível em `http://localhost:5173`
+
+### Scripts Disponíveis
+
+
+npm run dev          # Inicia o servidor de desenvolvimento
+npm run build        # Cria a build de produção
+npm run preview      # Visualiza a build de produção
+npm run lint         # Executa o linter
+
+
+## 🛠️ Tecnologias Utilizadas
+
+Este projeto foi desenvolvido com as seguintes tecnologias:
+
+- **React 18** - Biblioteca para interfaces de usuário
+- **TypeScript** - Superset do JavaScript com tipagem estática
+- **Vite** - Build tool e dev server ultrarrápido
+- **Tailwind CSS** - Framework CSS utility-first
+- **Shadcn/UI** - Componentes reutilizáveis e acessíveis
+- **React Router DOM** - Roteamento do lado cliente
+- **Lucide React** - Ícones SVG para React
+
+## 📁 Estrutura do Projeto
+
+```
+src/
+├── components/          # Componentes reutilizáveis
+│   ├── ui/             # Componentes base (shadcn/ui)
+│   ├── Hero.tsx        # Seção hero da página
+│   ├── About.tsx       # Seção sobre
+│   ├── Services.tsx    # Seção de serviços
+│   └── ...
+├── pages/              # Páginas da aplicação
+├── data/               # Dados estáticos (artigos, etc.)
+├── assets/             # Imagens e recursos estáticos
+├── hooks/              # React hooks customizados
+└── lib/                # Utilitários e configurações
 ```
 
-**Edit a file directly in GitHub**
+## 🎨 Funcionalidades
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+- ✅ Design responsivo e moderno
+- ✅ Navegação suave entre seções
+- ✅ Carrossel de equipe
+- ✅ Sistema de artigos/blog
+- ✅ Formulário de contato
+- ✅ Newsletter signup
+- ✅ SEO otimizado
+- ✅ Performance otimizada
 
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f3f6bacb-8522-402e-842e-a059cb14f86e) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)

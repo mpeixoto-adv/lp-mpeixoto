@@ -157,11 +157,43 @@ export const Contact = () => {
                           {info.title}
                         </h3>
                         <div className="space-y-1">
-                          {info.details.map((detail, idx) => (
-                            <p key={idx} className="text-muted-foreground break-words overflow-wrap-anywhere max-w-full min-w-0">
-                              {detail}
-                            </p>
-                          ))}
+                          {info.details.map((detail, idx) => {
+                            // Handle email specially to make it clickable and responsive
+                            if (info.title === "E-mail" && detail.includes("@")) {
+                              return (
+                                <a
+                                  key={idx}
+                                  href={`mailto:${detail}`}
+                                  className="text-muted-foreground hover:text-accent transition-colors break-all sm:break-words block"
+                                >
+                                  {detail}
+                                </a>
+                              );
+                            }
+                            
+                            // Handle phone numbers to make them clickable
+                            if (info.title === "Telefones" && (detail.includes("(21)") || detail.includes("21"))) {
+                              const phoneNumber = detail.replace(/[^\d]/g, "");
+                              const isWhatsApp = detail.includes("WhatsApp");
+                              return (
+                                <a
+                                  key={idx}
+                                  href={isWhatsApp ? `https://api.whatsapp.com/send?phone=55${phoneNumber}` : `tel:+55${phoneNumber}`}
+                                  target={isWhatsApp ? "_blank" : undefined}
+                                  rel={isWhatsApp ? "noopener noreferrer" : undefined}
+                                  className="text-muted-foreground hover:text-accent transition-colors block"
+                                >
+                                  {detail}
+                                </a>
+                              );
+                            }
+                            
+                            return (
+                              <p key={idx} className="text-muted-foreground break-words">
+                                {detail}
+                              </p>
+                            );
+                          })}
                         </div>
                       </div>
                     </div>

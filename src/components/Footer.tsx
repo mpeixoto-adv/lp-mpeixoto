@@ -40,9 +40,14 @@ export const Footer = () => {
                   <p>(21) 2533-1459</p>
                 </div>
               </div>
-              <div className="flex items-center">
-                <Mail className="h-4 w-4 mr-2 text-accent" />
-                <p>contato@mpeixotoadvogados.com.br</p>
+              <div className="flex items-start">
+                <Mail className="h-4 w-4 mt-0.5 mr-2 text-accent flex-shrink-0" />
+                <a 
+                  href="mailto:contato@mpeixotoadvogados.com.br"
+                  className="hover:text-accent transition-colors break-all sm:break-words leading-tight"
+                >
+                  contato@mpeixotoadvogados.com.br
+                </a>
               </div>
               <div className="flex items-center">
                 <Clock className="h-4 w-4 mr-2 text-accent" />

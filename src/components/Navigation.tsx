@@ -355,7 +355,12 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                     </a>
                     
                     <div className="space-y-3 text-foreground/70">
-                      <p className="text-sm">contato@mpeixotoadvogados.com.br</p>
+                      <a 
+                        href="mailto:contato@mpeixotoadvogados.com.br"
+                        className="text-sm hover:text-accent transition-colors break-all sm:break-words block leading-tight"
+                      >
+                        contato@mpeixotoadvogados.com.br
+                      </a>
                       <p className="text-sm">Rua do Mercado, 11 - 16º andar - Centro/RJ</p>
                     </div>
                     

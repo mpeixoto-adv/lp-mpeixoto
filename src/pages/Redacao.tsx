@@ -91,7 +91,6 @@ const RedacaoPage = () => {
 
   const handlePreview = (artigo: ArtigoRascunho) => {
     setArtigoPreview(artigo)
-    setArtigoAtual(artigo) // Preserva as alterações do editor
     setModo('preview')
   }
 
@@ -240,7 +239,10 @@ const RedacaoPage = () => {
           <div className="flex items-center gap-4">
             <Button
               variant="outline"
-              onClick={() => setModo('editor')}
+              onClick={() => {
+                setArtigoAtual(artigoPreview)
+                setModo('editor')
+              }}
             >
               <ArrowLeft className="h-4 w-4 mr-2" />
               Voltar ao Editor

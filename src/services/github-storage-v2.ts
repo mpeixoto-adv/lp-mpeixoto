@@ -21,6 +21,35 @@ class GitHubStorageServiceV2 implements ArtigoService {
     return `https://api.github.com/repos/${this.config.owner}/${this.config.repo}`
   }
 
+  // Função helper para converter base64 para UTF-8 corretamente
+  private base64ToUtf8(str: string): string {
+    try {
+      // Remove quebras de linha do base64
+      const cleanBase64 = str.replace(/\s/g, '')
+      // Decodifica base64 e converte bytes para UTF-8
+      const bytes = atob(cleanBase64)
+      const utf8String = decodeURIComponent(escape(bytes))
+      return utf8String
+    } catch (error) {
+      console.error('Erro ao decodificar UTF-8:', error)
+      // Fallback para decodificação simples
+      return atob(str.replace(/\s/g, ''))
+    }
+  }
+
+  // Função helper para converter UTF-8 para base64 corretamente
+  private utf8ToBase64(str: string): string {
+    try {
+      // Converte UTF-8 para bytes e depois para base64
+      const bytes = unescape(encodeURIComponent(str))
+      return btoa(bytes)
+    } catch (error) {
+      console.error('Erro ao codificar UTF-8:', error)
+      // Fallback para codificação simples
+      return btoa(str)
+    }
+  }
+
   // Buscar arquivo específico
   async buscarArquivo(filePath: string): Promise<{ content: string; sha: string }> {
     const response = await fetch(
@@ -38,7 +67,7 @@ class GitHubStorageServiceV2 implements ArtigoService {
 
     const data = await response.json()
     return {
-      content: atob(data.content),
+      content: this.base64ToUtf8(data.content),
       sha: data.sha
     }
   }
@@ -47,7 +76,7 @@ class GitHubStorageServiceV2 implements ArtigoService {
   async salvarArquivo(filePath: string, conteudo: string, mensagem: string, sha?: string): Promise<void> {
     const body: any = {
       message: mensagem,
-      content: btoa(conteudo),
+      content: this.utf8ToBase64(conteudo),
       branch: this.config.branch
     }
 

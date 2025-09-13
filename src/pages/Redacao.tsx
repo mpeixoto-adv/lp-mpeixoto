@@ -40,22 +40,11 @@ const RedacaoPage = () => {
   const carregarArtigos = async () => {
     try {
       setLoading(true)
-      
-      // Em desenvolvimento, usa dados locais para evitar problemas de encoding
-      const isDev = import.meta.env.DEV
-      if (isDev) {
-        const artigosLocais: Article[] = articlesMetadata.map(metadata => ({
-          ...metadata,
-          content: '' // Será carregado sob demanda
-        }))
-        setArtigos(artigosLocais)
-      } else {
-        const artigosCarregados = await githubStorageV2.listar()
-        setArtigos(artigosCarregados)
-      }
+      const artigos = await githubStorageV2.listar()
+      setArtigos(artigos)
     } catch (error) {
       console.error('Erro ao carregar artigos:', error)
-      alert('Erro ao carregar artigos. Verifique a configuração do GitHub.')
+      alert('Erro ao carregar artigos.')
     } finally {
       setLoading(false)
     }
@@ -85,7 +74,7 @@ const RedacaoPage = () => {
   const handleSalvarArtigo = async (artigo: ArtigoRascunho) => {
     try {
       setLoading(true)
-      const artigoSalvo = await githubStorageV2.salvar(artigo)
+      await githubStorageV2.salvar(artigo)
       alert('Artigo salvo com sucesso!')
       
       // Atualiza a lista e redireciona

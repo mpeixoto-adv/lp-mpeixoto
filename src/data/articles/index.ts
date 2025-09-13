@@ -1,6 +1,6 @@
 import { ArticleMetadata, Article } from './types'
 
-// Metadados dos artigos (para listagens e navegaÁ„o)
+// Metadados dos artigos (para listagens e navega√ß√£o)
 export const articlesMetadata: ArticleMetadata[] = [
   {
     id: "1",
@@ -40,13 +40,16 @@ export const articlesMetadata: ArticleMetadata[] = [
   }
 ]
 
-// FunÁ„o para carregar artigo completo (lazy loading)
+// Fun√ß√£o para carregar artigo completo (lazy loading)
 export async function loadArticleContent(slug: string): Promise<Article | undefined> {
   const metadata = articlesMetadata.find(article => article.slug === slug)
   if (!metadata) return undefined
 
   try {
-    const contentModule = await import(`./content/${metadata.contentFile}`)
+    // Adiciona timestamp para evitar cache em desenvolvimento
+    const isDev = import.meta.env.DEV
+    const cacheBuster = isDev ? `?t=${Date.now()}` : ''
+    const contentModule = await import(`./content/${metadata.contentFile}.ts${cacheBuster}`)
     const content = contentModule.articleContent.content
 
     return {
@@ -54,12 +57,12 @@ export async function loadArticleContent(slug: string): Promise<Article | undefi
       content
     }
   } catch (error) {
-    console.error(`Erro ao carregar conte˙do do artigo ${slug}:`, error)
+    console.error(`Erro ao carregar conte√∫do do artigo ${slug}:`, error)
     return undefined
   }
 }
 
-// FunÁ„o para obter artigo por ID
+// Fun√ß√£o para obter artigo por ID
 export async function loadArticleById(id: string): Promise<Article | undefined> {
   const metadata = articlesMetadata.find(article => article.id === id)
   if (!metadata) return undefined
@@ -67,7 +70,7 @@ export async function loadArticleById(id: string): Promise<Article | undefined> 
   return loadArticleContent(metadata.slug)
 }
 
-// Para compatibilidade com cÛdigo existente
+// Para compatibilidade com c√≥digo existente
 export async function loadAllArticles(): Promise<Article[]> {
   const articles: Article[] = []
   
@@ -84,5 +87,5 @@ export async function loadAllArticles(): Promise<Article[]> {
 // Export para compatibilidade com a estrutura antiga
 export const articles = articlesMetadata.map(metadata => ({
   ...metadata,
-  content: '' // Ser· carregado dinamicamente quando necess·rio
+  content: '' // Ser√° carregado dinamicamente quando necess√°rio
 })) as Article[]

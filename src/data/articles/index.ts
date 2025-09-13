@@ -14,28 +14,6 @@ export const articlesMetadata: ArticleMetadata[] = [
     contentFile: "lei-aurea"
   },
   {
-    id: "5",
-    title: "TesteDeArtigo22",
-    excerpt: "ResumoDoArtigo",
-    author: "Dr. Marcelo Peixoto",
-    date: "2025-09-13",
-    category: "Direito Imobiliário",
-    readTime: "1 min",
-    slug: "testedeartigo22",
-    contentFile: "testedeartigo22"
-  },
-  {
-    id: "4",
-    title: "teste123",
-    excerpt: "tetetet",
-    author: "Dr. Marcelo Peixoto2",
-    date: "2025-09-13",
-    category: "Direito Empresarial",
-    readTime: "1 min",
-    slug: "teste123",
-    contentFile: "teste123"
-  },
-  {
     id: "1",
     title: "Nova Lei de Proteção de Dados: O que sua empresa precisa saber",
     excerpt: "A LGPD trouxe mudanças significativas para o tratamento de dados pessoais. Entenda as principais obrigações e como se adequar.",

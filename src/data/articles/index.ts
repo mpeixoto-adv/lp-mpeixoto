@@ -3,12 +3,23 @@ import { ArticleMetadata, Article } from './types'
 // Metadados dos artigos (para listagens e navegação)
 export const articlesMetadata: ArticleMetadata[] = [
   {
+    id: "4",
+    title: "LEI AUREA",
+    excerpt: "TESTE SOBRE LEI AUREA",
+    author: "Dr. Marcelo Peixoto",
+    date: "2025-09-13",
+    category: "Direito do Consumidor",
+    readTime: "1 min",
+    slug: "lei-aurea",
+    contentFile: "lei-aurea"
+  },
+  {
     id: "5",
     title: "TesteDeArtigo22",
     excerpt: "ResumoDoArtigo",
     author: "Dr. Marcelo Peixoto",
     date: "2025-09-13",
-    category: "Direito Imobiliário",
+    category: "Direito ImobiliÃ¡rio",
     readTime: "1 min",
     slug: "testedeartigo22",
     contentFile: "testedeartigo22"

@@ -57,7 +57,10 @@ export async function loadArticleContent(slug: string): Promise<Article | undefi
   if (!metadata) return undefined
 
   try {
-    const contentModule = await import(`./content/${metadata.contentFile}.ts`)
+    // Adiciona timestamp para evitar cache em desenvolvimento
+    const isDev = import.meta.env.DEV
+    const cacheBuster = isDev ? `?t=${Date.now()}` : ''
+    const contentModule = await import(`./content/${metadata.contentFile}.ts${cacheBuster}`)
     const content = contentModule.articleContent.content
 
     return {

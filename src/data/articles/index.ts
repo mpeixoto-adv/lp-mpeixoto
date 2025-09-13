@@ -3,6 +3,17 @@ import { ArticleMetadata, Article } from './types'
 // Metadados dos artigos (para listagens e navegação)
 export const articlesMetadata: ArticleMetadata[] = [
   {
+    id: "5",
+    title: "Teste de artigo",
+    excerpt: "Testando novo artigo",
+    author: "Dr. Marcelo Peixoto",
+    date: "2025-09-13",
+    category: "Direito Empresarial",
+    readTime: "1 min",
+    slug: "teste-de-artigo",
+    contentFile: "teste-de-artigo"
+  },
+  {
     id: "4",
     title: "Lei Aurea",
     excerpt: "Resumo Lei aurea",

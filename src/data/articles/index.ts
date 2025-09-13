@@ -4,14 +4,14 @@ import { ArticleMetadata, Article } from './types'
 export const articlesMetadata: ArticleMetadata[] = [
   {
     id: "5",
-    title: "Teste de artigo",
-    excerpt: "Testando novo artigo",
-    author: "Dr. Marcelo Peixoto",
+    title: "Teste de artigo editado",
+    excerpt: "Testando novo artigo editado",
+    author: "Dr. Marcelo Peixoto Editado",
     date: "2025-09-13",
     category: "Direito Empresarial",
     readTime: "1 min",
-    slug: "teste-de-artigo",
-    contentFile: "teste-de-artigo"
+    slug: "teste-de-artigo-editado",
+    contentFile: "teste-de-artigo-editado"
   },
   {
     id: "4",
@@ -63,14 +63,13 @@ export const articlesMetadata: ArticleMetadata[] = [
   }
 ]
 
-// Função para carregar artigo completo (lazy loading com fallback estático)
+// Função para carregar artigo completo (lazy loading)
 export async function loadArticleContent(slug: string): Promise<Article | undefined> {
   const metadata = articlesMetadata.find(article => article.slug === slug)
   if (!metadata) return undefined
 
   try {
-    // Primeiro tenta import dinâmico (funciona em desenvolvimento e com novos artigos)
-    const contentModule = await import(`./content/${metadata.contentFile}.ts`)
+    const contentModule = await import(`./content/${metadata.contentFile}`)
     const content = contentModule.articleContent.content
 
     return {
@@ -79,39 +78,7 @@ export async function loadArticleContent(slug: string): Promise<Article | undefi
     }
   } catch (error) {
     console.error(`Erro ao carregar conteúdo do artigo ${slug}:`, error)
-    
-    // Fallback: tenta carregar do mapa estático (para produção Vercel)
-    try {
-      const staticContent = await loadStaticContent(metadata.contentFile)
-      if (staticContent) {
-        return {
-          ...metadata,
-          content: staticContent
-        }
-      }
-    } catch (staticError) {
-      console.error(`Erro no fallback estático para ${slug}:`, staticError)
-    }
-    
     return undefined
-  }
-}
-
-// Função auxiliar para carregar conteúdo estático (fallback para Vercel)
-async function loadStaticContent(contentFile: string): Promise<string | undefined> {
-  switch (contentFile) {
-    case 'teste-de-artigo':
-      return (await import('./content/teste-de-artigo')).articleContent.content
-    case 'lei-aurea':
-      return (await import('./content/lei-aurea')).articleContent.content
-    case 'lgpd-o-que-sua-empresa-precisa-saber':
-      return (await import('./content/lgpd-o-que-sua-empresa-precisa-saber')).articleContent.content
-    case 'direitos-consumidor-compras-online':
-      return (await import('./content/direitos-consumidor-compras-online')).articleContent.content
-    case 'reforma-tributaria-impactos-pequenas-empresas':
-      return (await import('./content/reforma-tributaria-impactos-pequenas-empresas')).articleContent.content
-    default:
-      return undefined
   }
 }
 

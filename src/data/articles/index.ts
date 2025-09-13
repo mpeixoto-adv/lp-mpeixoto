@@ -1,18 +1,7 @@
 import { ArticleMetadata, Article } from './types'
 
-// Metadados dos artigos (para listagens e navega√ß√£o)
+// Metadados dos artigos (para listagens e navegaÁ„o)
 export const articlesMetadata: ArticleMetadata[] = [
-  {
-    id: "4",
-    title: "LEI AUREA",
-    excerpt: "TESTE SOBRE LEI AUREA",
-    author: "Dr. Marcelo Peixoto",
-    date: "2025-09-13",
-    category: "Direito do Consumidor",
-    readTime: "1 min",
-    slug: "lei-aurea",
-    contentFile: "lei-aurea"
-  },
   {
     id: "1",
     title: "Nova Lei de Prote√ß√£o de Dados: O que sua empresa precisa saber",
@@ -51,16 +40,13 @@ export const articlesMetadata: ArticleMetadata[] = [
   }
 ]
 
-// Fun√ß√£o para carregar artigo completo (lazy loading)
+// FunÁ„o para carregar artigo completo (lazy loading)
 export async function loadArticleContent(slug: string): Promise<Article | undefined> {
   const metadata = articlesMetadata.find(article => article.slug === slug)
   if (!metadata) return undefined
 
   try {
-    // Adiciona timestamp para evitar cache em desenvolvimento
-    const isDev = import.meta.env.DEV
-    const cacheBuster = isDev ? `?t=${Date.now()}` : ''
-    const contentModule = await import(`./content/${metadata.contentFile}.ts${cacheBuster}`)
+    const contentModule = await import(`./content/${metadata.contentFile}`)
     const content = contentModule.articleContent.content
 
     return {
@@ -68,12 +54,12 @@ export async function loadArticleContent(slug: string): Promise<Article | undefi
       content
     }
   } catch (error) {
-    console.error(`Erro ao carregar conte√∫do do artigo ${slug}:`, error)
+    console.error(`Erro ao carregar conte˙do do artigo ${slug}:`, error)
     return undefined
   }
 }
 
-// Fun√ß√£o para obter artigo por ID
+// FunÁ„o para obter artigo por ID
 export async function loadArticleById(id: string): Promise<Article | undefined> {
   const metadata = articlesMetadata.find(article => article.id === id)
   if (!metadata) return undefined
@@ -81,7 +67,7 @@ export async function loadArticleById(id: string): Promise<Article | undefined> 
   return loadArticleContent(metadata.slug)
 }
 
-// Para compatibilidade com c√≥digo existente
+// Para compatibilidade com cÛdigo existente
 export async function loadAllArticles(): Promise<Article[]> {
   const articles: Article[] = []
   
@@ -98,5 +84,5 @@ export async function loadAllArticles(): Promise<Article[]> {
 // Export para compatibilidade com a estrutura antiga
 export const articles = articlesMetadata.map(metadata => ({
   ...metadata,
-  content: '' // Ser√° carregado dinamicamente quando necess√°rio
+  content: '' // Ser· carregado dinamicamente quando necess·rio
 })) as Article[]

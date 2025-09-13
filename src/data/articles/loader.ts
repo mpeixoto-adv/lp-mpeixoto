@@ -1,64 +1,53 @@
-import { ArticleMetadata, Article } from './types'
+import { ArticleMetadata, Article } from './types';
 
-// Sistema híbrido de carregamento de artigos (não modificar - essencial para produção)
+import * as direitos_consumidor_compras_online from './content/direitos-consumidor-compras-online';
+import * as lei_aurea from './content/lei-aurea';
+import * as lgpd_o_que_sua_empresa_precisa_saber from './content/lgpd-o-que-sua-empresa-precisa-saber';
+import * as reforma_tributaria_impactos_pequenas_empresas from './content/reforma-tributaria-impactos-pequenas-empresas';
+import * as teste_de_artigo_editado_de_novo_e_de_novo from './content/teste-de-artigo-editado-de-novo-e-de-novo';
+import * as teste_de_artigo_editado_de_novo from './content/teste-de-artigo-editado-de-novo';
+import * as teste_de_artigo_editado from './content/teste-de-artigo-editado';
+import * as teste_de_artigo from './content/teste-de-artigo';
+
+// Mapa estático de conteúdos (gerado automaticamente)
+const STATIC_CONTENT_MAP: Record<string, string> = {
+    'direitos-consumidor-compras-online': direitos_consumidor_compras_online.articleContent.content,
+    'lei-aurea': lei_aurea.articleContent.content,
+    'lgpd-o-que-sua-empresa-precisa-saber': lgpd_o_que_sua_empresa_precisa_saber.articleContent.content,
+    'reforma-tributaria-impactos-pequenas-empresas': reforma_tributaria_impactos_pequenas_empresas.articleContent.content,
+    'teste-de-artigo-editado-de-novo-e-de-novo': teste_de_artigo_editado_de_novo_e_de_novo.articleContent.content,
+    'teste-de-artigo-editado-de-novo': teste_de_artigo_editado_de_novo.articleContent.content,
+    'teste-de-artigo-editado': teste_de_artigo_editado.articleContent.content,
+    'teste-de-artigo': teste_de_artigo.articleContent.content
+};
+
+// SISTEMA HÍBRIDO DEFINITIVO - NÃO MODIFICAR
 export async function loadArticleContentHybrid(slug: string, metadata: ArticleMetadata): Promise<Article | undefined> {
   try {
-    // Primeiro tenta import dinâmico (funciona em desenvolvimento e com artigos novos/editados)
-    const contentModule = await import(`./content/${metadata.contentFile}.ts`)
-    const content = contentModule.articleContent.content
-
-    return {
-      ...metadata,
-      content
-    }
-  } catch (error) {
-    console.error(`Erro ao carregar conteúdo do artigo ${slug}:`, error)
-    
-    // Fallback: tenta carregar do mapa estático (para produção Vercel)
+    // 1. Primeiro tenta import dinâmico (desenvolvimento)
     try {
-      const staticContent = await loadStaticContent(metadata.contentFile)
-      if (staticContent) {
-        return {
-          ...metadata,
-          content: staticContent
-        }
-      }
-    } catch (staticError) {
-      console.error(`Erro no fallback estático para ${slug}:`, staticError)
+      const contentModule = await import(`./content/${metadata.contentFile}.ts`);
+      return {
+        ...metadata,
+        content: contentModule.articleContent.content
+      };
+    } catch (dynamicError) {
+      console.log('Import dinâmico falhou, usando estático:', dynamicError.message);
     }
-    
-    return undefined
-  }
-}
 
-// Mapa estático para produção Vercel (atualizar conforme necessário)
-async function loadStaticContent(contentFile: string): Promise<string | undefined> {
-  switch (contentFile) {
-    // Artigos de teste (sempre manter atualizados)
-    case 'teste-de-artigo-editado-de-novo':
-      return (await import('./content/teste-de-artigo-editado-de-novo')).articleContent.content
-    case 'teste-de-artigo-editado':
-      return (await import('./content/teste-de-artigo-editado')).articleContent.content
-    case 'teste-de-artigo':
-      return (await import('./content/teste-de-artigo')).articleContent.content
-    
-    // Artigos principais
-    case 'lei-aurea':
-      return (await import('./content/lei-aurea')).articleContent.content
-    case 'lgpd-o-que-sua-empresa-precisa-saber':
-      return (await import('./content/lgpd-o-que-sua-empresa-precisa-saber')).articleContent.content
-    case 'direitos-consumidor-compras-online':
-      return (await import('./content/direitos-consumidor-compras-online')).articleContent.content
-    case 'reforma-tributaria-impactos-pequenas-empresas':
-      return (await import('./content/reforma-tributaria-impactos-pequenas-empresas')).articleContent.content
-    
-    default:
-      // Para novos artigos não mapeados, tenta import direto
-      try {
-        const module = await import(/* @vite-ignore */ `./content/${contentFile}.ts`)
-        return module.articleContent.content
-      } catch {
-        return undefined
-      }
+    // 2. Fallback estático (produção)
+    const staticContent = STATIC_CONTENT_MAP[metadata.contentFile];
+    if (staticContent) {
+      return {
+        ...metadata,
+        content: staticContent
+      };
+    }
+
+    console.error('Conteúdo não encontrado:', metadata.contentFile);
+    return undefined;
+  } catch (error) {
+    console.error('Erro ao carregar artigo:', error);
+    return undefined;
   }
 }

@@ -11,6 +11,7 @@ import { ArrowLeft, FileText, Plus, Settings } from 'lucide-react'
 import { ArtigoRascunho } from '@/lib/redacao-types'
 import { githubStorageV2 } from '@/services/github-storage-v2'
 import { Article } from '@/data/articles/types'
+import { articlesMetadata } from '@/data/articles/index'
 
 const RedacaoPage = () => {
   const navigate = useNavigate()
@@ -39,8 +40,19 @@ const RedacaoPage = () => {
   const carregarArtigos = async () => {
     try {
       setLoading(true)
-      const artigosCarregados = await githubStorageV2.listar()
-      setArtigos(artigosCarregados)
+      
+      // Em desenvolvimento, usa dados locais para evitar problemas de encoding
+      const isDev = import.meta.env.DEV
+      if (isDev) {
+        const artigosLocais: Article[] = articlesMetadata.map(metadata => ({
+          ...metadata,
+          content: '' // Será carregado sob demanda
+        }))
+        setArtigos(artigosLocais)
+      } else {
+        const artigosCarregados = await githubStorageV2.listar()
+        setArtigos(artigosCarregados)
+      }
     } catch (error) {
       console.error('Erro ao carregar artigos:', error)
       alert('Erro ao carregar artigos. Verifique a configuração do GitHub.')

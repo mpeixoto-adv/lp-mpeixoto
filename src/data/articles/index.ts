@@ -4,6 +4,18 @@ import { loadArticleContentHybrid } from './loader'
 // Metadados dos artigos (para listagens e navegação)
 export const articlesMetadata: ArticleMetadata[] = [
   {
+    id: "4",
+    title: "Nova versao LGDP",
+    excerpt: "Novo documento sobre LGPD",
+    author: "Dr. Marcelo Peixoto",
+    date: "2025-09-13",
+    category: "Direito Civil",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070",
+    readTime: "1 min",
+    slug: "nova-versao-lgdp",
+    contentFile: "nova-versao-lgdp"
+  },
+  {
     id: "1",
     title: "Nova Lei de Proteção de Dados: O que sua empresa precisa saber",
     excerpt: "A LGPD trouxe mudanças significativas para o tratamento de dados pessoais. Entenda as principais obrigações e como se adequar.",

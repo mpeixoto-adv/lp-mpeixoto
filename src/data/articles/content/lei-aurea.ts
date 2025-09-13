@@ -1,7 +1,7 @@
 export const articleContent = {
-  content: `<p>ESse é um teste de artigo<br><br></p><p>ESse é um teste de artigo<br><br><br></p><p>ESse é um teste de artigo<br><br><br></p><p>ESse é um teste de artigo<br><br></p><p>ESse é um teste de artigo</p>`,
+  content: `<p>ESse é um teste de artigo<br><br>EDITANDO</p><p>EDITANDO</p><p>EDITANDO</p>`,
   metadata: {
-    lastModified: "2025-09-13T18:54:39.392Z",
+    lastModified: "2025-09-13T19:43:26.463Z",
     views: 0
   }
 }

@@ -63,13 +63,14 @@ export const articlesMetadata: ArticleMetadata[] = [
   }
 ]
 
-// Função para carregar artigo completo (lazy loading)
+// Função para carregar artigo completo (lazy loading com fallback estático)
 export async function loadArticleContent(slug: string): Promise<Article | undefined> {
   const metadata = articlesMetadata.find(article => article.slug === slug)
   if (!metadata) return undefined
 
   try {
-    const contentModule = await import(`./content/${metadata.contentFile}`)
+    // Primeiro tenta import dinâmico (funciona em desenvolvimento e com novos artigos)
+    const contentModule = await import(`./content/${metadata.contentFile}.ts`)
     const content = contentModule.articleContent.content
 
     return {
@@ -78,7 +79,41 @@ export async function loadArticleContent(slug: string): Promise<Article | undefi
     }
   } catch (error) {
     console.error(`Erro ao carregar conteúdo do artigo ${slug}:`, error)
+    
+    // Fallback: tenta carregar do mapa estático (para produção Vercel)
+    try {
+      const staticContent = await loadStaticContent(metadata.contentFile)
+      if (staticContent) {
+        return {
+          ...metadata,
+          content: staticContent
+        }
+      }
+    } catch (staticError) {
+      console.error(`Erro no fallback estático para ${slug}:`, staticError)
+    }
+    
     return undefined
+  }
+}
+
+// Função auxiliar para carregar conteúdo estático (fallback para Vercel)
+async function loadStaticContent(contentFile: string): Promise<string | undefined> {
+  switch (contentFile) {
+    case 'teste-de-artigo-editado':
+      return (await import('./content/teste-de-artigo-editado')).articleContent.content
+    case 'teste-de-artigo':
+      return (await import('./content/teste-de-artigo')).articleContent.content
+    case 'lei-aurea':
+      return (await import('./content/lei-aurea')).articleContent.content
+    case 'lgpd-o-que-sua-empresa-precisa-saber':
+      return (await import('./content/lgpd-o-que-sua-empresa-precisa-saber')).articleContent.content
+    case 'direitos-consumidor-compras-online':
+      return (await import('./content/direitos-consumidor-compras-online')).articleContent.content
+    case 'reforma-tributaria-impactos-pequenas-empresas':
+      return (await import('./content/reforma-tributaria-impactos-pequenas-empresas')).articleContent.content
+    default:
+      return undefined
   }
 }
 

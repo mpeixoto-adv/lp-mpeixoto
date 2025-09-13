@@ -1,4 +1,9 @@
-import { ArticleMetadata, Article } from './types'
+// Script temporário para corrigir encoding no GitHub
+import { articlesMetadata } from './src/data/articles/index.ts'
+
+// Dados corretos com encoding UTF-8
+const correctData = `import { ArticleMetadata, Article } from './types'
+
 // Metadados dos artigos (para listagens e navegação)
 export const articlesMetadata: ArticleMetadata[] = [
   {
@@ -39,37 +44,56 @@ export const articlesMetadata: ArticleMetadata[] = [
   }
 ]
 
+// Função para carregar artigo completo (lazy loading)
 export async function loadArticleContent(slug: string): Promise<Article | undefined> {
   const metadata = articlesMetadata.find(article => article.slug === slug)
   if (!metadata) return undefined
+
   try {
+    // Adiciona timestamp para evitar cache em desenvolvimento
     const isDev = import.meta.env.DEV
-    const cacheBuster = isDev ? `?t=${Date.now()}` : ''
-    const contentModule = await import(`./content/${metadata.contentFile}.ts${cacheBuster}`)
+    const cacheBuster = isDev ? \`?t=\${Date.now()}\` : ''
+    const contentModule = await import(\`./content/\${metadata.contentFile}.ts\${cacheBuster}\`)
     const content = contentModule.articleContent.content
-    return { ...metadata, content }
+
+    return {
+      ...metadata,
+      content
+    }
   } catch (error) {
-    console.error(`Erro ao carregar conteúdo do artigo ${slug}:`, error)
+    console.error(\`Erro ao carregar conteúdo do artigo \${slug}:\`, error)
     return undefined
   }
 }
 
+// Função para obter artigo por ID
 export async function loadArticleById(id: string): Promise<Article | undefined> {
   const metadata = articlesMetadata.find(article => article.id === id)
   if (!metadata) return undefined
+
   return loadArticleContent(metadata.slug)
 }
 
+// Para compatibilidade com código existente
 export async function loadAllArticles(): Promise<Article[]> {
   const articles: Article[] = []
+  
   for (const metadata of articlesMetadata) {
     const article = await loadArticleContent(metadata.slug)
-    if (article) articles.push(article)
+    if (article) {
+      articles.push(article)
+    }
   }
+  
   return articles
 }
 
+// Export para compatibilidade com a estrutura antiga
 export const articles = articlesMetadata.map(metadata => ({
   ...metadata,
-  content: ''
-})) as Article[]
+  content: '' // Será carregado dinamicamente quando necessário
+})) as Article[]`
+
+console.log("Conteúdo correto preparado para upload manual ao GitHub")
+console.log("Copie este conteúdo e substitua manualmente no GitHub:")
+console.log(correctData)

@@ -1,4 +1,24 @@
-import { ArticleMetadata, Article } from './types'
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Correção de Encoding GitHub</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Correção de Encoding dos Artigos</h1>
+    <p>Para corrigir o encoding no GitHub, siga estes passos:</p>
+    
+    <h2>📋 Instruções:</h2>
+    <ol>
+        <li><strong>Vá para o GitHub</strong>: <a href="https://github.com/igorgcampos/mpeixoto-adv-lp/blob/main/src/data/articles/index.ts" target="_blank">Abrir arquivo no GitHub</a></li>
+        <li><strong>Clique em "Edit" (✏️)</strong></li>
+        <li><strong>Substitua TODO o conteúdo</strong> pelo texto abaixo:</li>
+        <li><strong>Commit com mensagem</strong>: "Corrige encoding UTF-8 dos artigos"</li>
+    </ol>
+
+    <h2>🔄 Conteúdo Correto:</h2>
+    <textarea rows="50" cols="100" onclick="this.select()">import { ArticleMetadata, Article } from './types'
+
 // Metadados dos artigos (para listagens e navegação)
 export const articlesMetadata: ArticleMetadata[] = [
   {
@@ -39,37 +59,63 @@ export const articlesMetadata: ArticleMetadata[] = [
   }
 ]
 
+// Função para carregar artigo completo (lazy loading)
 export async function loadArticleContent(slug: string): Promise<Article | undefined> {
   const metadata = articlesMetadata.find(article => article.slug === slug)
   if (!metadata) return undefined
+
   try {
+    // Adiciona timestamp para evitar cache em desenvolvimento
     const isDev = import.meta.env.DEV
     const cacheBuster = isDev ? `?t=${Date.now()}` : ''
     const contentModule = await import(`./content/${metadata.contentFile}.ts${cacheBuster}`)
     const content = contentModule.articleContent.content
-    return { ...metadata, content }
+
+    return {
+      ...metadata,
+      content
+    }
   } catch (error) {
     console.error(`Erro ao carregar conteúdo do artigo ${slug}:`, error)
     return undefined
   }
 }
 
+// Função para obter artigo por ID
 export async function loadArticleById(id: string): Promise<Article | undefined> {
   const metadata = articlesMetadata.find(article => article.id === id)
   if (!metadata) return undefined
+
   return loadArticleContent(metadata.slug)
 }
 
+// Para compatibilidade com código existente
 export async function loadAllArticles(): Promise<Article[]> {
   const articles: Article[] = []
+  
   for (const metadata of articlesMetadata) {
     const article = await loadArticleContent(metadata.slug)
-    if (article) articles.push(article)
+    if (article) {
+      articles.push(article)
+    }
   }
+  
   return articles
 }
 
+// Export para compatibilidade com a estrutura antiga
 export const articles = articlesMetadata.map(metadata => ({
   ...metadata,
-  content: ''
-})) as Article[]
+  content: '' // Será carregado dinamicamente quando necessário
+})) as Article[]</textarea>
+
+    <h2>✅ Após fazer isso:</h2>
+    <ul>
+        <li>O GitHub terá dados com encoding correto</li>
+        <li>A página de produção mostrará acentos normalmente</li>
+        <li>Tanto local quanto produção funcionarão perfeitamente</li>
+    </ul>
+
+    <p><strong>Clique no textarea acima para selecionar todo o texto, depois copie (Ctrl+C)</strong></p>
+</body>
+</html>

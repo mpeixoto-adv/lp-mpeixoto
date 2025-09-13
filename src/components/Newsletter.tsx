@@ -1,7 +1,7 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Calendar, Clock, User } from "lucide-react";
-import { articles } from "@/data/articles";
+import { articles } from "@/data/articles-adapter";
 import { useNavigate } from "react-router-dom";
 
 export const Newsletter = () => {

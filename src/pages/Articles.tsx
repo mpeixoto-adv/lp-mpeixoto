@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, Calendar, Clock, User, Search } from "lucide-react";
-import { articles } from "@/data/articles";
+import { articles } from "@/data/articles-adapter";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 

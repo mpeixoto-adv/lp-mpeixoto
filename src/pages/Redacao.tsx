@@ -9,8 +9,8 @@ import { Badge } from '@/components/ui/badge'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { ArrowLeft, FileText, Plus, Settings } from 'lucide-react'
 import { ArtigoRascunho } from '@/lib/redacao-types'
-import { githubStorage } from '@/services/github-storage'
-import { Article } from '@/data/articles'
+import { githubStorageV2 } from '@/services/github-storage-v2'
+import { Article } from '@/data/articles/types'
 
 const RedacaoPage = () => {
   const navigate = useNavigate()
@@ -39,7 +39,7 @@ const RedacaoPage = () => {
   const carregarArtigos = async () => {
     try {
       setLoading(true)
-      const artigosCarregados = await githubStorage.listar()
+      const artigosCarregados = await githubStorageV2.listar()
       setArtigos(artigosCarregados)
     } catch (error) {
       console.error('Erro ao carregar artigos:', error)
@@ -52,7 +52,7 @@ const RedacaoPage = () => {
   const carregarArtigo = async (id: string) => {
     try {
       setLoading(true)
-      const artigo = await githubStorage.buscarPorId(id)
+      const artigo = await githubStorageV2.buscarPorId(id)
       if (artigo) {
         const rascunho: ArtigoRascunho = {
           ...artigo,
@@ -73,7 +73,7 @@ const RedacaoPage = () => {
   const handleSalvarArtigo = async (artigo: ArtigoRascunho) => {
     try {
       setLoading(true)
-      const artigoSalvo = await githubStorage.salvar(artigo)
+      const artigoSalvo = await githubStorageV2.salvar(artigo)
       alert('Artigo salvo com sucesso!')
       
       // Atualiza a lista e redireciona
@@ -107,7 +107,7 @@ const RedacaoPage = () => {
     if (confirm(`Tem certeza que deseja excluir o artigo "${titulo}"?`)) {
       try {
         setLoading(true)
-        await githubStorage.excluir(id)
+        await githubStorageV2.excluir(id)
         alert('Artigo excluído com sucesso!')
         await carregarArtigos()
       } catch (error) {

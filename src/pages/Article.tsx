@@ -1,18 +1,51 @@
 import { useParams, useNavigate, Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, Clock, User, Share2 } from "lucide-react";
-import { articles } from "@/data/articles";
+import { getArticleBySlug, getArticlesByCategory, LegacyArticle } from "@/data/articles-adapter";
 
 const ArticlePage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const [article, setArticle] = useState<LegacyArticle | null>(null);
+  const [loading, setLoading] = useState(true);
   
-  const article = articles.find(a => a.slug === slug);
+  useEffect(() => {
+    async function loadArticle() {
+      if (!slug) {
+        navigate('/404');
+        return;
+      }
+      
+      try {
+        const foundArticle = await getArticleBySlug(slug);
+        if (!foundArticle) {
+          navigate('/404');
+          return;
+        }
+        setArticle(foundArticle);
+      } catch (error) {
+        console.error('Erro ao carregar artigo:', error);
+        navigate('/404');
+      } finally {
+        setLoading(false);
+      }
+    }
+    
+    loadArticle();
+  }, [slug, navigate]);
+  
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div>Carregando artigo...</div>
+      </div>
+    );
+  }
   
   if (!article) {
-    navigate('/404');
     return null;
   }
 

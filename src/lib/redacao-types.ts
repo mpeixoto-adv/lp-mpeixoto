@@ -1,4 +1,4 @@
-import { Article } from '@/data/articles'
+import { LegacyArticle as Article } from '@/data/articles-adapter'
 
 // Estende a interface Article existente para incluir metadados de redação
 export interface ArtigoRascunho extends Omit<Article, 'id' | 'slug'> {

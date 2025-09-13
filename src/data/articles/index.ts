@@ -52,32 +52,13 @@ export const articlesMetadata: ArticleMetadata[] = [
   }
 ]
 
-// Import estático de todos os conteúdos para o Vercel
-import * as lgpdContent from './content/lgpd-o-que-sua-empresa-precisa-saber'
-import * as consumerContent from './content/direitos-consumidor-compras-online'
-import * as tributarioContent from './content/reforma-tributaria-impactos-pequenas-empresas'
-import * as leiAureaContent from './content/lei-aurea'
-
-// Mapa de conteúdos para resolver imports dinâmicos
-const contentMap: Record<string, any> = {
-  'lgpd-o-que-sua-empresa-precisa-saber': lgpdContent,
-  'direitos-consumidor-compras-online': consumerContent,
-  'reforma-tributaria-impactos-pequenas-empresas': tributarioContent,
-  'lei-aurea': leiAureaContent
-}
-
-// Função para carregar artigo completo (com imports estáticos)
+// Função para carregar artigo completo (lazy loading)
 export async function loadArticleContent(slug: string): Promise<Article | undefined> {
   const metadata = articlesMetadata.find(article => article.slug === slug)
   if (!metadata) return undefined
 
   try {
-    const contentModule = contentMap[metadata.contentFile]
-    if (!contentModule) {
-      console.error(`Conteúdo não encontrado para: ${metadata.contentFile}`)
-      return undefined
-    }
-    
+    const contentModule = await import(`./content/${metadata.contentFile}`)
     const content = contentModule.articleContent.content
 
     return {

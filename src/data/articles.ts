@@ -13,27 +13,11 @@ export interface Article {
 
 export const articles: Article[] = [
   {
-    id: "4",
-    title: "teste123",
-    excerpt: "tetetet",
-    content: `
-
-
-<p>teste2123412412</p>
-    
-    
-    `,
-    author: "Dr. Marcelo Peixoto2",
-    date: "2025-09-13",
-    category: "Direito Empresarial",
-    readTime: "1 min",
-    slug: "teste123"
-  },
-  {
     id: "1",
     title: "Nova Lei de Proteção de Dados: O que sua empresa precisa saber",
     excerpt: "A LGPD trouxe mudanças significativas para o tratamento de dados pessoais. Entenda as principais obrigações e como se adequar.",
     content: `
+
 
 
 
@@ -63,6 +47,7 @@ export const articles: Article[] = [
     
     
     
+    
     `,
     author: "Dr. Marcelo Peixoto",
     date: "2024-01-15",
@@ -76,6 +61,7 @@ export const articles: Article[] = [
     title: "Direitos do Consumidor em Compras Online",
     excerpt: "Conheça seus direitos ao realizar compras pela internet e saiba como se proteger de fraudes e problemas.",
     content: `
+
 
 
 
@@ -110,6 +96,7 @@ export const articles: Article[] = [
     
     
     
+    
     `,
     author: "Dra. Ana Paula Santos",
     date: "2024-01-10",
@@ -123,6 +110,7 @@ export const articles: Article[] = [
     title: "Reforma Tributária: Impactos para Pequenas Empresas",
     excerpt: "Entenda as principais mudanças da reforma tributária e como elas afetarão o dia a dia das pequenas e médias empresas.",
     content: `
+
 
 
 
@@ -148,6 +136,7 @@ export const articles: Article[] = [
       
       <h3>Recomendações</h3>
       <p>Nossa equipe recomenda que as empresas comecem desde já a se preparar, buscando assessoria especializada para entender os impactos específicos em seu setor.</p>
+    
     
     
     

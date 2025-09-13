@@ -58,7 +58,7 @@ export async function loadArticleContent(slug: string): Promise<Article | undefi
   if (!metadata) return undefined
 
   try {
-    const contentModule = await import(`./content/${metadata.contentFile}`)
+    const contentModule = await import(/* @vite-ignore */ `./content/${metadata.contentFile}.ts`)
     const content = contentModule.articleContent.content
 
     return {

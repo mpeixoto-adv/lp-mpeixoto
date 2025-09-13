@@ -1,18 +1,17 @@
 import { ArticleMetadata, Article } from './types'
-import { loadArticleContentHybrid } from './loader'
 
 // Metadados dos artigos (para listagens e navegação)
 export const articlesMetadata: ArticleMetadata[] = [
   {
     id: "5",
-    title: "Teste de artigo editado de novo",
-    excerpt: "Testando novo artigo editado de novo",
+    title: "Teste de artigo editado de novo e de novo",
+    excerpt: "Testando novo artigo editado de novo e de novo",
     author: "Dr. Marcelo Peixoto Editado",
     date: "2025-09-13",
     category: "Direito Empresarial",
     readTime: "1 min",
-    slug: "teste-de-artigo-editado-de-novo",
-    contentFile: "teste-de-artigo-editado-de-novo"
+    slug: "teste-de-artigo-editado-de-novo-e-de-novo",
+    contentFile: "teste-de-artigo-editado-de-novo-e-de-novo"
   },
   {
     id: "4",
@@ -64,12 +63,23 @@ export const articlesMetadata: ArticleMetadata[] = [
   }
 ]
 
-// Função para carregar artigo completo (usa sistema híbrido separado)
+// Função para carregar artigo completo (lazy loading)
 export async function loadArticleContent(slug: string): Promise<Article | undefined> {
   const metadata = articlesMetadata.find(article => article.slug === slug)
   if (!metadata) return undefined
 
-  return loadArticleContentHybrid(slug, metadata)
+  try {
+    const contentModule = await import(`./content/${metadata.contentFile}`)
+    const content = contentModule.articleContent.content
+
+    return {
+      ...metadata,
+      content
+    }
+  } catch (error) {
+    console.error(`Erro ao carregar conteúdo do artigo ${slug}:`, error)
+    return undefined
+  }
 }
 
 // Função para obter artigo por ID

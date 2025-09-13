@@ -129,29 +129,19 @@ class GitHubStorageServiceV2 implements ArtigoService {
   }`).join(',\n')
 
     return `import { ArticleMetadata, Article } from './types'
+import { loadArticleContentHybrid } from './loader'
 
 // Metadados dos artigos (para listagens e navegação)
 export const articlesMetadata: ArticleMetadata[] = [
 ${metadataFormatted}
 ]
 
-// Função para carregar artigo completo (lazy loading)
+// Função para carregar artigo completo (usa sistema híbrido separado)
 export async function loadArticleContent(slug: string): Promise<Article | undefined> {
   const metadata = articlesMetadata.find(article => article.slug === slug)
   if (!metadata) return undefined
 
-  try {
-    const contentModule = await import(\`./content/\${metadata.contentFile}\`)
-    const content = contentModule.articleContent.content
-
-    return {
-      ...metadata,
-      content
-    }
-  } catch (error) {
-    console.error(\`Erro ao carregar conteúdo do artigo \${slug}:\`, error)
-    return undefined
-  }
+  return loadArticleContentHybrid(slug, metadata)
 }
 
 // Função para obter artigo por ID

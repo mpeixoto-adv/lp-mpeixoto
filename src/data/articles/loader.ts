@@ -34,7 +34,7 @@ export async function loadArticleContentHybrid(slug: string, metadata: ArticleMe
 // Mapa estático para produção Vercel (atualizar conforme necessário)
 async function loadStaticContent(contentFile: string): Promise<string | undefined> {
   switch (contentFile) {
-    // Artigos de teste
+    // Artigos de teste (sempre manter atualizados)
     case 'teste-de-artigo-editado-de-novo':
       return (await import('./content/teste-de-artigo-editado-de-novo')).articleContent.content
     case 'teste-de-artigo-editado':

@@ -11,6 +11,7 @@ import DireitoCivil from "./pages/DireitoCivil";
 import DireitoTributario from "./pages/DireitoTributario";
 import Articles from "./pages/Articles";
 import Article from "./pages/Article";
+import Redacao from "./pages/Redacao";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -41,6 +42,7 @@ const App = () => (
           <Route path="/direito-tributario" element={<DireitoTributario />} />
           <Route path="/artigos" element={<Articles />} />
           <Route path="/artigo/:slug" element={<Article />} />
+          <Route path="/redacao" element={<Redacao />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

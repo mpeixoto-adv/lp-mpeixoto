@@ -91,6 +91,7 @@ const RedacaoPage = () => {
 
   const handlePreview = (artigo: ArtigoRascunho) => {
     setArtigoPreview(artigo)
+    setArtigoAtual(artigo) // Preserva as alterações do editor
     setModo('preview')
   }
 

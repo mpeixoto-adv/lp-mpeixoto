@@ -18,7 +18,9 @@ export const articles: Article[] = [
     excerpt: "tetetet",
     content: `
 
+
 <p>teste2123412412</p>
+    
     
     `,
     author: "Dr. Marcelo Peixoto2",
@@ -28,23 +30,11 @@ export const articles: Article[] = [
     slug: "teste123"
   },
   {
-    id: "5",
-    title: "teste12345",
-    excerpt: "SASFA",
-    content: `
-<p>lorenm</p><p>fas</p><p>faf</p><p>afs</p><p>af</p><p>acvacasfsafasfsaf</p><p>as</p><p>fas</p>
-    `,
-    author: "Dr. Marcelo Peixoto4",
-    date: "2025-09-13",
-    category: "Direito do Consumidor",
-    readTime: "1 min",
-    slug: "teste12345"
-  },
-  {
     id: "1",
     title: "Nova Lei de Proteção de Dados: O que sua empresa precisa saber",
     excerpt: "A LGPD trouxe mudanças significativas para o tratamento de dados pessoais. Entenda as principais obrigações e como se adequar.",
     content: `
+
 
 
       <h2>Introdução à LGPD</h2>
@@ -72,6 +62,7 @@ export const articles: Article[] = [
       <p>A adequação à LGPD não é apenas uma obrigação legal, mas uma oportunidade de construir relações mais transparentes e confiáveis com clientes e parceiros.</p>
     
     
+    
     `,
     author: "Dr. Marcelo Peixoto",
     date: "2024-01-15",
@@ -85,6 +76,7 @@ export const articles: Article[] = [
     title: "Direitos do Consumidor em Compras Online",
     excerpt: "Conheça seus direitos ao realizar compras pela internet e saiba como se proteger de fraudes e problemas.",
     content: `
+
 
 
       <h2>O Crescimento do E-commerce</h2>
@@ -117,6 +109,7 @@ export const articles: Article[] = [
       </ol>
     
     
+    
     `,
     author: "Dra. Ana Paula Santos",
     date: "2024-01-10",
@@ -130,6 +123,7 @@ export const articles: Article[] = [
     title: "Reforma Tributária: Impactos para Pequenas Empresas",
     excerpt: "Entenda as principais mudanças da reforma tributária e como elas afetarão o dia a dia das pequenas e médias empresas.",
     content: `
+
 
 
       <h2>A Nova Reforma Tributária</h2>
@@ -154,6 +148,7 @@ export const articles: Article[] = [
       
       <h3>Recomendações</h3>
       <p>Nossa equipe recomenda que as empresas comecem desde já a se preparar, buscando assessoria especializada para entender os impactos específicos em seu setor.</p>
+    
     
     
     `,

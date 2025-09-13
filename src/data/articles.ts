@@ -17,7 +17,9 @@ export const articles: Article[] = [
     title: "teste123",
     excerpt: "tetetet",
     content: `
+
 <p>teste2123412412</p>
+    
     `,
     author: "Dr. Marcelo Peixoto2",
     date: "2025-09-13",
@@ -26,10 +28,24 @@ export const articles: Article[] = [
     slug: "teste123"
   },
   {
+    id: "5",
+    title: "teste12345",
+    excerpt: "SASFA",
+    content: `
+<p>lorenm</p><p>fas</p><p>faf</p><p>afs</p><p>af</p><p>acvacasfsafasfsaf</p><p>as</p><p>fas</p>
+    `,
+    author: "Dr. Marcelo Peixoto4",
+    date: "2025-09-13",
+    category: "Direito do Consumidor",
+    readTime: "1 min",
+    slug: "teste12345"
+  },
+  {
     id: "1",
     title: "Nova Lei de Proteção de Dados: O que sua empresa precisa saber",
     excerpt: "A LGPD trouxe mudanças significativas para o tratamento de dados pessoais. Entenda as principais obrigações e como se adequar.",
     content: `
+
 
       <h2>Introdução à LGPD</h2>
       <p>A Lei Geral de Proteção de Dados (LGPD) representa um marco regulatório importante no Brasil, estabelecendo regras claras sobre o tratamento de dados pessoais por empresas e organizações.</p>
@@ -55,6 +71,7 @@ export const articles: Article[] = [
       <h3>Conclusão</h3>
       <p>A adequação à LGPD não é apenas uma obrigação legal, mas uma oportunidade de construir relações mais transparentes e confiáveis com clientes e parceiros.</p>
     
+    
     `,
     author: "Dr. Marcelo Peixoto",
     date: "2024-01-15",
@@ -68,6 +85,7 @@ export const articles: Article[] = [
     title: "Direitos do Consumidor em Compras Online",
     excerpt: "Conheça seus direitos ao realizar compras pela internet e saiba como se proteger de fraudes e problemas.",
     content: `
+
 
       <h2>O Crescimento do E-commerce</h2>
       <p>Com o aumento expressivo das compras online, é fundamental conhecer os direitos garantidos pelo Código de Defesa do Consumidor.</p>
@@ -98,6 +116,7 @@ export const articles: Article[] = [
         <li>Buscar orientação jurídica especializada</li>
       </ol>
     
+    
     `,
     author: "Dra. Ana Paula Santos",
     date: "2024-01-10",
@@ -111,6 +130,7 @@ export const articles: Article[] = [
     title: "Reforma Tributária: Impactos para Pequenas Empresas",
     excerpt: "Entenda as principais mudanças da reforma tributária e como elas afetarão o dia a dia das pequenas e médias empresas.",
     content: `
+
 
       <h2>A Nova Reforma Tributária</h2>
       <p>A reforma tributária aprovada promete simplificar o sistema de impostos brasileiro, mas traz desafios importantes para as empresas se adaptarem.</p>
@@ -134,6 +154,7 @@ export const articles: Article[] = [
       
       <h3>Recomendações</h3>
       <p>Nossa equipe recomenda que as empresas comecem desde já a se preparar, buscando assessoria especializada para entender os impactos específicos em seu setor.</p>
+    
     
     `,
     author: "Dr. Roberto Silva",

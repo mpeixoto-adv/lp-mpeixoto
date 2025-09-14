@@ -4,6 +4,17 @@ import { loadArticleContentHybrid } from './loader'
 // Metadados dos artigos (para listagens e navegação)
 export const articlesMetadata: ArticleMetadata[] = [
   {
+    id: "preview",
+    title: "Teste De Artigo 2025",
+    excerpt: "Testando criacao do artigo",
+    author: "Dr. Marcelo Peixoto",
+    date: "2025-09-14",
+    category: "Direito Empresarial",
+    readTime: "1 min",
+    slug: "teste-de-artigo-2025",
+    contentFile: "teste-de-artigo-2025"
+  },
+  {
     id: "1",
     title: "Nova Lei de Proteção de Dados: O que sua empresa precisa saber",
     excerpt: "A LGPD trouxe mudanças significativas para o tratamento de dados pessoais. Entenda as principais obrigações e como se adequar.",

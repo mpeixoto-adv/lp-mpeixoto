@@ -7,8 +7,7 @@ import { RedacaoEditor } from '@/components/RedacaoEditor'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { ArrowLeft, FileText, Plus, Settings, RefreshCw } from 'lucide-react'
+import { ArrowLeft, FileText, Plus, RefreshCw } from 'lucide-react'
 import { ArtigoRascunho } from '@/lib/redacao-types'
 import { githubStorageV2 } from '@/services/github-storage-v2'
 import { Article } from '@/data/articles/types'
@@ -23,7 +22,6 @@ const RedacaoPage = () => {
   const [artigoPreview, setArtigoPreview] = useState<ArtigoRascunho | undefined>()
   const [artigoEditor, setArtigoEditor] = useState<ArtigoRascunho | undefined>()
   const [loading, setLoading] = useState(false)
-  const [showConfig, setShowConfig] = useState(false)
 
   useEffect(() => {
     carregarArtigos()
@@ -168,10 +166,6 @@ const RedacaoPage = () => {
           <Button variant="outline" onClick={() => carregarArtigos(true)} disabled={loading}>
             <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
             Atualizar
-          </Button>
-          <Button variant="outline" onClick={() => setShowConfig(true)}>
-            <Settings className="h-4 w-4 mr-2" />
-            Configurações
           </Button>
           <Button onClick={handleNovoArtigo}>
             <Plus className="h-4 w-4 mr-2" />
@@ -339,29 +333,6 @@ const RedacaoPage = () => {
           <Footer />
         </div>
 
-        {/* Dialog de Configurações */}
-        <Dialog open={showConfig} onOpenChange={setShowConfig}>
-          <DialogContent>
-            <DialogHeader>
-              <DialogTitle>Configurações do GitHub</DialogTitle>
-            </DialogHeader>
-            <div className="space-y-4">
-              <p className="text-sm text-muted-foreground">
-                Para usar o sistema de redação, configure as seguintes variáveis de ambiente:
-              </p>
-              <div className="space-y-2 font-mono text-sm bg-muted p-4 rounded">
-                <div>VITE_GITHUB_OWNER=seu-usuario</div>
-                <div>VITE_GITHUB_REPO=nome-do-repositorio</div>
-                <div>VITE_GITHUB_TOKEN=seu-token-github</div>
-                <div>VITE_GITHUB_BRANCH=main</div>
-                <div>VITE_GITHUB_FILE_PATH=src/data/articles.ts</div>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Reinicie o servidor após configurar as variáveis de ambiente.
-              </p>
-            </div>
-          </DialogContent>
-        </Dialog>
       </div>
     </ProtectedRoute>
   )

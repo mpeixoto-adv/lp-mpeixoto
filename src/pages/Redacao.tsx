@@ -21,6 +21,7 @@ const RedacaoPage = () => {
   const [artigos, setArtigos] = useState<Article[]>([])
   const [artigoAtual, setArtigoAtual] = useState<ArtigoRascunho | undefined>()
   const [artigoPreview, setArtigoPreview] = useState<ArtigoRascunho | undefined>()
+  const [artigoEditor, setArtigoEditor] = useState<ArtigoRascunho | undefined>()
   const [loading, setLoading] = useState(false)
   const [showConfig, setShowConfig] = useState(false)
 
@@ -62,6 +63,7 @@ const RedacaoPage = () => {
           dataUltimaEdicao: new Date().toISOString()
         }
         setArtigoAtual(rascunho)
+        setArtigoEditor(undefined) // Limpa estado do editor para forçar reload
       }
     } catch (error) {
       console.error('Erro ao carregar artigo:', error)
@@ -91,11 +93,13 @@ const RedacaoPage = () => {
 
   const handlePreview = (artigo: ArtigoRascunho) => {
     setArtigoPreview(artigo)
+    setArtigoEditor(artigo) // Salva estado do editor
     setModo('preview')
   }
 
   const handleNovoArtigo = () => {
     setArtigoAtual(undefined)
+    setArtigoEditor(undefined)
     setSearchParams({})
     setModo('editor')
   }
@@ -240,7 +244,9 @@ const RedacaoPage = () => {
             <Button
               variant="outline"
               onClick={() => {
-                setArtigoAtual(artigoPreview)
+                if (artigoEditor) {
+                  setArtigoAtual(artigoEditor)
+                }
                 setModo('editor')
               }}
             >

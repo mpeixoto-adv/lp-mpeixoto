@@ -2,16 +2,12 @@ import { ArticleMetadata, Article } from './types';
 
 import * as direitos_consumidor_compras_online from './content/direitos-consumidor-compras-online';
 import * as lgpd_o_que_sua_empresa_precisa_saber from './content/lgpd-o-que-sua-empresa-precisa-saber';
-import * as nova_versao_lgdp from './content/nova-versao-lgdp';
-import * as novo_artigo_para_editar from './content/novo-artigo-para-editar';
 import * as reforma_tributaria_impactos_pequenas_empresas from './content/reforma-tributaria-impactos-pequenas-empresas';
 
 // Mapa estático de conteúdos (gerado automaticamente)
 const STATIC_CONTENT_MAP: Record<string, string> = {
     'direitos-consumidor-compras-online': direitos_consumidor_compras_online.articleContent.content,
     'lgpd-o-que-sua-empresa-precisa-saber': lgpd_o_que_sua_empresa_precisa_saber.articleContent.content,
-    'nova-versao-lgdp': nova_versao_lgdp.articleContent.content,
-    'novo-artigo-para-editar': novo_artigo_para_editar.articleContent.content,
     'reforma-tributaria-impactos-pequenas-empresas': reforma_tributaria_impactos_pequenas_empresas.articleContent.content
 };
 

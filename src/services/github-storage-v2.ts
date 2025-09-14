@@ -206,8 +206,9 @@ export const articles = articlesMetadata.map(metadata => ({
     if (!metadata) return undefined
 
     try {
-      // Carrega o conteúdo do arquivo específico
-      const { content } = await this.buscarArquivo(`src/data/articles/content/${metadata.slug}.ts`)
+      // Carrega o conteúdo do arquivo específico usando contentFile (sempre preferindo contentFile)
+      const contentFileName = metadata.contentFile
+      const { content } = await this.buscarArquivo(`src/data/articles/content/${contentFileName}.ts`)
       const contentMatch = content.match(/content: `([\s\S]*?)`,/)
       const articleContent = contentMatch ? contentMatch[1] : ''
 
@@ -230,6 +231,11 @@ export const articles = articlesMetadata.map(metadata => ({
       const currentMetadata = this.parseMetadataFromFile(indexContent)
 
       // 2. Criar metadados do novo/atualizado artigo
+      // Para edição, preserva contentFile original; para novo artigo, gera um novo
+      const isEditing = !!rascunho.id
+      const existingArticle = isEditing ? currentMetadata.find(a => a.id === rascunho.id) : null
+      const contentFile = existingArticle?.contentFile || generateUniqueSlug(rascunho.title)
+
       const articleMetadata: ArticleMetadata = {
         id: rascunho.id || getNextArticleId(),
         title: rascunho.title,
@@ -240,7 +246,7 @@ export const articles = articlesMetadata.map(metadata => ({
         image: rascunho.image,
         readTime: rascunho.readTime,
         slug: rascunho.slug || generateUniqueSlug(rascunho.title),
-        contentFile: rascunho.slug || generateUniqueSlug(rascunho.title)
+        contentFile: contentFile
       }
 
       // 3. Atualizar lista de metadados

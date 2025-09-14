@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { ArrowLeft, FileText, Plus, Settings } from 'lucide-react'
+import { ArrowLeft, FileText, Plus, Settings, RefreshCw } from 'lucide-react'
 import { ArtigoRascunho } from '@/lib/redacao-types'
 import { githubStorageV2 } from '@/services/github-storage-v2'
 import { Article } from '@/data/articles/types'
@@ -38,9 +38,15 @@ const RedacaoPage = () => {
     }
   }, [artigoId])
 
-  const carregarArtigos = async () => {
+  const carregarArtigos = async (forceRefresh = false) => {
     try {
       setLoading(true)
+
+      // Se forceRefresh, adiciona timestamp para evitar cache
+      if (forceRefresh) {
+        await new Promise(resolve => setTimeout(resolve, 500))
+      }
+
       const artigos = await githubStorageV2.listar()
       setArtigos(artigos)
     } catch (error) {
@@ -81,15 +87,23 @@ const RedacaoPage = () => {
       setLoading(true)
       await githubStorageV2.salvar(artigo)
       alert('Artigo salvo com sucesso!')
-      
-      // Atualiza a lista e redireciona
-      await carregarArtigos()
-      navigate('/redacao')
-      setModo('lista')
+
+      // Limpa estado para forçar refresh
+      setArtigos([])
+      setArtigoAtual(undefined)
+      setArtigoEditor(undefined)
+
+      // Aguarda um pequeno delay e recarrega com força
+      setTimeout(async () => {
+        await carregarArtigos(true)
+        navigate('/redacao')
+        setModo('lista')
+        setSearchParams({})
+        setLoading(false)
+      }, 1000)
     } catch (error) {
       console.error('Erro ao salvar artigo:', error)
       alert(error instanceof Error ? error.message : 'Erro ao salvar artigo.')
-    } finally {
       setLoading(false)
     }
   }
@@ -117,7 +131,17 @@ const RedacaoPage = () => {
         setLoading(true)
         await githubStorageV2.excluir(id)
         alert('Artigo excluído com sucesso!')
-        await carregarArtigos()
+
+        // Limpa estado para forçar refresh
+        setArtigos([])
+        setArtigoAtual(undefined)
+        setArtigoEditor(undefined)
+
+        // Aguarda um pequeno delay e recarrega com força
+        setTimeout(async () => {
+          await carregarArtigos(true)
+          setLoading(false)
+        }, 1000)
       } catch (error) {
         console.error('Erro ao excluir artigo:', error)
         alert(error instanceof Error ? error.message : 'Erro ao excluir artigo.')
@@ -141,6 +165,10 @@ const RedacaoPage = () => {
           </p>
         </div>
         <div className="flex gap-2">
+          <Button variant="outline" onClick={() => carregarArtigos(true)} disabled={loading}>
+            <RefreshCw className={`h-4 w-4 mr-2 ${loading ? 'animate-spin' : ''}`} />
+            Atualizar
+          </Button>
           <Button variant="outline" onClick={() => setShowConfig(true)}>
             <Settings className="h-4 w-4 mr-2" />
             Configurações

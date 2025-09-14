@@ -4,18 +4,6 @@ import { loadArticleContentHybrid } from './loader'
 // Metadados dos artigos (para listagens e navegação)
 export const articlesMetadata: ArticleMetadata[] = [
   {
-    id: "4",
-    title: "Novo artigo para editar - EDITADO",
-    excerpt: "Editando - EDITADO",
-    author: "Dr. Marcelo Peixoto",
-    date: "2025-09-14",
-    category: "Direito Imobiliário",
-    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=2070",
-    readTime: "1 min",
-    slug: "novo-artigo-para-editar-editado",
-    contentFile: "novo-artigo-para-editar-editado"
-  },
-  {
     id: "1",
     title: "Nova Lei de Proteção de Dados: O que sua empresa precisa saber",
     excerpt: "A LGPD trouxe mudanças significativas para o tratamento de dados pessoais. Entenda as principais obrigações e como se adequar.",

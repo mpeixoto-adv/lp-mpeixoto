@@ -5,13 +5,13 @@ import { loadArticleContentHybrid } from './loader'
 export const articlesMetadata: ArticleMetadata[] = [
   {
     id: "preview",
-    title: "Teste De Artigo 2025 - EDITADO",
-    excerpt: "Testando criacao do artigo - EDITADO",
+    title: "Teste De Artigo 2026",
+    excerpt: "Testando criação do artigo 2026",
     author: "Dr. Marcelo Peixoto",
     date: "2025-09-14",
     category: "Direito Empresarial",
     readTime: "1 min",
-    slug: "teste-de-artigo-2025-editado",
+    slug: "teste-de-artigo-2026",
     contentFile: "teste-de-artigo-2025"
   },
   {

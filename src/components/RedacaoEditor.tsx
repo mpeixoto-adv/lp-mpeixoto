@@ -20,7 +20,7 @@ import {
   Eye,
   Upload
 } from 'lucide-react'
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { ArtigoRascunho, CATEGORIAS_ARTIGOS, gerarSlug, calcularTempoLeitura } from '@/lib/redacao-types'
 
 interface RedacaoEditorProps {
@@ -46,6 +46,22 @@ export const RedacaoEditor = ({ artigo, onSave, onPreview, loading = false }: Re
       // Atualiza automaticamente o tempo de leitura conforme o usuário digita
     }
   })
+
+  // Atualiza os estados quando a prop artigo muda
+  useEffect(() => {
+    if (artigo) {
+      setTitulo(artigo.title || '')
+      setExcerpt(artigo.excerpt || '')
+      setAuthor(artigo.author || 'Dr. Marcelo Peixoto')
+      setCategory(artigo.category || '')
+      setImage(artigo.image || '')
+      setObservacoes(artigo.observacoes || '')
+
+      if (editor && artigo.content) {
+        editor.commands.setContent(artigo.content)
+      }
+    }
+  }, [artigo, editor])
 
   const handleSave = useCallback(async () => {
     if (!editor || !titulo.trim() || !excerpt.trim() || !category) {

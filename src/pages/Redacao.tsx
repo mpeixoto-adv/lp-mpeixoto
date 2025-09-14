@@ -30,7 +30,6 @@ const RedacaoPage = () => {
   }, [])
 
   useEffect(() => {
-    console.log('useEffect artigoId:', artigoId)
     if (artigoId) {
       carregarArtigo(artigoId)
       setModo('editor')
@@ -55,9 +54,7 @@ const RedacaoPage = () => {
   const carregarArtigo = async (id: string) => {
     try {
       setLoading(true)
-      console.log('Carregando artigo ID:', id)
       const artigo = await githubStorageV2.buscarPorId(id)
-      console.log('Artigo carregado:', artigo)
       if (artigo) {
         const rascunho: ArtigoRascunho = {
           ...artigo,
@@ -67,9 +64,7 @@ const RedacaoPage = () => {
         }
         setArtigoAtual(rascunho)
         setArtigoEditor(undefined) // Limpa estado do editor para forçar reload
-        console.log('ArtigoAtual setado:', rascunho)
       } else {
-        console.log('Artigo não encontrado para ID:', id)
         setArtigoAtual(undefined)
       }
     } catch (error) {

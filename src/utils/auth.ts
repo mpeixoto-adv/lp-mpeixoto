@@ -1,7 +1,7 @@
 import bcrypt from 'bcryptjs'
 
 // Hash da senha do sistema (configurável via variável de ambiente)
-const SENHA_HASH = '$2b$10$iemFKIVeHwKjTpxBqilt6O6XT7bjwoBV1OAMl.xs56K8m9Mt3bMpe'
+const SENHA_HASH = '$2b$10$I5.SeFFbeI4.NmHwipj9pOINUIgInEptnqpA8i4U0.bNeD1f2NQeu'
 
 // Gerar novo hash (use este código para criar novo hash quando mudar a senha)
 export async function gerarHashSenha(senha: string): Promise<string> {

@@ -271,3 +271,86 @@ All colors MUST be HSL.
     transform: translateY(0);
   }
 }
+
+/* TipTap Editor Styles - Remove black outline and improve appearance */
+.ProseMirror {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.ProseMirror:focus {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Ensure paragraph styling in editor */
+.ProseMirror p {
+  margin: 0.5em 0;
+  line-height: 1.6;
+}
+
+/* Empty paragraph placeholder styling */
+.ProseMirror p.is-editor-empty:first-child::before {
+  color: #9ca3af;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* GLOBAL OUTLINE REMOVAL - Remove all black outlines from focus */
+*:focus,
+*:focus-visible,
+*:focus-within {
+  outline: none !important;
+}
+
+/* Form elements specific override */
+input,
+textarea,
+select,
+button {
+  outline: none !important;
+}
+
+input:focus,
+textarea:focus,
+select:focus,
+button:focus,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible,
+button:focus-visible {
+  outline: none !important;
+  border-color: hsl(var(--ring)) !important;
+  box-shadow: 0 0 0 2px hsl(var(--ring)) !important;
+}
+
+/* Tailwind classes override */
+.focus\:outline-none:focus,
+.focus-visible\:outline-none:focus-visible {
+  outline: none !important;
+}
+
+/* shadcn/ui specific overrides with higher specificity */
+.relative input:focus,
+.relative textarea:focus,
+.relative button:focus {
+  outline: none !important;
+}
+
+/* Direct class targeting */
+input[class],
+textarea[class],
+button[class] {
+  outline: none !important;
+}
+
+input[class]:focus,
+textarea[class]:focus,
+button[class]:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 2px hsl(var(--ring)) !important;
+}

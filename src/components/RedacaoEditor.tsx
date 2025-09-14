@@ -44,6 +44,13 @@ export const RedacaoEditor = ({ artigo, onSave, onPreview, loading = false }: Re
     immediatelyRender: false,
     onUpdate: ({ editor }) => {
       // Atualiza automaticamente o tempo de leitura conforme o usuário digita
+    },
+    onFocus: ({ editor }) => {
+      // Remove placeholder quando o usuário clica no editor
+      const content = editor.getText().trim()
+      if (content === 'Comece a escrever seu artigo aqui...') {
+        editor.commands.clearContent()
+      }
     }
   })
 

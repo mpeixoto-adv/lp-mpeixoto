@@ -25,27 +25,32 @@ export function ProtectedRoute({ children }: ProtectedRouteProps) {
 
   return (
     <div>
-      {/* Header com logout - fixo no topo */}
-      <div className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 px-4 py-2 shadow-sm">
-        <div className="max-w-7xl mx-auto flex justify-between items-center">
-          <div className="flex items-center space-x-2">
-            <span className="text-xs text-gray-600">Logado como:</span>
-            <span className="text-xs font-medium text-primary">{usuario}</span>
+      {/* Elegant Authentication Header - positioned below main navigation */}
+      <div className="fixed top-[100px] left-0 right-0 z-[90] bg-background/95 backdrop-blur-sm border-b border-border shadow-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex justify-between items-center py-2">
+            <div className="flex items-center space-x-3">
+              <div className="flex items-center space-x-2 text-sm text-muted-foreground">
+                <div className="w-2 h-2 bg-accent rounded-full"></div>
+                <span className="font-medium">Sessão ativa:</span>
+                <span className="text-primary font-semibold">{usuario}</span>
+              </div>
+            </div>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={logout}
+              className="flex items-center space-x-2 text-sm h-8 text-muted-foreground hover:text-primary hover:bg-accent/10 transition-colors"
+            >
+              <LogOut className="h-3.5 w-3.5" />
+              <span>Encerrar sessão</span>
+            </Button>
           </div>
-          <Button
-            variant="outline"
-            size="sm"
-            onClick={logout}
-            className="flex items-center space-x-1 text-xs h-7"
-          >
-            <LogOut className="h-3 w-3" />
-            <span>Sair</span>
-          </Button>
         </div>
       </div>
 
-      {/* Conteúdo protegido com margin-top para compensar o header fixo */}
-      <div className="pt-12">
+      {/* Protected content with adjusted padding to account for both navigation and auth header */}
+      <div className="pt-[156px]">
         {children}
       </div>
     </div>

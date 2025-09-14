@@ -34,7 +34,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const login = async (inputUsuario: string, senha: string): Promise<boolean> => {
     try {
       // Verificar credenciais
-      if (inputUsuario !== 'advogado') {
+      if (inputUsuario !== 'adv') {
         return false
       }
 

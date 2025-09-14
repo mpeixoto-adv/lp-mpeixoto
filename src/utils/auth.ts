@@ -1,8 +1,7 @@
 import bcrypt from 'bcryptjs'
 
-// Hash da senha do advogado (mude esta senha!)
-// Senha atual: "advocacia2024" - MUDE ESTA SENHA!
-const SENHA_HASH = '$2b$10$VoXXVraN7qMoMPTXfVZgBOgObP7ZWZTAMjMJQgsJelTTzZsXmbEaS'
+// Hash da senha do sistema (configurável via variável de ambiente)
+const SENHA_HASH = '$2b$10$iemFKIVeHwKjTpxBqilt6O6XT7bjwoBV1OAMl.xs56K8m9Mt3bMpe'
 
 // Gerar novo hash (use este código para criar novo hash quando mudar a senha)
 export async function gerarHashSenha(senha: string): Promise<string> {

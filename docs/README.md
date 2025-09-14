@@ -1,83 +1,214 @@
-# 📚 Documentação - Sistema de Artigos
+# 📚 M. PEIXOTO ADVOGADOS - DOCUMENTAÇÃO TÉCNICA
 
-## 📝 Como Adicionar Novos Artigos ao Site
+## 🏢 Visão Geral do Projeto
 
-Este guia explica passo a passo como adicionar novos artigos/notícias ao site M. Peixoto Advogados.
+Este é o sistema web completo do escritório M. Peixoto Advogados, incluindo:
+- **Site institucional** com informações do escritório
+- **Sistema de artigos** com gestão de conteúdo jurídico
+- **Painel administrativo** para criação e edição de artigos
+- **Sistema de autenticação** para controle de acesso
 
 ---
 
-## 🚀 Processo Rápido (Para Desenvolvedores)
+## 🚀 Stack Tecnológica
 
-### 1️⃣ Localizar o Arquivo
-Abra o arquivo: `src/data/articles.ts`
+### Frontend
+- **Framework**: React 18 com TypeScript
+- **Build Tool**: Vite com SWC
+- **Estilização**: Tailwind CSS
+- **Componentes UI**: shadcn/ui (Radix UI)
+- **Roteamento**: React Router DOM v6
+- **Editor**: TipTap (editor rich text)
+- **Estado**: TanStack Query
 
-### 2️⃣ Adicionar Novo Artigo
-Adicione um novo objeto no array `articles`, seguindo este modelo:
+### Autenticação
+- **Biblioteca**: bcryptjs para hash de senhas
+- **Armazenamento**: localStorage para sessões
+- **Proteção**: Context API + Protected Routes
 
+### Integração
+- **Versionamento**: Git/GitHub
+- **Storage**: GitHub API para persistência de artigos
+- **Deploy**: Lovable/Vercel
+
+---
+
+## 🗂️ Estrutura do Projeto
+
+```
+src/
+├── components/              # Componentes UI reutilizáveis
+│   ├── ui/                 # Componentes shadcn/ui
+│   ├── Navigation.tsx      # Navegação principal
+│   ├── ProtectedRoute.tsx  # Proteção de rotas
+│   ├── LoginForm.tsx       # Formulário de login
+│   ├── RedacaoEditor.tsx   # Editor de artigos
+│   └── ...
+├── pages/                  # Páginas/rotas
+│   ├── Index.tsx          # Homepage
+│   ├── Redacao.tsx        # Painel de redação
+│   ├── Services.tsx       # Página de serviços
+│   └── ...
+├── contexts/               # Contextos React
+│   └── AuthContext.tsx    # Contexto de autenticação
+├── utils/                  # Utilitários
+│   └── auth.ts           # Funções de autenticação
+├── services/               # Serviços externos
+│   ├── github-storage.ts  # Integração GitHub (legacy)
+│   └── github-storage-v2.ts # Nova integração GitHub
+├── data/                   # Dados e tipos
+│   ├── articles.ts        # Artigos (legacy)
+│   └── articles/          # Nova estrutura de artigos
+│       ├── index.ts       # Metadados dos artigos
+│       ├── types.ts       # Tipos TypeScript
+│       ├── loader.ts      # Sistema híbrido de carregamento
+│       └── content/       # Arquivos de conteúdo
+└── lib/                    # Tipos e configurações
+    └── redacao-types.ts   # Tipos do sistema de redação
+```
+
+---
+
+## 🔐 Sistema de Autenticação
+
+### Credenciais de Acesso
+- **Usuário**: `adv`
+- **Senha**: Armazenada com hash bcrypt
+- **Acesso**: `/redacao` (área administrativa)
+
+### Arquitetura
 ```typescript
-{
-  id: "4", // Próximo número sequencial
-  title: "Título do Seu Artigo",
-  excerpt: "Resumo breve do artigo (máximo 2-3 linhas)",
-  content: `
-    <h2>Subtítulo Principal</h2>
-    <p>Parágrafo de introdução...</p>
-    
-    <h3>Subtítulo Secundário</h3>
-    <p>Conteúdo do artigo...</p>
-    
-    <ul>
-      <li>Item de lista 1</li>
-      <li>Item de lista 2</li>
-    </ul>
-  `,
-  author: "Dr. Nome do Autor",
-  date: "2024-01-25", // Formato: AAAA-MM-DD
-  category: "Direito Civil", // Categoria do artigo
-  image: "URL_DA_IMAGEM", // Opcional
-  readTime: "5 min", // Tempo estimado de leitura
-  slug: "titulo-do-artigo-em-url" // URL amigável (sem acentos, espaços = hífen)
+// Fluxo de autenticação
+1. Login → AuthContext.login()
+2. Verificação → utils/auth.verificarSenha()
+3. Token → geração JWT simplificado
+4. Proteção → ProtectedRoute wrapper
+5. Persistência → localStorage
+```
+
+### Componentes Principais
+- `AuthContext.tsx`: Contexto global de autenticação
+- `LoginForm.tsx`: Interface de login
+- `ProtectedRoute.tsx`: Proteção de rotas administrativas
+- `auth.ts`: Utilitários de autenticação e JWT
+
+---
+
+## 📝 Sistema de Artigos
+
+### Arquitetura Híbrida
+
+O sistema utiliza uma arquitetura híbrida com duas estruturas:
+
+**1. Metadados Centralizados** (`src/data/articles/index.ts`)
+```typescript
+export const articlesMetadata: ArticleMetadata[] = [
+  {
+    id: "1",
+    title: "Título do Artigo",
+    excerpt: "Resumo...",
+    author: "Dr. Nome",
+    date: "2024-01-15",
+    category: "Direito Civil",
+    readTime: "5 min",
+    slug: "titulo-do-artigo",
+    contentFile: "nome-do-arquivo"
+  }
+]
+```
+
+**2. Conteúdo Separado** (`src/data/articles/content/`)
+```typescript
+export const articleContent = {
+  content: `<h2>Conteúdo HTML...</h2>`,
+  metadata: {
+    lastModified: "2024-01-15T10:00:00.000Z",
+    views: 0
+  }
 }
 ```
 
-### 3️⃣ Salvar e Testar
-- Salve o arquivo
-- O artigo aparecerá automaticamente no site
-- Teste acessando `/artigos` no navegador
+### Fluxo de Operações
+
+**Criar Artigo:**
+1. Editor → RedacaoEditor.tsx
+2. Validação → FormData + TipTap HTML
+3. Storage → GitHubStorageV2.salvar()
+4. Arquivo 1: Atualizar metadados no index.ts
+5. Arquivo 2: Criar content/[slug].ts
+
+**Editar Artigo:**
+1. Carregar → buscarPorId() → metadata + conteúdo
+2. Editor → campos pré-preenchidos
+3. Salvar → atualizar ambos os arquivos
+
+**Exibir Artigo:**
+1. Lista → metadados do index.ts
+2. Visualização → carregar conteúdo sob demanda
+3. Hybrid loader → loadArticleContentHybrid()
 
 ---
 
-## 📋 Processo Detalhado (Para Advogados)
+## 🔌 Integração GitHub
 
-### Passo 1: Preparar o Conteúdo
-Envie para o desenvolvedor:
-- **Título do artigo**
-- **Resumo** (2-3 linhas)
-- **Texto completo** (pode ser em Word/Google Docs)
-- **Nome do autor**
-- **Categoria** (ex: Direito Civil, Tributário, etc.)
-- **Imagem** (opcional - pode ser um link ou arquivo)
+### GitHub Storage V2
 
-### Passo 2: Formatação do Texto
-O desenvolvedor irá formatar usando HTML básico:
-- `<h2>` para títulos principais
-- `<h3>` para subtítulos
-- `<p>` para parágrafos
-- `<ul>` e `<li>` para listas
-- `<ol>` para listas numeradas
-- `<strong>` para texto em negrito
+O sistema usa a API do GitHub para persistir artigos:
 
-### Passo 3: Publicação
-Após adicionar o artigo no código, ele aparecerá:
-- Na página inicial (seção "Artigos e Notícias")
-- Na página `/artigos` (listagem completa)
-- Com URL própria: `/artigo/[slug-do-artigo]`
+```typescript
+interface GitHubConfig {
+  owner: string        # Usuário/organização
+  repo: string         # Nome do repositório
+  token: string        # Token de acesso
+  branch: string       # Branch (main)
+  filePath: string     # Caminho base
+}
+```
+
+### Operações Disponíveis
+- **Listar**: Busca metadados de todos os artigos
+- **Buscar**: Carrega artigo específico por ID
+- **Salvar**: Cria/atualiza artigo (2 arquivos)
+- **Excluir**: Remove metadados e arquivo de conteúdo
+
+### Configuração
+```env
+VITE_GITHUB_OWNER=seu-usuario
+VITE_GITHUB_REPO=nome-do-repositorio
+VITE_GITHUB_TOKEN=ghp_xxxxxxxxxxxxx
+VITE_GITHUB_BRANCH=main
+VITE_GITHUB_FILE_PATH=src/data/articles/index.ts
+```
 
 ---
 
-## 🎨 Categorias Disponíveis
+## 🎨 Editor de Artigos
 
-Use uma destas categorias ao criar artigos:
+### TipTap Editor
+
+Baseado no TipTap, oferece:
+- Formatação rich text (negrito, itálico, títulos)
+- Listas ordenadas e não-ordenadas
+- Preview em tempo real
+- Cálculo automático de tempo de leitura
+- Validação de campos obrigatórios
+
+### Interface
+```typescript
+interface ArtigoRascunho {
+  id?: string
+  title: string           # Título (máx 80 chars)
+  excerpt: string         # Resumo (máx 200 chars)
+  content: string         # Conteúdo HTML
+  author: string          # Autor padrão
+  category: CategoriaArtigo
+  image?: string          # URL opcional
+  slug: string            # Gerado automaticamente
+  readTime: string        # Calculado automaticamente
+}
+```
+
+### Categorias Disponíveis
 - Direito Civil
 - Direito Tributário
 - Direito Trabalhista
@@ -89,129 +220,116 @@ Use uma destas categorias ao criar artigos:
 
 ---
 
-## 🖼️ Sobre as Imagens
+## 🚀 Deploy e Configuração
 
-### Opções para Imagens:
-1. **URLs Externas** (Recomendado)
-   - Use imagens do Unsplash: `https://images.unsplash.com/...`
-   - Use imagens do Pexels: `https://images.pexels.com/...`
+### Comandos de Desenvolvimento
+```bash
+npm install          # Instalar dependências
+npm run dev          # Servidor desenvolvimento (porta 8085)
+npm run build        # Build produção
+npm run preview      # Preview build local
+npm run lint         # Linter ESLint
+```
 
-2. **Imagens Locais**
-   - Coloque a imagem em: `public/articles/`
-   - Use o caminho: `/articles/nome-da-imagem.jpg`
+### Variáveis de Ambiente
+```env
+# GitHub Integration
+VITE_GITHUB_OWNER=mpeixoto-adv
+VITE_GITHUB_REPO=mpeixoto-adv-lp
+VITE_GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
+VITE_GITHUB_BRANCH=main
+VITE_GITHUB_FILE_PATH=src/data/articles/index.ts
+```
 
-### Tamanho Recomendado:
-- Largura: 1200px mínimo
-- Proporção: 16:9 ou 4:3
-- Formato: JPG ou PNG
-- Tamanho máximo: 500KB
+### Configuração de Produção
+1. Configurar variáveis de ambiente no Vercel/Lovable
+2. Gerar token GitHub com permissões de escrita no repo
+3. Build automático via Git pushes
+4. HTTPS certificado automaticamente
 
 ---
 
-## 💡 Dicas Importantes
+## 🧪 Testing e Qualidade
 
-### ✅ Boas Práticas:
-- **Títulos claros e objetivos** (máximo 80 caracteres)
-- **Resumos concisos** que despertem interesse
-- **Parágrafos curtos** para melhor leitura
-- **Use subtítulos** para organizar o conteúdo
-- **Tempo de leitura realista** (150-200 palavras = 1 min)
+### Configurações
+- **Linting**: ESLint + TypeScript ESLint
+- **Formatação**: Prettier (configurado no Lovable)
+- **Build**: Verificação automática de tipos
+- **Pre-build**: Script para gerar imports estáticos
 
-### ❌ Evitar:
-- Textos muito longos sem divisões
-- Títulos genéricos como "Novidades"
-- Esquecer de preencher a data
-- URLs com acentos ou caracteres especiais
-- Imagens muito pesadas (>1MB)
-
----
-
-## 📅 Exemplo Prático
-
-### Artigo Original (Word):
-```
-TÍTULO: Novo Marco Legal das Startups
-
-RESUMO: Entenda as principais mudanças trazidas pela Lei Complementar 182/2021
-
-TEXTO:
-O Marco Legal das Startups trouxe importantes inovações...
-
-AUTOR: Dr. João Silva
-DATA: 25 de janeiro de 2024
-CATEGORIA: Direito Empresarial
-```
-
-### Artigo Formatado (articles.ts):
-```typescript
-{
-  id: "4",
-  title: "Novo Marco Legal das Startups",
-  excerpt: "Entenda as principais mudanças trazidas pela Lei Complementar 182/2021 e como elas impactam o ecossistema de inovação.",
-  content: `
-    <h2>O Marco Legal das Startups</h2>
-    <p>O Marco Legal das Startups trouxe importantes inovações para o ecossistema de empreendedorismo e inovação no Brasil.</p>
-    
-    <h3>Principais Mudanças</h3>
-    <ul>
-      <li>Sandbox regulatório para testar inovações</li>
-      <li>Facilitação de investimentos</li>
-      <li>Simplificação de processos</li>
-    </ul>
-    
-    <h3>Impactos no Mercado</h3>
-    <p>As startups agora contam com maior segurança jurídica...</p>
-  `,
-  author: "Dr. João Silva",
-  date: "2024-01-25",
-  category: "Direito Empresarial",
-  image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd",
-  readTime: "4 min",
-  slug: "novo-marco-legal-das-startups"
+### Scripts de Build
+```javascript
+// package.json
+"scripts": {
+  "prebuild": "node generate-static-imports.cjs",
+  "build": "vite build",
+  "build:dev": "vite build --mode development"
 }
 ```
 
 ---
 
-## 🔧 Manutenção
+## 🔧 Manutenção e Monitoramento
 
-### Editar Artigo Existente:
-1. Encontre o artigo pelo `id` no arquivo
-2. Modifique os campos necessários
-3. Salve o arquivo
+### Logs e Debug
+- Console logs nas operações críticas
+- Error boundaries para recuperação
+- Loading states em operações assíncronas
 
-### Remover Artigo:
-1. Delete o objeto completo do array
-2. Ajuste os IDs dos artigos seguintes se necessário
+### Backup e Recuperação
+- Artigos versionados no Git
+- Histórico completo de mudanças
+- Rollback via Git reset se necessário
 
-### Ordenação:
-- Os artigos aparecem por ordem de data (mais recentes primeiro)
-- Para mudar a ordem, ajuste as datas
-
----
-
-## 📞 Suporte
-
-Em caso de dúvidas ou problemas:
-1. Verifique se o formato está correto
-2. Confira se não há erros de sintaxe (vírgulas, aspas)
-3. Teste localmente antes de publicar
-4. Entre em contato com o desenvolvedor responsável
+### Performance
+- Lazy loading de conteúdo de artigos
+- Componentes otimizados com React.memo
+- Bundle splitting automático (Vite)
 
 ---
 
-## 🚀 Futuras Melhorias
+## 🚨 Problemas Conhecidos e TODOs
 
-### Em Desenvolvimento:
-- [ ] Painel administrativo para adicionar artigos
-- [ ] Editor visual (tipo Word)
-- [ ] Upload direto de imagens
+### Segurança (Prioridade Alta)
+- [ ] Mover autenticação para server-side
+- [ ] Implementar JWT seguro com bibliotecas apropriadas
+- [ ] Remover tokens do client-side
+- [ ] Adicionar rate limiting
+
+### Funcionalidades
+- [ ] Sistema de backup automático
+- [ ] Cache de artigos para performance
+- [ ] Busca avançada por categoria/autor
 - [ ] Sistema de comentários
-- [ ] Newsletter por email
-- [ ] Categorias dinâmicas
-- [ ] Busca avançada
-- [ ] Tags e palavras-chave
+- [ ] Analytics de visualizações
+
+### UX/UI
+- [ ] Loading skeletons
+- [ ] Toast notifications
+- [ ] Modo offline
+- [ ] PWA features
 
 ---
 
-*Última atualização: Janeiro 2024* 
+## 📞 Suporte e Contato
+
+### Para Desenvolvedores
+- Estrutura bem documentada com TypeScript
+- Componentes reutilizáveis
+- Patterns consistentes
+
+### Para Editores de Conteúdo
+- Interface intuitiva no `/redacao`
+- Editor WYSIWYG
+- Preview antes da publicação
+- Categorização automática
+
+### Para Administração
+- Controle de acesso seguro
+- Backup automático via Git
+- Deploy contínuo configurado
+
+---
+
+*Última atualização: Setembro 2024*
+*Versão: 2.0 - Sistema completo de CMS*

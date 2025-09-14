@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useNavigate, useSearchParams } from 'react-router-dom'
 import { Navigation } from '@/components/Navigation'
 import { Footer } from '@/components/Footer'
+import { ProtectedRoute } from '@/components/ProtectedRoute'
 import { RedacaoEditor } from '@/components/RedacaoEditor'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
@@ -11,7 +12,6 @@ import { ArrowLeft, FileText, Plus, Settings } from 'lucide-react'
 import { ArtigoRascunho } from '@/lib/redacao-types'
 import { githubStorageV2 } from '@/services/github-storage-v2'
 import { Article } from '@/data/articles/types'
-import { articlesMetadata } from '@/data/articles/index'
 
 const RedacaoPage = () => {
   const navigate = useNavigate()
@@ -297,43 +297,45 @@ const RedacaoPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation onContactClick={handleContactClick} />
-      
-      <div className="pt-[108px]">
-        <div className="container mx-auto px-4 py-8">
-          {modo === 'lista' && renderLista()}
-          {modo === 'editor' && renderEditor()}
-          {modo === 'preview' && renderPreview()}
-        </div>
-        
-        <Footer />
-      </div>
+    <ProtectedRoute>
+      <div className="min-h-screen bg-background">
+        <Navigation onContactClick={handleContactClick} />
 
-      {/* Dialog de Configurações */}
-      <Dialog open={showConfig} onOpenChange={setShowConfig}>
-        <DialogContent>
-          <DialogHeader>
-            <DialogTitle>Configurações do GitHub</DialogTitle>
-          </DialogHeader>
-          <div className="space-y-4">
-            <p className="text-sm text-muted-foreground">
-              Para usar o sistema de redação, configure as seguintes variáveis de ambiente:
-            </p>
-            <div className="space-y-2 font-mono text-sm bg-muted p-4 rounded">
-              <div>VITE_GITHUB_OWNER=seu-usuario</div>
-              <div>VITE_GITHUB_REPO=nome-do-repositorio</div>
-              <div>VITE_GITHUB_TOKEN=seu-token-github</div>
-              <div>VITE_GITHUB_BRANCH=main</div>
-              <div>VITE_GITHUB_FILE_PATH=src/data/articles.ts</div>
-            </div>
-            <p className="text-sm text-muted-foreground">
-              Reinicie o servidor após configurar as variáveis de ambiente.
-            </p>
+        <div className="pt-[108px]">
+          <div className="container mx-auto px-4 py-8">
+            {modo === 'lista' && renderLista()}
+            {modo === 'editor' && renderEditor()}
+            {modo === 'preview' && renderPreview()}
           </div>
-        </DialogContent>
-      </Dialog>
-    </div>
+
+          <Footer />
+        </div>
+
+        {/* Dialog de Configurações */}
+        <Dialog open={showConfig} onOpenChange={setShowConfig}>
+          <DialogContent>
+            <DialogHeader>
+              <DialogTitle>Configurações do GitHub</DialogTitle>
+            </DialogHeader>
+            <div className="space-y-4">
+              <p className="text-sm text-muted-foreground">
+                Para usar o sistema de redação, configure as seguintes variáveis de ambiente:
+              </p>
+              <div className="space-y-2 font-mono text-sm bg-muted p-4 rounded">
+                <div>VITE_GITHUB_OWNER=seu-usuario</div>
+                <div>VITE_GITHUB_REPO=nome-do-repositorio</div>
+                <div>VITE_GITHUB_TOKEN=seu-token-github</div>
+                <div>VITE_GITHUB_BRANCH=main</div>
+                <div>VITE_GITHUB_FILE_PATH=src/data/articles.ts</div>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Reinicie o servidor após configurar as variáveis de ambiente.
+              </p>
+            </div>
+          </DialogContent>
+        </Dialog>
+      </div>
+    </ProtectedRoute>
   )
 }
 

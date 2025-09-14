@@ -4,18 +4,6 @@ import { loadArticleContentHybrid } from './loader'
 // Metadados dos artigos (para listagens e navegação)
 export const articlesMetadata: ArticleMetadata[] = [
   {
-    id: "preview",
-    title: "TESTE DE EDITAR E EXCLUIR - EDITADO",
-    excerpt: "TESTE DE EDITAR E EXCLUIR - EDITADO",
-    author: "Dr. Marcelo Peixoto",
-    date: "2025-09-14",
-    category: "Direito Civil",
-    image: "https://images.unsplash.com/photo-1756965812897-3f4c2a6c242c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    readTime: "1 min",
-    slug: "teste-de-editar-e-excluir-editado",
-    contentFile: "teste-de-editar-e-excluir"
-  },
-  {
     id: "1",
     title: "Nova Lei de Proteção de Dados: O que sua empresa precisa saber",
     excerpt: "A LGPD trouxe mudanças significativas para o tratamento de dados pessoais. Entenda as principais obrigações e como se adequar.",

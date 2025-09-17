@@ -297,6 +297,3 @@ Em caso de problemas técnicos:
 - Entre em contato com equipe técnica
 
 ---
-
-*Guia atualizado em: Setembro 2024*
-*Versão do sistema: 2.0 - Editor Visual*

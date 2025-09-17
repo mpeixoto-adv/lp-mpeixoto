@@ -3,6 +3,7 @@ import { z } from 'zod'
 import { setCors, handleOptions, readJsonBody, sendError, sendJson } from '../_lib/http.js'
 import { ensureAuthenticated } from '../_lib/auth.js'
 import { deleteArticle, getArticleById, saveArticle } from '../_lib/github.js'
+import type { ArticleDraft } from '../_lib/types.js'
 
 const articleSchema = z.object({
   id: z.string().optional(),
@@ -52,7 +53,12 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (req.method === 'PUT') {
       const body = await readJsonBody(req)
-      const draft = articleSchema.parse({ ...body, id: articleId })
+      if (!body || typeof body !== 'object') {
+        sendError(res, 400, 'Payload inválido')
+        return
+      }
+
+      const draft = articleSchema.parse({ ...(body as Record<string, unknown>), id: articleId }) as ArticleDraft
       const article = await saveArticle({ ...draft, id: articleId })
       sendJson(res, 200, { data: article, usuario })
       return

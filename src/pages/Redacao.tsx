@@ -11,9 +11,11 @@ import { ArrowLeft, FileText, Plus, RefreshCw } from 'lucide-react'
 import { ArtigoRascunho } from '@/lib/redacao-types'
 import { githubStorageV2 } from '@/services/github-storage-v2'
 import { Article } from '@/data/articles/types'
+import { useAuth } from '@/contexts/AuthContext'
 
 const RedacaoPage = () => {
   const navigate = useNavigate()
+  const { isAuthenticated } = useAuth()
   const [searchParams, setSearchParams] = useSearchParams()
   const artigoId = searchParams.get('id')
   const [modo, setModo] = useState<'lista' | 'editor' | 'preview'>('lista')
@@ -24,8 +26,10 @@ const RedacaoPage = () => {
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    carregarArtigos()
-  }, [])
+    if (isAuthenticated) {
+      carregarArtigos()
+    }
+  }, [isAuthenticated])
 
   useEffect(() => {
     if (artigoId) {
@@ -58,6 +62,8 @@ const RedacaoPage = () => {
   const carregarArtigo = async (id: string) => {
     try {
       setLoading(true)
+      setArtigoAtual(undefined)
+      setArtigoEditor(undefined)
       const artigo = await githubStorageV2.buscarPorId(id)
       if (artigo) {
         const rascunho: ArtigoRascunho = {
@@ -254,12 +260,21 @@ const RedacaoPage = () => {
         </div>
       </div>
 
-      <RedacaoEditor
-        artigo={artigoAtual}
-        onSave={handleSalvarArtigo}
-        onPreview={handlePreview}
-        loading={loading}
-      />
+      {loading && !artigoAtual ? (
+        <Card>
+          <CardContent className="py-16 flex flex-col items-center gap-4">
+            <RefreshCw className="h-8 w-8 animate-spin text-muted-foreground" />
+            <p className="text-muted-foreground">Carregando conteúdo do artigo...</p>
+          </CardContent>
+        </Card>
+      ) : (
+        <RedacaoEditor
+          artigo={artigoAtual}
+          onSave={handleSalvarArtigo}
+          onPreview={handlePreview}
+          loading={loading}
+        />
+      )}
     </div>
   )
 

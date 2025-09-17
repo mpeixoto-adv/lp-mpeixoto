@@ -1,7 +1,7 @@
 export const articleContent = {
-  content: `<p>What is Lorem Ipsum? - 2026</p><p></p><h3><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</h3><p></p>`,
+  content: `<p>What is Lorem Ipsum? - 2026 - EDITADO</p><p></p><h3><strong>Lorem Ipsum</strong> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</h3><p></p>`,
   metadata: {
-    lastModified: "2025-09-14T18:01:41.081Z",
+    lastModified: "2025-09-17T14:02:50.535Z",
     views: 0
   }
 }

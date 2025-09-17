@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "predev": "node generate-static-imports.cjs",
     "dev": "vite",
     "prebuild": "node generate-static-imports.cjs",
     "build": "vite build",

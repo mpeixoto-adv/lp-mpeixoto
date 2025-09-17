@@ -7,6 +7,7 @@ import { articles, type LegacyArticle } from "@/data/articles-adapter";
 import { useAuth } from "@/contexts/AuthContext";
 import { githubStorageV2 } from "@/services/github-storage-v2";
 import type { Article as ArticleApi } from "@/data/articles/types";
+import { getCachedArticles, setCachedArticles } from "@/utils/articles-cache";
 
 export const Newsletter = () => {
   const navigate = useNavigate();
@@ -23,8 +24,16 @@ export const Newsletter = () => {
         return;
       }
 
+      const cached = getCachedArticles();
+      if (cached && cached.length) {
+        const ordenadosCache = [...cached].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        setRecentArticles(ordenadosCache.slice(0, 3));
+      }
+
       try {
-        setLoading(true);
+        if (!cached) {
+          setLoading(true);
+        }
         const lista = await githubStorageV2.listar();
         if (!ativo) return;
 
@@ -43,6 +52,7 @@ export const Newsletter = () => {
 
         const ordenados = adaptados.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
         setRecentArticles(ordenados.slice(0, 3));
+        setCachedArticles(adaptados);
       } catch (error) {
         console.error("Erro ao carregar artigos recentes (dinâmico):", error);
         if (ativo) {

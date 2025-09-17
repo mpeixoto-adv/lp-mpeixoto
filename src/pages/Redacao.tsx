@@ -11,6 +11,8 @@ import { ArrowLeft, FileText, Plus, RefreshCw } from 'lucide-react'
 import { ArtigoRascunho } from '@/lib/redacao-types'
 import { githubStorageV2 } from '@/services/github-storage-v2'
 import { Article } from '@/data/articles/types'
+import { clearArticlesCache } from '@/utils/articles-cache'
+import { clearArticleContentCache } from '@/utils/article-content-cache'
 import { useAuth } from '@/contexts/AuthContext'
 
 const RedacaoPage = () => {
@@ -91,6 +93,8 @@ const RedacaoPage = () => {
       setLoading(true)
       await githubStorageV2.salvar(artigo)
       alert('Artigo salvo com sucesso!')
+      clearArticlesCache()
+      clearArticleContentCache()
 
       // Limpa estado para forçar refresh
       setArtigos([])
@@ -135,6 +139,8 @@ const RedacaoPage = () => {
         setLoading(true)
         await githubStorageV2.excluir(id)
         alert('Artigo excluído com sucesso!')
+        clearArticlesCache()
+        clearArticleContentCache()
 
         // Limpa estado para forçar refresh
         setArtigos([])

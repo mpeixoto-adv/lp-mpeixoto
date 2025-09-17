@@ -8,6 +8,8 @@ import { getArticleBySlug, LegacyArticle } from "@/data/articles-adapter";
 import { useAuth } from "@/contexts/AuthContext";
 import { githubStorageV2 } from "@/services/github-storage-v2";
 import type { Article as ArticleApi } from "@/data/articles/types";
+import { getCachedArticles, setCachedArticles } from "@/utils/articles-cache";
+import { getCachedArticle, setCachedArticle } from "@/utils/article-content-cache";
 
 const ArticlePage = () => {
   const { slug } = useParams();
@@ -28,8 +30,30 @@ const ArticlePage = () => {
 
         if (isAuthenticated) {
           try {
-            const lista = await githubStorageV2.listar();
-            const artigoMeta = lista.find((item: ArticleApi) => item.slug === slug);
+            const cachedContent = getCachedArticle(slug);
+            if (cachedContent) {
+              loadedArticle = cachedContent;
+            }
+
+            let lista = getCachedArticles();
+            if (!lista || !lista.length) {
+              const remoto = await githubStorageV2.listar();
+              lista = remoto.map((item: ArticleApi) => ({
+                id: item.id,
+                title: item.title,
+                excerpt: item.excerpt,
+                content: "",
+                author: item.author,
+                date: item.date,
+                category: item.category,
+                image: item.image,
+                readTime: item.readTime,
+                slug: item.slug
+              })) as LegacyArticle[];
+              setCachedArticles(lista);
+            }
+
+            const artigoMeta = lista.find((item) => item.slug === slug);
 
             if (artigoMeta?.id) {
               const artigoCompleto = await githubStorageV2.buscarPorId(artigoMeta.id);
@@ -46,6 +70,7 @@ const ArticlePage = () => {
                   readTime: artigoCompleto.readTime,
                   slug: artigoCompleto.slug
                 };
+                setCachedArticle(loadedArticle);
               }
             }
           } catch (apiError) {
@@ -60,6 +85,9 @@ const ArticlePage = () => {
             return;
           }
           loadedArticle = fallbackArticle;
+          if (isAuthenticated) {
+            setCachedArticle(fallbackArticle);
+          }
         }
 
         setArticle(loadedArticle);
@@ -71,6 +99,18 @@ const ArticlePage = () => {
       }
     }
     
+    if (slug) {
+      const cached = getCachedArticle(slug);
+      if (cached) {
+        setArticle(cached);
+        setLoading(false);
+      } else {
+        setLoading(true);
+      }
+    } else {
+      setLoading(true);
+    }
+
     loadArticle();
   }, [slug, navigate, isAuthenticated]);
   

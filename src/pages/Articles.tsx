@@ -10,6 +10,7 @@ import { articles, type LegacyArticle } from "@/data/articles-adapter";
 import { useAuth } from "@/contexts/AuthContext";
 import { githubStorageV2 } from "@/services/github-storage-v2";
 import type { Article as ArticleApi } from "@/data/articles/types";
+import { getCachedArticles, setCachedArticles } from "@/utils/articles-cache";
 
 const ArticlesPage = () => {
   const navigate = useNavigate();
@@ -31,8 +32,15 @@ const ArticlesPage = () => {
         return;
       }
 
+      const cached = getCachedArticles();
+      if (cached && cached.length) {
+        setRemoteArticles(cached);
+      }
+
       try {
-        setListLoading(true);
+        if (!cached) {
+          setListLoading(true);
+        }
         const result = await githubStorageV2.listar();
         if (!ativo) return;
 
@@ -50,6 +58,7 @@ const ArticlesPage = () => {
         })) as LegacyArticle[];
 
         setRemoteArticles(adaptados);
+        setCachedArticles(adaptados);
       } catch (error) {
         console.error("Erro ao carregar artigos (dinâmico):", error);
         if (ativo) {

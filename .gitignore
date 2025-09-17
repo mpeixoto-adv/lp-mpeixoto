@@ -38,3 +38,4 @@ dist-ssr
 
 # ESLint cache
 .eslintcache
+.vercel

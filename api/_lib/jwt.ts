@@ -1,5 +1,5 @@
-import jwt from 'jsonwebtoken'
-import { getEnv } from './env'
+import jwt, { type SignOptions } from 'jsonwebtoken'
+import { getEnv } from './env.js'
 
 const DEFAULT_EXPIRATION = '24h'
 
@@ -7,9 +7,20 @@ export interface TokenPayload {
   usuario: string
 }
 
-export function signToken(payload: TokenPayload, expiresIn = getEnv('JWT_EXPIRES_IN', DEFAULT_EXPIRATION)) {
+type ExpiresInValue = SignOptions['expiresIn']
+
+function resolveExpiresIn(explicit?: ExpiresInValue): ExpiresInValue {
+  if (explicit !== undefined) {
+    return explicit
+  }
+  const configured = getEnv('JWT_EXPIRES_IN', DEFAULT_EXPIRATION)
+  return configured as ExpiresInValue
+}
+
+export function signToken(payload: TokenPayload, expiresIn?: ExpiresInValue) {
   const secret = getEnv('JWT_SECRET')
-  return jwt.sign(payload, secret, { expiresIn })
+  const resolved = resolveExpiresIn(expiresIn)
+  return jwt.sign(payload, secret, { expiresIn: resolved })
 }
 
 export function verifyToken(token: string): TokenPayload | null {

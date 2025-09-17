@@ -1,8 +1,9 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { z } from 'zod'
-import { setCors, handleOptions, readJsonBody, sendError, sendJson } from '../_lib/http'
-import { ensureAuthenticated } from '../_lib/auth'
-import { listArticles, saveArticle } from '../_lib/github'
+import { setCors, handleOptions, readJsonBody, sendError, sendJson } from '../_lib/http.js'
+import { ensureAuthenticated } from '../_lib/auth.js'
+import { listArticles, saveArticle } from '../_lib/github.js'
+import type { ArticleDraft } from '../_lib/types.js'
 
 const articleSchema = z.object({
   id: z.string().optional(),
@@ -41,8 +42,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
 
     if (req.method === 'POST') {
       const body = await readJsonBody(req)
-      const draft = articleSchema.parse(body)
-      const article = await saveArticle({ ...draft, author: draft.author })
+      const draft = articleSchema.parse(body) as ArticleDraft
+      const article = await saveArticle(draft)
       sendJson(res, 201, { data: article, usuario })
       return
     }

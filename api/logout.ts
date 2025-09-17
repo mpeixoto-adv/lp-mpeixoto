@@ -1,6 +1,6 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { setCors, handleOptions, sendError, sendJson } from './_lib/http'
-import { serializeCookie } from './_lib/cookies'
+import { setCors, handleOptions, sendError, sendJson } from './_lib/http.js'
+import { serializeCookie } from './_lib/cookies.js'
 
 const COOKIE_NAME = 'auth-token'
 

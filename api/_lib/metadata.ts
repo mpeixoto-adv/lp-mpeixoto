@@ -1,5 +1,5 @@
 import vm from 'vm'
-import type { ArticleMetadata } from './types'
+import type { ArticleMetadata } from './types.js'
 
 export function parseMetadata(fileContent: string): ArticleMetadata[] {
   try {
@@ -36,8 +36,8 @@ export function generateMetadataContent(metadata: ArticleMetadata[]): string {
     contentFile: "${article.contentFile}"
   }`).join(',\n')
 
-  return `import { ArticleMetadata, Article } from './types'
-import { loadArticleContentHybrid } from './loader'
+  return `import { ArticleMetadata, Article } from './types.js'
+import { loadArticleContentHybrid } from './loader.js'
 
 // Metadados dos artigos (para listagens e navegação)
 export const articlesMetadata: ArticleMetadata[] = [

@@ -1,10 +1,10 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import bcrypt from 'bcryptjs'
-import { setCors, handleOptions, readJsonBody, sendError, sendJson } from './_lib/http'
-import { getEnv, optionalEnv } from './_lib/env'
-import { serializeCookie } from './_lib/cookies'
-import { signToken } from './_lib/jwt'
-import type { TokenPayload } from './_lib/jwt'
+import { setCors, handleOptions, readJsonBody, sendError, sendJson } from './_lib/http.js'
+import { getEnv, optionalEnv } from './_lib/env.js'
+import { serializeCookie } from './_lib/cookies.js'
+import { signToken } from './_lib/jwt.js'
+import type { TokenPayload } from './_lib/jwt.js'
 
 interface LoginBody {
   usuario: string

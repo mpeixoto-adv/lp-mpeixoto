@@ -1,8 +1,8 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 import { z } from 'zod'
-import { setCors, handleOptions, readJsonBody, sendError, sendJson } from '../_lib/http'
-import { ensureAuthenticated } from '../_lib/auth'
-import { deleteArticle, getArticleById, saveArticle } from '../_lib/github'
+import { setCors, handleOptions, readJsonBody, sendError, sendJson } from '../_lib/http.js'
+import { ensureAuthenticated } from '../_lib/auth.js'
+import { deleteArticle, getArticleById, saveArticle } from '../_lib/github.js'
 
 const articleSchema = z.object({
   id: z.string().optional(),

@@ -1,7 +1,7 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
-import { parseCookies } from './cookies'
-import { verifyToken } from './jwt'
-import { sendError } from './http'
+import { parseCookies } from './cookies.js'
+import { verifyToken } from './jwt.js'
+import { sendError } from './http.js'
 
 const COOKIE_NAME = 'auth-token'
 

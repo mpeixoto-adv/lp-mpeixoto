@@ -1,7 +1,7 @@
-import { getEnv } from './env'
-import { base64ToString, stringToBase64 } from './encoding'
-import type { Article, ArticleDraft, ArticleMetadata } from './types'
-import { generateMetadataContent, generateArticleContent, parseMetadata, sortMetadata } from './metadata'
+import { getEnv } from './env.js'
+import { base64ToString, stringToBase64 } from './encoding.js'
+import type { Article, ArticleDraft, ArticleMetadata } from './types.js'
+import { generateMetadataContent, generateArticleContent, parseMetadata, sortMetadata } from './metadata.js'
 
 interface GitHubFile {
   content: string

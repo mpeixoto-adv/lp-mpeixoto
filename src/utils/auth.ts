@@ -1,79 +1,55 @@
-import bcrypt from 'bcryptjs'
-
-// Hash da senha do sistema (configurável via variável de ambiente)
-const SENHA_HASH = '$2b$10$I5.SeFFbeI4.NmHwipj9pOINUIgInEptnqpA8i4U0.bNeD1f2NQeu'
-
-// Gerar novo hash (use este código para criar novo hash quando mudar a senha)
-export async function gerarHashSenha(senha: string): Promise<string> {
-  return bcrypt.hash(senha, 10)
+interface ApiOptions extends RequestInit {
+  skipJson?: boolean
 }
 
-// Verificar senha
-export async function verificarSenha(senha: string): Promise<boolean> {
-  try {
-    return await bcrypt.compare(senha, SENHA_HASH)
-  } catch (error) {
-    console.error('Erro ao verificar senha:', error)
-    return false
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || '').replace(/\/$/, '')
+
+async function apiFetch<T = unknown>(path: string, options: ApiOptions = {}): Promise<T> {
+  const response = await fetch(`${API_BASE_URL}${path}`, {
+    credentials: 'include',
+    ...options,
+    headers: {
+      'Content-Type': 'application/json',
+      ...(options.headers as Record<string, string> | undefined)
+    }
+  })
+
+  if (options.skipJson || response.status === 204) {
+    return undefined as T
   }
-}
 
-// Gerar JWT simples (sem biblioteca externa)
-export function gerarToken(usuario: string): string {
-  const header = btoa(JSON.stringify({ alg: 'HS256', typ: 'JWT' }))
-  const payload = btoa(JSON.stringify({
-    usuario,
-    exp: Date.now() + (24 * 60 * 60 * 1000), // 24 horas
-    iat: Date.now()
-  }))
+  const data = await response.json().catch(() => ({}))
 
-  // Assinatura simples (para produção, use uma chave secreta mais robusta)
-  const signature = btoa(`${header}.${payload}.advocacia-secret-key`)
-
-  return `${header}.${payload}.${signature}`
-}
-
-// Verificar e decodificar token
-export function verificarToken(token: string): { usuario: string; valid: boolean } {
-  try {
-    const [header, payload, signature] = token.split('.')
-
-    // Verificar assinatura
-    const expectedSignature = btoa(`${header}.${payload}.advocacia-secret-key`)
-    if (signature !== expectedSignature) {
-      return { usuario: '', valid: false }
-    }
-
-    // Decodificar payload
-    const decoded = JSON.parse(atob(payload))
-
-    // Verificar expiração
-    if (decoded.exp < Date.now()) {
-      return { usuario: '', valid: false }
-    }
-
-    return { usuario: decoded.usuario, valid: true }
-  } catch (error) {
-    return { usuario: '', valid: false }
+  if (!response.ok) {
+    const message = data?.error || 'Erro ao comunicar com o servidor'
+    throw new Error(message)
   }
+
+  return data as T
 }
 
-// Storage do token
-export const authStorage = {
-  setToken: (token: string) => localStorage.setItem('auth-token', token),
-  getToken: () => localStorage.getItem('auth-token'),
-  removeToken: () => localStorage.removeItem('auth-token'),
+export async function login(usuario: string, senha: string): Promise<string> {
+  const result = await apiFetch<{ usuario: string }>('/api/login', {
+    method: 'POST',
+    body: JSON.stringify({ usuario, senha })
+  })
+  return result.usuario
+}
 
-  isAuthenticated: () => {
-    const token = localStorage.getItem('auth-token')
-    if (!token) return false
+export async function logout(): Promise<void> {
+  await apiFetch('/api/logout', {
+    method: 'POST',
+    skipJson: true
+  })
+}
 
-    const { valid } = verificarToken(token)
-    if (!valid) {
-      localStorage.removeItem('auth-token')
-      return false
-    }
-
-    return true
+export async function recuperarSessao(): Promise<string | null> {
+  try {
+    const result = await apiFetch<{ usuario: string }>('/api/session', {
+      method: 'GET'
+    })
+    return result.usuario
+  } catch (error) {
+    return null
   }
 }

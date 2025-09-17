@@ -1,11 +1,11 @@
 import React, { createContext, useContext, useState, useEffect } from 'react'
-import { verificarSenha, gerarToken, verificarToken, authStorage } from '@/utils/auth'
+import { login as loginRequest, logout as logoutRequest, recuperarSessao } from '@/utils/auth'
 
 interface AuthContextType {
   isAuthenticated: boolean
   usuario: string | null
   login: (usuario: string, senha: string) => Promise<boolean>
-  logout: () => void
+  logout: () => Promise<void>
   loading: boolean
 }
 
@@ -16,40 +16,32 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [usuario, setUsuario] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 
-  // Verificar autenticação ao inicializar
+  // Verifica sessão persistida via backend
   useEffect(() => {
-    const token = authStorage.getToken()
-    if (token) {
-      const { usuario: tokenUsuario, valid } = verificarToken(token)
-      if (valid) {
-        setIsAuthenticated(true)
-        setUsuario(tokenUsuario)
-      } else {
-        authStorage.removeToken()
-      }
+    let ativo = true
+
+    recuperarSessao()
+      .then(usuarioDaSessao => {
+        if (!ativo) return
+        if (usuarioDaSessao) {
+          setIsAuthenticated(true)
+          setUsuario(usuarioDaSessao)
+        }
+      })
+      .finally(() => {
+        if (ativo) setLoading(false)
+      })
+
+    return () => {
+      ativo = false
     }
-    setLoading(false)
   }, [])
 
   const login = async (inputUsuario: string, senha: string): Promise<boolean> => {
     try {
-      // Verificar credenciais
-      if (inputUsuario !== 'adv') {
-        return false
-      }
-
-      const senhaValida = await verificarSenha(senha)
-      if (!senhaValida) {
-        return false
-      }
-
-      // Gerar e armazenar token
-      const token = gerarToken(inputUsuario)
-      authStorage.setToken(token)
-
+      const usuarioAutenticado = await loginRequest(inputUsuario, senha)
       setIsAuthenticated(true)
-      setUsuario(inputUsuario)
-
+      setUsuario(usuarioAutenticado)
       return true
     } catch (error) {
       console.error('Erro no login:', error)
@@ -57,10 +49,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
-  const logout = () => {
-    authStorage.removeToken()
-    setIsAuthenticated(false)
-    setUsuario(null)
+  const logout = async () => {
+    try {
+      await logoutRequest()
+    } finally {
+      setIsAuthenticated(false)
+      setUsuario(null)
+    }
   }
 
   return (

@@ -352,5 +352,6 @@ input[class]:focus,
 textarea[class]:focus,
 button[class]:focus {
   outline: none !important;
-  box-shadow: 0 0 0 2px hsl(var(--ring)) !important;
+  box-shadow: none !important;
+  border-color: hsl(var(--primary)) !important;
 }

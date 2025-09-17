@@ -33,7 +33,7 @@ interface RedacaoEditorProps {
 export const RedacaoEditor = ({ artigo, onSave, onPreview, loading = false }: RedacaoEditorProps) => {
   const [titulo, setTitulo] = useState(artigo?.title || '')
   const [excerpt, setExcerpt] = useState(artigo?.excerpt || '')
-  const [author, setAuthor] = useState(artigo?.author || 'Dr. Marcelo Peixoto')
+  const [author, setAuthor] = useState(artigo?.author || '')
   const [category, setCategory] = useState(artigo?.category || '')
   const [image, setImage] = useState(artigo?.image || '')
   const [observacoes, setObservacoes] = useState(artigo?.observacoes || '')
@@ -59,7 +59,7 @@ export const RedacaoEditor = ({ artigo, onSave, onPreview, loading = false }: Re
     if (artigo) {
       setTitulo(artigo.title || '')
       setExcerpt(artigo.excerpt || '')
-      setAuthor(artigo.author || 'Dr. Marcelo Peixoto')
+      setAuthor(artigo.author || '')
       setCategory(artigo.category || '')
       setImage(artigo.image || '')
       setObservacoes(artigo.observacoes || '')
@@ -106,7 +106,7 @@ export const RedacaoEditor = ({ artigo, onSave, onPreview, loading = false }: Re
       title: titulo || 'Título do Artigo',
       excerpt: excerpt || 'Resumo do artigo...',
       content: conteudo,
-      author: author || 'Dr. Marcelo Peixoto',
+      author: author || '',
       date: new Date().toISOString().split('T')[0],
       category: (category || 'Direito Civil') as any,
       image: image || undefined,

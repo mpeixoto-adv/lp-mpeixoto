@@ -59,7 +59,8 @@ src/
 ├── data/                   # Dados e tipos
 │   ├── articles.ts        # Artigos (legacy)
 │   └── articles/          # Nova estrutura de artigos
-│       ├── index.ts       # Metadados dos artigos
+│       ├── metadata.json  # Metadados dos artigos
+│       ├── index.ts       # Funções utilitárias de carregamento
 │       ├── types.ts       # Tipos TypeScript
 │       ├── loader.ts      # Sistema híbrido de carregamento
 │       └── content/       # Arquivos de conteúdo
@@ -100,19 +101,19 @@ src/
 
 O sistema utiliza uma arquitetura híbrida com duas estruturas:
 
-**1. Metadados Centralizados** (`src/data/articles/index.ts`)
-```typescript
-export const articlesMetadata: ArticleMetadata[] = [
+**1. Metadados Centralizados** (`src/data/articles/metadata.json`)
+```json
+[
   {
-    id: "1",
-    title: "Título do Artigo",
-    excerpt: "Resumo...",
-    author: "Dr. Nome",
-    date: "2024-01-15",
-    category: "Direito Civil",
-    readTime: "5 min",
-    slug: "titulo-do-artigo",
-    contentFile: "nome-do-arquivo"
+    "id": "1",
+    "title": "Título do Artigo",
+    "excerpt": "Resumo...",
+    "author": "Dr. Nome",
+    "date": "2024-01-15",
+    "category": "Direito Civil",
+    "readTime": "5 min",
+    "slug": "titulo-do-artigo",
+    "contentFile": "nome-do-arquivo"
   }
 ]
 ```
@@ -134,7 +135,7 @@ export const articleContent = {
 1. Editor → RedacaoEditor.tsx
 2. Validação → FormData + TipTap HTML
 3. Storage → GitHubStorageV2.salvar()
-4. Arquivo 1: Atualizar metadados no index.ts
+4. Arquivo 1: Atualizar metadados no metadata.json
 5. Arquivo 2: Criar content/[slug].ts
 
 **Editar Artigo:**
@@ -143,7 +144,7 @@ export const articleContent = {
 3. Salvar → atualizar ambos os arquivos
 
 **Exibir Artigo:**
-1. Lista → metadados do index.ts
+1. Lista → metadados do metadata.json
 2. Visualização → carregar conteúdo sob demanda
 3. Hybrid loader → loadArticleContentHybrid()
 
@@ -177,7 +178,7 @@ VITE_GITHUB_OWNER=seu-usuario
 VITE_GITHUB_REPO=nome-do-repositorio
 VITE_GITHUB_TOKEN=ghp_xxxxxxxxxxxxx
 VITE_GITHUB_BRANCH=main
-VITE_GITHUB_FILE_PATH=src/data/articles/index.ts
+VITE_GITHUB_FILE_PATH=src/data/articles/metadata.json
 ```
 
 ---
@@ -238,7 +239,7 @@ VITE_GITHUB_OWNER=mpeixoto-adv
 VITE_GITHUB_REPO=mpeixoto-adv-lp
 VITE_GITHUB_TOKEN=ghp_xxxxxxxxxxxxxxxxxxxx
 VITE_GITHUB_BRANCH=main
-VITE_GITHUB_FILE_PATH=src/data/articles/index.ts
+VITE_GITHUB_FILE_PATH=src/data/articles/metadata.json
 ```
 
 ### Configuração de Produção

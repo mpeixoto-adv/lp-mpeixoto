@@ -48,7 +48,7 @@ GITHUB_TOKEN=ghp_xxx          # token com scopes repo
 GITHUB_OWNER=seu-usuario-ou-org
 GITHUB_REPO=seu-repo-artigos
 GITHUB_BRANCH=main            # ou a branch usada
-GITHUB_FILE_PATH=src/data/articles/index.ts
+GITHUB_FILE_PATH=src/data/articles/metadata.json
 ```
 
 Sem esses valores, as funções retornarão erro (por exemplo, `Erro ao carregar artigos`).
@@ -101,4 +101,3 @@ src/
 - ✅ Newsletter signup
 - ✅ SEO otimizado
 - ✅ Performance otimizada
-

@@ -16,7 +16,7 @@ function getConfig() {
     repo: getEnv('GITHUB_REPO'),
     token: getEnv('GITHUB_TOKEN'),
     branch: getEnv('GITHUB_BRANCH', 'main'),
-    filePath: getEnv('GITHUB_FILE_PATH', 'src/data/articles/index.ts')
+    filePath: getEnv('GITHUB_FILE_PATH', 'src/data/articles/metadata.json')
   }
 }
 

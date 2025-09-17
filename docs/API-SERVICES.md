@@ -97,7 +97,7 @@ interface GitHubConfig {
   repo: string         // Nome do repositório
   token: string        // Token de acesso pessoal
   branch: string       // Branch (normalmente 'main')
-  filePath: string     // Caminho para index.ts
+  filePath: string     // Caminho para metadata.json
 }
 
 // Instância configurada

@@ -1,14 +1,18 @@
-import { useParams, useNavigate, Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Calendar, Clock, User, Share2 } from "lucide-react";
-import { getArticleBySlug, getArticlesByCategory, LegacyArticle } from "@/data/articles-adapter";
+import { getArticleBySlug, LegacyArticle } from "@/data/articles-adapter";
+import { useAuth } from "@/contexts/AuthContext";
+import { githubStorageV2 } from "@/services/github-storage-v2";
+import type { Article as ArticleApi } from "@/data/articles/types";
 
 const ArticlePage = () => {
   const { slug } = useParams();
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
   const [article, setArticle] = useState<LegacyArticle | null>(null);
   const [loading, setLoading] = useState(true);
   
@@ -20,12 +24,45 @@ const ArticlePage = () => {
       }
       
       try {
-        const foundArticle = await getArticleBySlug(slug);
-        if (!foundArticle) {
-          navigate('/404');
-          return;
+        let loadedArticle: LegacyArticle | null = null;
+
+        if (isAuthenticated) {
+          try {
+            const lista = await githubStorageV2.listar();
+            const artigoMeta = lista.find((item: ArticleApi) => item.slug === slug);
+
+            if (artigoMeta?.id) {
+              const artigoCompleto = await githubStorageV2.buscarPorId(artigoMeta.id);
+              if (artigoCompleto) {
+                loadedArticle = {
+                  id: artigoCompleto.id,
+                  title: artigoCompleto.title,
+                  excerpt: artigoCompleto.excerpt,
+                  content: artigoCompleto.content,
+                  author: artigoCompleto.author,
+                  date: artigoCompleto.date,
+                  category: artigoCompleto.category,
+                  image: artigoCompleto.image,
+                  readTime: artigoCompleto.readTime,
+                  slug: artigoCompleto.slug
+                };
+              }
+            }
+          } catch (apiError) {
+            console.error('Erro ao carregar conteúdo dinâmico do artigo:', apiError);
+          }
         }
-        setArticle(foundArticle);
+
+        if (!loadedArticle) {
+          const fallbackArticle = await getArticleBySlug(slug);
+          if (!fallbackArticle) {
+            navigate('/404');
+            return;
+          }
+          loadedArticle = fallbackArticle;
+        }
+
+        setArticle(loadedArticle);
       } catch (error) {
         console.error('Erro ao carregar artigo:', error);
         navigate('/404');
@@ -35,7 +72,7 @@ const ArticlePage = () => {
     }
     
     loadArticle();
-  }, [slug, navigate]);
+  }, [slug, navigate, isAuthenticated]);
   
   if (loading) {
     return (

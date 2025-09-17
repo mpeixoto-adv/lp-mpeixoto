@@ -1,14 +1,68 @@
+import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ArrowRight, Calendar, Clock, User } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Calendar, Clock, User } from "lucide-react";
-import { articles } from "@/data/articles-adapter";
-import { useNavigate } from "react-router-dom";
+import { articles, type LegacyArticle } from "@/data/articles-adapter";
+import { useAuth } from "@/contexts/AuthContext";
+import { githubStorageV2 } from "@/services/github-storage-v2";
+import type { Article as ArticleApi } from "@/data/articles/types";
 
 export const Newsletter = () => {
   const navigate = useNavigate();
-  
-  // Pega os 3 artigos mais recentes
-  const recentArticles = articles.slice(0, 3);
+  const { isAuthenticated } = useAuth();
+  const [recentArticles, setRecentArticles] = useState<LegacyArticle[]>(() => articles.slice(0, 3));
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    let ativo = true;
+
+    async function carregarArtigos() {
+      if (!isAuthenticated) {
+        setRecentArticles(articles.slice(0, 3));
+        return;
+      }
+
+      try {
+        setLoading(true);
+        const lista = await githubStorageV2.listar();
+        if (!ativo) return;
+
+        const adaptados = lista.map((item: ArticleApi) => ({
+          id: item.id,
+          title: item.title,
+          excerpt: item.excerpt,
+          content: "",
+          author: item.author,
+          date: item.date,
+          category: item.category,
+          image: item.image,
+          readTime: item.readTime,
+          slug: item.slug
+        })) as LegacyArticle[];
+
+        const ordenados = adaptados.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+        setRecentArticles(ordenados.slice(0, 3));
+      } catch (error) {
+        console.error("Erro ao carregar artigos recentes (dinâmico):", error);
+        if (ativo) {
+          setRecentArticles(articles.slice(0, 3));
+        }
+      } finally {
+        if (ativo) {
+          setLoading(false);
+        }
+      }
+    }
+
+    carregarArtigos();
+
+    return () => {
+      ativo = false;
+    };
+  }, [isAuthenticated]);
+
+  const tituloSessao = useMemo(() => (loading ? "Carregando artigos..." : "Newsletter"), [loading]);
 
   return (
     <section className="py-20 bg-background">
@@ -16,7 +70,7 @@ export const Newsletter = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
-            Newsletter
+            {tituloSessao}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Mantenha-se informado sobre as últimas mudanças na legislação e dicas jurídicas importantes

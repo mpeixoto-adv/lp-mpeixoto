@@ -1,27 +1,82 @@
+import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { ArrowRight, Calendar, Clock, User, Search } from "lucide-react";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowRight, Calendar, Clock, User, Search } from "lucide-react";
-import { articles } from "@/data/articles-adapter";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { articles, type LegacyArticle } from "@/data/articles-adapter";
+import { useAuth } from "@/contexts/AuthContext";
+import { githubStorageV2 } from "@/services/github-storage-v2";
+import type { Article as ArticleApi } from "@/data/articles/types";
 
 const ArticlesPage = () => {
   const navigate = useNavigate();
+  const { isAuthenticated } = useAuth();
   const [searchTerm, setSearchTerm] = useState("");
+  const [listLoading, setListLoading] = useState(false);
+  const [remoteArticles, setRemoteArticles] = useState<LegacyArticle[]>(articles);
 
   const handleContactClick = () => {
     window.location.href = "/#contact";
   };
 
-  // Filtrar artigos baseado no termo de busca
-  const filteredArticles = articles.filter(article => 
-    article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    article.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    article.category.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  useEffect(() => {
+    let ativo = true;
+
+    async function carregarArtigos() {
+      if (!isAuthenticated) {
+        setRemoteArticles(articles);
+        return;
+      }
+
+      try {
+        setListLoading(true);
+        const result = await githubStorageV2.listar();
+        if (!ativo) return;
+
+        const adaptados = result.map((item: ArticleApi) => ({
+          id: item.id,
+          title: item.title,
+          excerpt: item.excerpt,
+          content: "",
+          author: item.author,
+          date: item.date,
+          category: item.category,
+          image: item.image,
+          readTime: item.readTime,
+          slug: item.slug
+        })) as LegacyArticle[];
+
+        setRemoteArticles(adaptados);
+      } catch (error) {
+        console.error("Erro ao carregar artigos (dinâmico):", error);
+        if (ativo) {
+          setRemoteArticles(articles);
+        }
+      } finally {
+        if (ativo) {
+          setListLoading(false);
+        }
+      }
+    }
+
+    carregarArtigos();
+
+    return () => {
+      ativo = false;
+    };
+  }, [isAuthenticated]);
+
+  const filteredArticles = useMemo(() => {
+    const termo = searchTerm.toLowerCase();
+    return remoteArticles.filter(article =>
+      article.title.toLowerCase().includes(termo) ||
+      article.excerpt.toLowerCase().includes(termo) ||
+      article.category.toLowerCase().includes(termo)
+    );
+  }, [remoteArticles, searchTerm]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -57,7 +112,11 @@ const ArticlesPage = () => {
         {/* Articles Grid */}
         <section className="py-12 sm:py-14 md:py-16">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            {filteredArticles.length > 0 ? (
+            {listLoading ? (
+              <div className="text-center py-12 text-muted-foreground">
+                Carregando artigos atualizados...
+              </div>
+            ) : filteredArticles.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {filteredArticles.map((article) => (
                   <Card 

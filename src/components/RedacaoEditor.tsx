@@ -71,7 +71,7 @@ export const RedacaoEditor = ({ artigo, onSave, onPreview, loading = false }: Re
   }, [artigo, editor])
 
   const handleSave = useCallback(async () => {
-    if (!editor || !titulo.trim() || !excerpt.trim() || !category) {
+    if (!editor || !titulo.trim() || !excerpt.trim() || !category || !author.trim()) {
       alert('Por favor, preencha todos os campos obrigatórios.')
       return
     }
@@ -106,7 +106,7 @@ export const RedacaoEditor = ({ artigo, onSave, onPreview, loading = false }: Re
       title: titulo || 'Título do Artigo',
       excerpt: excerpt || 'Resumo do artigo...',
       content: conteudo,
-      author: author || '',
+      author: author.trim() || 'Autor do Artigo',
       date: new Date().toISOString().split('T')[0],
       category: (category || 'Direito Civil') as any,
       image: image || undefined,
@@ -183,12 +183,13 @@ export const RedacaoEditor = ({ artigo, onSave, onPreview, loading = false }: Re
             </div>
             
             <div>
-              <Label htmlFor="author">Autor</Label>
+              <Label htmlFor="author">Autor *</Label>
               <Input
                 id="author"
                 value={author}
                 onChange={(e) => setAuthor(e.target.value)}
                 placeholder="Nome do autor"
+                required
               />
             </div>
           </div>

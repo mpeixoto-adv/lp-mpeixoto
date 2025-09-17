@@ -1,14 +1,14 @@
-import { ArticleMetadata, Article } from './types'
-import { loadArticleContentHybrid } from './loader'
+import { ArticleMetadata, Article } from './types.js'
+import { loadArticleContentHybrid } from './loader.js'
 
 // Metadados dos artigos (para listagens e navegação)
 export const articlesMetadata: ArticleMetadata[] = [
   {
     id: "preview",
     title: "Teste De Artigo 2026",
-    excerpt: "Testando criação do artigo 2026",
+    excerpt: "Testando criação do artigo 2026  - EDITADO",
     author: "Dr. Marcelo Peixoto",
-    date: "2025-09-14",
+    date: "2025-09-17",
     category: "Direito Empresarial",
     readTime: "1 min",
     slug: "teste-de-artigo-2026",

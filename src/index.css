@@ -324,8 +324,8 @@ textarea:focus-visible,
 select:focus-visible,
 button:focus-visible {
   outline: none !important;
-  border-color: hsl(var(--ring)) !important;
-  box-shadow: 0 0 0 2px hsl(var(--ring)) !important;
+  border-color: hsl(var(--primary)) !important;
+  box-shadow: none !important;
 }
 
 /* Tailwind classes override */

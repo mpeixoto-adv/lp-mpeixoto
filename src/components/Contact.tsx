@@ -20,7 +20,7 @@ const contactInfo = [
     title: "Telefones",
     details: [
       "(21) 2210-5300",
-      "(21) 2533-1459 (WhatsApp)"
+      "(21) 2018-6198 (WhatsApp)"
     ]
   },
   {
@@ -51,7 +51,7 @@ const practiceAreas = [
 
 export const Contact = () => {
   const handleWhatsApp = () => {
-    window.open("https://api.whatsapp.com/send?phone=552125331459", "_blank");
+    window.open("https://wa.me/552120186198", "_blank");
   };
 
   return (
@@ -133,7 +133,7 @@ export const Contact = () => {
                   size="lg"
                 >
                   <MessageCircle className="h-5 w-5 mr-2" />
-                  WhatsApp: (21) 2533-1459
+                  WhatsApp: (21) 2018-6198
                 </Button>
               </div>
             </CardContent>

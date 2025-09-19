@@ -17,7 +17,7 @@ export const Footer = () => {
             </p>
             <div className="flex items-center text-accent font-medium">
               <Phone className="h-4 w-4 mr-2" />
-              (21) 2533-1459 - WhatsApp
+              (21) 2018-6198 - WhatsApp
             </div>
           </div>
 
@@ -37,7 +37,7 @@ export const Footer = () => {
                 <Phone className="h-4 w-4 mr-2 text-accent" />
                 <div>
                   <p>(21) 2210-5300</p>
-                  <p>(21) 2533-1459</p>
+                  <p>(21) 2018-6198</p>
                 </div>
               </div>
               <div className="flex items-start">
@@ -86,7 +86,7 @@ export const Footer = () => {
                 </Link>
               </li>
               <li>
-                <a href="https://api.whatsapp.com/send?phone=552125331459" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-accent transition-colors">
+                <a href="https://wa.me/552120186198" target="_blank" rel="noopener noreferrer" className="text-primary-foreground/80 hover:text-accent transition-colors">
                   WhatsApp
                 </a>
               </li>

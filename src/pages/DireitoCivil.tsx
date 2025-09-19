@@ -358,11 +358,19 @@ const DireitoCivil = () => {
                         Entre em Contato
                       </Button>
                       <Button 
+                        asChild
                         variant="outline"
                         className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
                       >
-                        <Phone className="h-4 w-4 mr-2" />
-                        (21) 2533-1459
+                        <a
+                          href="https://wa.me/552120186198"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          aria-label="Converse conosco pelo WhatsApp"
+                        >
+                          <Phone className="h-4 w-4 mr-2" />
+                          (21) 2018-6198
+                        </a>
                       </Button>
                     </div>
                   </CardContent>

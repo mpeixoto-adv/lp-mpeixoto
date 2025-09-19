@@ -194,12 +194,20 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
           {/* Contact Button */}
           <div className="hidden md:flex items-center space-x-4">
             <Button 
+              asChild
               variant="outline" 
               size="sm"
               className="border-accent text-accent hover:bg-accent hover:text-accent-foreground"
             >
-              <Phone className="h-4 w-4 mr-2" />
-              (21) 2533-1459
+              <a
+                href="https://wa.me/552120186198"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Converse conosco pelo WhatsApp"
+              >
+                <Phone className="h-4 w-4 mr-2" />
+                (21) 2018-6198
+              </a>
             </Button>
             <Button 
               onClick={onContactClick}
@@ -346,12 +354,14 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                   {/* Contact Information Section */}
                   <div className="mt-12 space-y-6">
                     <a
-                      href="tel:+552125331459"
+                      href="https://wa.me/552120186198"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center justify-center bg-primary text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary/90 transition-colors w-full"
                       onClick={handleMenuItemClick}
                     >
                       <Phone className="h-5 w-5 mr-2" />
-                      (21) 2533-1459
+                      (21) 2018-6198
                     </a>
                     
                     <div className="space-y-3 text-foreground/70">

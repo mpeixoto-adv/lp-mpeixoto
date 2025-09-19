@@ -2,30 +2,47 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Award, Users, Target, Zap } from "lucide-react";
 import { TeamCarouselCompact } from "@/components/TeamCarouselCompact";
+import { OfficeCarousel } from "@/components/OfficeCarousel";
 
 const stats = [
-  { number: "15+", label: "Anos de Experiência", icon: Award },
-  { number: "500+", label: "Casos Resolvidos", icon: Target },
-  { number: "50+", label: "Parceiros", icon: Users },
-  { number: "TOP 10", label: "Escritório de Advocacia", icon: Zap }
+  {
+    title: "Experiência Consolidada",
+    description: "25+ Anos de Atuação",
+    icon: Award,
+  },
+  {
+    title: "Resultados Concretos",
+    description: "R$ 270 mi+ em prejuízos evitados para nossos clientes",
+    icon: Target,
+  },
+  {
+    title: "Equipe Nacional",
+    description: "30+ Advogados em todo o Brasil",
+    icon: Users,
+  },
+  {
+    title: "Tecnologia e Inovação",
+    description: "IA + Jurimetria na gestão dos processos",
+    icon: Zap,
+  },
 ];
 
 const values = [
   {
     title: "Experiência Consolidada",
-    description: "Mais de 15 anos de atuação no mercado jurídico com profissionais altamente qualificados."
+    description: "Mais de 25 anos de atuação com uma equipe altamente qualificada e presença nacional."
   },
   {
-    title: "Agilidade e Eficiência",
-    description: "Processos otimizados para garantir respostas rápidas e soluções efetivas."
+    title: "Estrutura Estratégica",
+    description: "Organização interna robusta, equipe multidisciplinar e processos bem estruturados que garantem qualidade e consistência em cada caso."
   },
   {
     title: "Atendimento Personalizado",
-    description: "Cada cliente recebe atenção dedicada e estratégias jurídicas customizadas."
+    description: "Cada cliente é atendido com atenção individual e estratégias jurídicas alinhadas às suas reais necessidades."
   },
   {
-    title: "Ética e Transparência",
-    description: "Atuação pautada nos mais altos padrões éticos e transparência total com nossos clientes."
+    title: "Inovação e Eficiência",
+    description: "Dispomos das melhores ferramentas tecnológicas e suporte especializado, oferecendo soluções rápidas, seguras e integradas para cada demanda jurídica."
   }
 ];
 
@@ -35,13 +52,11 @@ export const About = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
-            Sobre o M. Peixoto Advogados
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6 uppercase tracking-wide">
+            Sobre Nós
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
-            O escritório M. Peixoto Advogados Associados conta com profissionais de experiência consolidada há mais de 15 anos. 
-            Com atividades jurídicas preventivas e contenciosas voltadas para empresas e pessoas físicas, atuamos com agilidade e eficiência. 
-            Nosso propósito é solucionar rapidamente os problemas e questionamentos trazidos pelos nossos clientes.
+            Com mais de 25 anos de atuação e uma equipe composta por mais de 30 advogados, o M. Peixoto Advogados oferece soluções jurídicas seguras, ágeis e eficazes em todo o território nacional. Nosso compromisso é a excelência técnica e o atendimento dedicado a cada cliente.
           </p>
         </div>
 
@@ -57,8 +72,12 @@ export const About = () => {
                       <IconComponent className="h-6 w-6 text-accent" />
                     </div>
                   </div>
-                  <div className="text-3xl font-bold text-primary mb-1">{stat.number}</div>
-                  <div className="text-sm text-muted-foreground font-medium">{stat.label}</div>
+                  <div className="text-xl font-serif font-semibold text-primary mb-2">
+                    {stat.title}
+                  </div>
+                  <p className="text-sm text-muted-foreground leading-snug">
+                    {stat.description}
+                  </p>
                 </CardContent>
               </Card>
             );
@@ -113,24 +132,17 @@ export const About = () => {
               Ambiente Profissional
             </h3>
             <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-              Nosso escritório oferece um ambiente moderno e acolhedor, projetado para proporcionar 
-              conforto e confidencialidade durante as consultas e reuniões.
+              Nosso escritório está localizado no coração do Centro do Rio de Janeiro, em uma região estratégica e de fácil acesso, a poucos minutos do metrô, do VLT e do Aeroporto Santos Dumont.
+            </p>
+            <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+              Contamos com uma estrutura moderna, diversas salas de reunião privativas e um ambiente pensado para proporcionar conforto, discrição e eficiência no atendimento.
             </p>
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Equipado com tecnologia de ponta e espaços adequados para diferentes tipos de atendimento, 
-              garantindo sempre a melhor experiência para nossos clientes.
+              Com vista privilegiada e espaços equipados com tecnologia de ponta, garantimos uma experiência profissional à altura das necessidades dos nossos clientes.
             </p>
           </div>
           <div className="lg:order-1 relative">
-            <div className="rounded-2xl overflow-hidden shadow-card-hover">
-              <div className="bg-gradient-to-br from-secondary/20 to-accent/10 h-80 flex items-center justify-center">
-                <div className="text-center">
-                  <Award className="h-16 w-16 text-primary mx-auto mb-4" />
-                  <p className="text-lg font-semibold text-primary">Nosso Escritório</p>
-                  <p className="text-sm text-muted-foreground">Ambiente profissional</p>
-                </div>
-              </div>
-            </div>
+            <OfficeCarousel />
           </div>
         </div>
 

@@ -83,7 +83,10 @@ export const Newsletter = () => {
             {tituloSessao}
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Mantenha-se informado sobre as últimas mudanças na legislação e dicas jurídicas importantes
+            Receba em primeira mão atualizações relevantes do mundo jurídico, mudanças legislativas, análises de jurisprudência e conteúdos práticos para empresas e profissionais do Direito.
+          </p>
+          <p className="mt-4 text-lg text-muted-foreground/80 max-w-3xl mx-auto">
+            Assine gratuitamente e mantenha-se sempre bem informado.
           </p>
         </div>
 

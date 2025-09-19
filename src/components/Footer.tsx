@@ -12,12 +12,18 @@ export const Footer = () => {
               M. Peixoto Advogados Associados
             </h3>
             <p className="text-primary-foreground/80 leading-relaxed mb-4 max-w-md">
-              Escritório de advocacia com mais de 15 anos de experiência, oferecendo serviços jurídicos 
-              especializados e personalizados para empresas e pessoas físicas.
+              Com mais de 25 anos de trajetória, o M. Peixoto Advogados Associados se orgulha de oferecer um serviço jurídico sólido, atento às necessidades reais de cada cliente, com respostas rápidas e estratégias eficientes.
             </p>
             <div className="flex items-center text-accent font-medium">
               <Phone className="h-4 w-4 mr-2" />
-              (21) 2018-6198 - WhatsApp
+              <a
+                href="https://wa.me/552120186198"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:underline"
+              >
+                (21) 2018-6198 - WhatsApp
+              </a>
             </div>
           </div>
 
@@ -36,8 +42,14 @@ export const Footer = () => {
               <div className="flex items-center">
                 <Phone className="h-4 w-4 mr-2 text-accent" />
                 <div>
-                  <p>(21) 2210-5300</p>
-                  <p>(21) 2018-6198</p>
+                  <a 
+                    href="https://wa.me/552120186198"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary-foreground/80 hover:text-accent transition-colors"
+                  >
+                    (21) 2018-6198 (WhatsApp)
+                  </a>
                 </div>
               </div>
               <div className="flex items-start">
@@ -51,7 +63,7 @@ export const Footer = () => {
               </div>
               <div className="flex items-center">
                 <Clock className="h-4 w-4 mr-2 text-accent" />
-                <p>Seg-Sex: 09:00 às 18:00</p>
+                <p>Seg-Sex: 09:00 às 19:00</p>
               </div>
             </div>
           </div>

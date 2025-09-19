@@ -82,7 +82,7 @@ const ServicesPage = () => {
                   <Scale className="h-8 w-8 text-accent" />
                 </div>
               </div>
-              <div className="text-3xl font-bold text-primary mb-2">15+</div>
+              <div className="text-3xl font-bold text-primary mb-2">25+</div>
               <div className="text-muted-foreground">Anos de Experiência</div>
             </div>
             <div className="text-center">
@@ -92,7 +92,7 @@ const ServicesPage = () => {
                 </div>
               </div>
               <div className="text-3xl font-bold text-primary mb-2">500+</div>
-              <div className="text-muted-foreground">Casos Resolvidos</div>
+              <div className="text-muted-fWoreground">Casos Resolvidos</div>
             </div>
             <div className="text-center">
               <div className="flex justify-center mb-4">
@@ -101,7 +101,7 @@ const ServicesPage = () => {
                 </div>
               </div>
               <div className="text-3xl font-bold text-primary mb-2">98%</div>
-              <div className="text-muted-foreground">Taxa de Sucesso</div>
+              <div className="text-muted-foreground">Taxa de Sucesso em todo territorio nacional.</div>
             </div>
           </div>
         </div>

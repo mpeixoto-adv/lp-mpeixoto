@@ -42,10 +42,7 @@ export const Hero = ({ onContactClick }: HeroProps) => {
               <div className="flex justify-center">
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-primary-foreground/90 mb-6 sm:mb-8 max-w-3xl leading-relaxed">
                   <span className="block sm:inline">
-                    O escritório M. Peixoto Advogados Associados conta com profissionais de experiência consolidada há mais de 15 anos.
-                  </span>{" "}
-                  <span className="block sm:inline">
-                    Atuamos com agilidade e eficiência para solucionar rapidamente os problemas dos nossos clientes.
+                    Com mais de 25 anos de trajetória, o M. Peixoto Advogados Associados se orgulha de oferecer um serviço jurídico sólido, atento às necessidades reais de cada cliente, com respostas rápidas e estratégias eficientes.
                   </span>
                 </p>
               </div>
@@ -74,7 +71,7 @@ export const Hero = ({ onContactClick }: HeroProps) => {
                 <div className="flex justify-center mb-2">
                   <Scale className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
                 </div>
-                <div className="text-2xl sm:text-3xl font-bold text-primary-foreground">15+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-primary-foreground">25+</div>
                 <div className="text-primary-foreground/80 text-xs sm:text-sm">Anos de Experiência</div>
               </div>
               <div className="text-center">
@@ -89,7 +86,7 @@ export const Hero = ({ onContactClick }: HeroProps) => {
                   <Award className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
                 </div>
                 <div className="text-2xl sm:text-3xl font-bold text-primary-foreground">98%</div>
-                <div className="text-primary-foreground/80 text-xs sm:text-sm">Taxa de Sucesso</div>
+                <div className="text-primary-foreground/80 text-xs sm:text-sm">Taxa de Sucesso em todo territorio nacional</div>
               </div>
               <div className="text-center">
                 <div className="flex justify-center mb-2">

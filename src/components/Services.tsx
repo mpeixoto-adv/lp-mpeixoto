@@ -105,7 +105,7 @@ export const Services = () => {
             Nossas Especialidades
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Oferecemos serviços jurídicos especializados com foco na excelência e resultados efetivos para nossos clientes.
+            Atuamos com excelência em diversas áreas do Direito, oferecendo soluções jurídicas eficazes e personalizadas para nossos clientes.
           </p>
         </div>
 

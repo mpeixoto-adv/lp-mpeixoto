@@ -19,7 +19,6 @@ const contactInfo = [
     icon: Phone,
     title: "Telefones",
     details: [
-      "(21) 2210-5300",
       "(21) 2018-6198 (WhatsApp)"
     ]
   },
@@ -34,7 +33,7 @@ const contactInfo = [
     icon: Clock,
     title: "Horário de Atendimento",
     details: [
-      "Seg-Sex: 09:00 às 18:00"
+      "Seg-Sex: 09:00 às 19:00"
     ]
   }
 ];

@@ -29,11 +29,11 @@ export const Testimonials = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6">
-            O Que Nossos Clientes Dizem
+            O que nossos Clientes Dizem
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            A confiança e satisfação de nossos clientes são o reflexo da qualidade e dedicação 
-            que colocamos em cada caso.
+            A confiança dos nossos clientes é construída com base em resultados consistentes, atendimento de excelência e total dedicação em cada etapa do processo. 
+            Suas palavras refletem o compromisso que colocamos em tudo o que fazemos.
           </p>
         </div>
 
@@ -86,30 +86,23 @@ export const Testimonials = () => {
         <div className="text-center">
           <div className="inline-flex items-center space-x-6 bg-card/60 backdrop-blur-sm rounded-2xl p-6 border border-border">
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary">500+</div>
-              <div className="text-sm text-muted-foreground">Clientes Satisfeitos</div>
+              <div className="text-2xl font-bold text-primary">R$ 270 mi+</div>
+              <div className="text-sm text-muted-foreground">Prejuízo Evitado</div>
             </div>
             <div className="w-px h-8 bg-border"></div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary">98%</div>
-              <div className="text-sm text-muted-foreground">Taxa de Sucesso</div>
+              <div className="text-2xl font-bold text-primary">Todo o Brasil</div>
+              <div className="text-sm text-muted-foreground">Atuação em todo território nacional</div>
             </div>
             <div className="w-px h-8 bg-border"></div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-primary">15+</div>
-              <div className="text-sm text-muted-foreground">Anos de Experiência</div>
+              <div className="text-2xl font-bold text-primary">25+</div>
+              <div className="text-sm text-muted-foreground">Anos de experiência</div>
             </div>
             <div className="w-px h-8 bg-border"></div>
             <div className="text-center">
-              <div className="flex justify-center mb-1">
-                {Array.from({ length: 5 }, (_, i) => (
-                  <Star 
-                    key={i} 
-                    className="h-4 w-4 text-yellow-400 fill-current" 
-                  />
-                ))}
-              </div>
-              <div className="text-sm text-muted-foreground">Avaliação Média</div>
+              <div className="text-2xl font-bold text-primary">30+</div>
+              <div className="text-sm text-muted-foreground">Advogados especializados</div>
             </div>
           </div>
         </div>

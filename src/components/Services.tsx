@@ -3,10 +3,9 @@ import { Button } from "@/components/ui/button";
 import { 
   Briefcase, 
   Calculator, 
-  ShoppingCart, 
   Building2, 
   Home, 
-  Heart,
+  Gavel,
   ArrowRight,
   Scale 
 } from "lucide-react";
@@ -23,7 +22,7 @@ const services = [
     icon: Scale,
     title: "Civil",
     description: "Atuação abrangente em responsabilidade civil, contratos, obrigações e negócios jurídicos, com soluções eficazes e personalizadas.",
-    features: ["Responsabilidade civil", "Elaboração de contratos", "Danos morais e materiais", "Negócios jurídicos"],
+    features: ["Responsabilidade civil e indenizações por danos materiais e morais", "Elaboração, revisão e rescisão de contratos", "Reparação por falhas em produtos, serviços e relações jurídicas", "Inventários, partilhas e planejamento sucessório", "Validade e anulação de negócios jurídicos", "Assessoria em negociações patrimoniais e comerciais"],
     backgroundImage: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070", // Legal/civil law image
     backgroundPosition: "center",
     link: "/direito-civil"
@@ -47,13 +46,18 @@ const services = [
     link: "/direito-tributario"
   },
   {
-    icon: ShoppingCart,
-    title: "Consumerista",
-    description: "Proteção dos direitos do consumidor com atuação especializada em relações de consumo e defesa contra práticas abusivas.",
-    features: ["Defesa do consumidor", "Ações indenizatórias", "Revisão de contratos", "Práticas abusivas"],
-    backgroundImage: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2070", // Shopping/consumer image
+    icon: Gavel,
+    title: "Penal",
+    description: "Defesa técnica em investigações e processos criminais, atuando com sigilo, agilidade e estratégia.",
+    features: [
+      "Advocacia criminal preventiva",
+      "Medidas cautelares e habeas corpus",
+      "Acompanhamento em inquéritos",
+      "Compliance e responsabilização penal"
+    ],
+    backgroundImage: "https://images.unsplash.com/photo-1555374018-13a8994ab246?q=80&w=2070", // Justice hammer image
     backgroundPosition: "center",
-    link: "/direito-consumerista"
+    link: "/services"
   },
   {
     icon: Building2,
@@ -72,15 +76,6 @@ const services = [
     backgroundImage: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=2073", // Real estate image
     backgroundPosition: "center",
     link: "/direito-imobiliario"
-  },
-  {
-    icon: Heart,
-    title: "Familiar",
-    description: "O Direito de Família aborda questões legais relacionadas a casamento, divórcio, guarda de filhos, pensão alimentícia e outros aspectos das relações familiares.",
-    features: ["Divórcio e separação", "Guarda de filhos", "Pensão alimentícia", "Acordos matrimoniais"],
-    backgroundImage: "https://images.unsplash.com/photo-1511895426328-dc8714191300?q=80&w=2070", // Family image
-    backgroundPosition: "center",
-    link: "/direito-familiar"
   }
 ];
 
@@ -180,10 +175,18 @@ export const Services = () => {
                 Nossa equipe está pronta para oferecer soluções jurídicas eficazes e personalizadas para seu caso.
               </p>
               <Button 
+                asChild
                 size="lg"
                 className="bg-accent hover:bg-accent-dark text-accent-foreground font-semibold px-8 py-4 text-lg shadow-accent-glow"
               >
-                Fale Conosco Agora
+                <a
+                  href="https://wa.me/552120186198"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Conversar com a M. Peixoto Advogados pelo WhatsApp"
+                >
+                  Fale Conosco Agora
+                </a>
               </Button>
             </div>
           </div>

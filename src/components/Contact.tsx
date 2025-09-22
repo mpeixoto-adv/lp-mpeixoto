@@ -213,7 +213,7 @@ export const Contact = () => {
                 </p>
                 <Button 
                   variant="outline"
-                  className="mt-4 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                  className="mt-4 border-primary-foreground/80 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary"
                   onClick={() => window.open("https://maps.google.com/?q=Rua+do+Mercado,+11,+Centro,+Rio+de+Janeiro", "_blank")}
                 >
                   Ver no Mapa

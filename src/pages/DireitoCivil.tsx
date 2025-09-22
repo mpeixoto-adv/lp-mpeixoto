@@ -2,7 +2,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, Scale, FileText, Handshake, Shield } from "lucide-react";
+import { Phone, Mail, Scale, FileText, Handshake, Shield, Users } from "lucide-react";
 import justiceScalesImage from "@/assets/justice-scales.jpg";
 
 const DireitoCivil = () => {
@@ -31,10 +31,10 @@ const DireitoCivil = () => {
                 Direito Civil
               </h1>
               <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                Com mais de 15 anos de experiência consolidada, nossa atuação em Direito Civil abrange uma ampla 
-                variedade de relações jurídicas e negócios, oferecendo soluções eficazes e personalizadas. Atuamos 
-                em responsabilidade civil, obrigações contratuais, elaboração de contratos, danos materiais e morais, 
-                sempre com foco na agilidade e eficiência que caracteriza nosso escritório.
+                No Direito Civil, cada detalhe faz a diferença. Mais do que resolver conflitos, nossa missão é  
+                oferecer segurança e previsibilidade aos clientes. Atuamos na prevenção e solução de questões 
+                contratuais, indenizatórias, de responsabilidade civil e patrimoniais, sempre com precisão 
+                técnica, estratégia e eficiência, transformando desafios em soluções jurídicas sólidas e seguras.
               </p>
               <Button 
                 onClick={handleContactClick}
@@ -57,26 +57,27 @@ const DireitoCivil = () => {
                     Direito Civil: Protegendo Seus Interesses
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Nossa atuação abrange uma ampla variedade de relações e negócios jurídicos relacionados ao Direito Civil. 
-                    Isso inclui responsabilidade civil, adimplemento e 
-                    inadimplemento de obrigações contratuais, validade e invalidade de negócios jurídicos, elaboração e revisão de contratos, direitos e danos materiais e imateriais.
+                    Nossa atuação em Direito Civil abrange as mais diversas relações jurídicas, desde contratos e
+                    negócios até questões de responsabilidade civil e patrimonial. Trabalhamos na elaboração e
+                    revisão de contratos, resolução de conflitos, indenizações e proteção de direitos, sempre com
+                    precisão técnica, visão estratégica e foco em resultados consistentes.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex items-center space-x-3">
                       <Shield className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Proteção de Direitos</span>
+                      <span className="text-sm font-medium text-muted-foreground">Defesa Estratégica</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <FileText className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Contratos Sólidos</span>
+                      <span className="text-sm font-medium text-muted-foreground">Contratos Inteligentes</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Handshake className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Negociações Eficazes</span>
+                      <span className="text-sm font-medium text-muted-foreground">Conflitos Resolvidos</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Scale className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Justiça Garantida</span>
+                      <span className="text-sm font-medium text-muted-foreground">Segurança Jurídica</span>
                     </div>
                   </div>
                 </div>
@@ -119,7 +120,7 @@ const DireitoCivil = () => {
               {/* Grid Layout for Cards */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
                 
-                {/* Uma Visão Detalhada */}
+                {/* Responsabilidade Civil e Reparação de Danos */}
                 <Card className="hover:shadow-card-hover transition-all duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
@@ -127,20 +128,21 @@ const DireitoCivil = () => {
                         <Shield className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Uma Visão Detalhada
+                        Responsabilidade Civil e Reparação de Danos
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Em nossa atuação abrangente em Direito Civil, um dos pilares essenciais é a responsabilidade civil. 
-                      Estamos comprometidos em ajudar nossos clientes a entender e lidar com questões que envolvem responsabilidade 
-                      por atos e danos. Isso abrange desde acidentes de trânsito até responsabilidade contratual e extracontratual. 
-                      Estamos preparados para representar seus interesses de maneira eficaz, seja na negociação de acordos ou 
-                      no contencioso, com o objetivo de garantir que seus direitos estejam protegidos.
+                      Atuamos em casos de danos materiais e morais, buscando a justa compensação por prejuízos
+                      sofridos. Isso inclui situações de acidentes de trânsito, falhas em serviços, descumprimento de
+                      obrigações ou qualquer conduta que cause lesão a direitos. Nossa atuação é estratégica:
+                      avaliamos o impacto do dano, quantificamos perdas (como lucros cessantes e danos
+                      emergentes) e buscamos tanto soluções rápidas por meio de negociação quanto resultados
+                      sólidos em juízo.
                     </p>
                   </CardContent>
                 </Card>
 
-                {/* Obrigações Contratuais */}
+                {/* Contratos e Relações Negociais */}
                 <Card className="hover:shadow-card-hover transition-all duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
@@ -148,20 +150,19 @@ const DireitoCivil = () => {
                         <Handshake className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Obrigações Contratuais
+                        Contratos e Relações Negociais
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Atuamos em todas as fases das relações contratuais, desde a elaboração até a execução e eventual 
-                      resolução de conflitos. Nossa equipe especializada oferece assessoria preventiva para evitar 
-                      inadimplementos e disputas, além de representação eficaz quando necessário. Com processos otimizados e 
-                      resposta ágil, garantimos que seus contratos sejam justos, seguros e adequados às suas necessidades 
-                      específicas.
+                      Elaboramos e revisamos contratos de maneira precisa e clara, prevenindo riscos futuros e 
+                      garantindo segurança jurídica. Também representamos nossos clientes em disputas decorrentes 
+                      de contratos descumpridos, renegociações e revisões de cláusulas, assegurando que os 
+                      interesses estejam protegidos em todas as etapas da relação contratual.
                     </p>
                   </CardContent>
                 </Card>
 
-                {/* Validade de Negócios Jurídicos */}
+                {/* Validade de Atos e Negócios Jurídicos */}
                 <Card className="hover:shadow-card-hover transition-all duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
@@ -169,19 +170,19 @@ const DireitoCivil = () => {
                         <Scale className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Validade de Negócios Jurídicos
+                        Validade de Atos e Negócios Jurídicos
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Avaliamos criteriosamente a validade de negócios jurídicos, identificando vícios de consentimento, 
-                      defeitos na forma e outros aspectos que possam comprometer a eficácia dos atos. Nossa análise técnica 
-                      rigorosa permite identificar problemas potenciais e propor soluções preventivas ou corretivas. 
-                      Quando necessário, atuamos na anulação ou declaração de nulidade de negócios jurídicos.
+                      Realizamos uma análise criteriosa de negócios jurídicos e documentos para identificar vícios de 
+                      consentimento, defeitos formais ou qualquer falha que comprometa sua validade. Quando 
+                      necessário, atuamos na defesa da anulação ou retificação de atos que possam prejudicar nossos 
+                      clientes, garantindo a legitimidade e a eficácia das relações jurídicas.
                     </p>
                   </CardContent>
                 </Card>
 
-                {/* Elaboração e Revisão de Contratos */}
+                {/* Família e Sucessões */}
                 <Card className="hover:shadow-card-hover transition-all duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
@@ -189,38 +190,17 @@ const DireitoCivil = () => {
                         <FileText className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Elaboração de Contratos
+                        Família e Sucessões
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Elaboramos e revisamos contratos com precisão técnica e atenção aos detalhes que fazem a diferença. 
-                      Nosso processo colaborativo garante que cada contrato seja customizado para suas necessidades específicas, 
-                      com cláusulas claras e equilibradas. Nossa expertise assegura documentos sólidos que protegem seus 
-                      interesses e minimizam riscos futuros.
+                      Prestamos assessoria em processos de inventário, partilha de bens, testamentos e planejamento. 
+                      sucessório. Nosso objetivo é proteger o patrimônio familiar e evitar litígios, conduzindo essas 
+                      questões com técnica, sensibilidade e foco em soluções seguras.
                     </p>
                   </CardContent>
                 </Card>
 
-                {/* Direitos e Danos - Spanning 2 columns on large screens */}
-                <Card className="hover:shadow-card-hover transition-all duration-300 h-full lg:col-span-2">
-                  <CardContent className="p-6">
-                    <div className="flex items-start space-x-3 mb-4">
-                      <div className="p-2.5 rounded-lg bg-accent/10 flex-shrink-0">
-                        <Shield className="h-5 w-5 text-accent" />
-                      </div>
-                      <h3 className="text-xl font-serif font-bold text-primary">
-                        Direitos e Danos Materiais e Imateriais
-                      </h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Nossa atuação em danos materiais e morais é abrangente e estratégica, considerando todos os aspectos 
-                      do prejuízo sofrido. Realizamos análise detalhada para quantificar adequadamente os danos, incluindo 
-                      lucros cessantes, danos emergentes e compensação por danos morais. Com experiência sólida em negociação 
-                      e litígio, buscamos sempre a reparação mais adequada e justa, priorizando soluções rápidas quando possível, 
-                      mas sem abrir mão da defesa integral dos direitos de nossos clientes.
-                    </p>
-                  </CardContent>
-                </Card>
               </div>
 
               {/* Common Cases - Now with better layout */}
@@ -244,7 +224,7 @@ const DireitoCivil = () => {
                       <ul className="space-y-2.5 text-sm text-muted-foreground">
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Contratos de prestação de serviços e fornecimento</span>
+                          <span>Elaboração e revisão de contratos de prestação de serviços e fornecimento</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
@@ -256,34 +236,60 @@ const DireitoCivil = () => {
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Contratos de compra e venda de bens móveis</span>
+                          <span>Contratos de compra e venda de bens móveis e imóveis</span>
                         </li>
                       </ul>
                     </div>
-                    
-                    <div className="space-y-4">
-                      <div className="flex items-center space-x-2 mb-3">
-                        <Shield className="h-5 w-5 text-accent" />
-                        <h3 className="font-semibold text-primary text-lg">Responsabilidade e Indenizações</h3>
+
+                    <div className="space-y-6">
+                      <div>
+                        <div className="flex items-center space-x-2 mb-3">
+                          <Shield className="h-5 w-5 text-accent" />
+                          <h3 className="font-semibold text-primary text-lg">Responsabilidade e Indenizações</h3>
+                        </div>
+                        <ul className="space-y-2.5 text-sm text-muted-foreground">
+                          <li className="flex items-start">
+                            <span className="text-accent mr-2 mt-1">•</span>
+                            <span>Acidentes de trânsito e responsabilidade civil</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-accent mr-2 mt-1">•</span>
+                            <span>Danos morais por ofensas à honra, imagem ou reputação</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-accent mr-2 mt-1">•</span>
+                            <span>Vícios em produtos e serviços</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-accent mr-2 mt-1">•</span>
+                            <span>Indenizações por danos materiais, lucros cessantes e perdas patrimoniais</span>
+                          </li>
+                        </ul>
                       </div>
-                      <ul className="space-y-2.5 text-sm text-muted-foreground">
-                        <li className="flex items-start">
-                          <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Acidentes de trânsito e responsabilidade civil</span>
-                        </li>
-                        <li className="flex items-start">
-                          <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Danos morais por ofensas à honra e imagem</span>
-                        </li>
-                        <li className="flex items-start">
-                          <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Responsabilidade por vícios em produtos ou serviços</span>
-                        </li>
-                        <li className="flex items-start">
-                          <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Indenizações por danos materiais e lucros cessantes</span>
-                        </li>
-                      </ul>
+                      <div>
+                        <div className="flex items-center space-x-2 mb-3">
+                          <Users className="h-5 w-5 text-accent" />
+                          <h3 className="font-semibold text-primary text-lg">Família e Sucessões</h3>
+                        </div>
+                        <ul className="space-y-2.5 text-sm text-muted-foreground">
+                          <li className="flex items-start">
+                            <span className="text-accent mr-2 mt-1">•</span>
+                            <span>Inventários e partilhas judiciais ou extrajudiciais</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-accent mr-2 mt-1">•</span>
+                            <span>Testamentos e planejamento sucessório</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-accent mr-2 mt-1">•</span>
+                            <span>Reconhecimento e dissolução de união estável</span>
+                          </li>
+                          <li className="flex items-start">
+                            <span className="text-accent mr-2 mt-1">•</span>
+                            <span>Regulamentação de guarda, visitas e alimentos</span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                   </div>
                 </CardContent>
@@ -297,7 +303,7 @@ const DireitoCivil = () => {
                       Nossa Abordagem no Direito Civil
                     </h2>
                     <p className="text-muted-foreground text-lg">
-                      Metodologia eficaz baseada em mais de 15 anos de experiência
+                      Metodologia eficaz baseada em mais de 25 anos de experiência
                     </p>
                   </div>
                   
@@ -328,10 +334,11 @@ const DireitoCivil = () => {
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
                         <Scale className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-2">Execução Eficaz</h3>
+                      <h3 className="font-semibold text-primary mb-2">Execução Eficaz com Tecnologia</h3>
                       <p className="text-sm text-muted-foreground">
-                        Implementação ágil e eficiente das estratégias definidas, 
-                        com acompanhamento constante dos resultados.
+                        Implementação ágil das estratégias definidas, com acompanhamento em tempo real por meio 
+                        de dashboards inteligentes e ferramentas de gestão jurídica de ponta, garantindo maior
+                        previsibilidade e controle dos resultados.
                       </p>
                     </div>
                   </div>

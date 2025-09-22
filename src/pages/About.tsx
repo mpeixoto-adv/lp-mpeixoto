@@ -4,14 +4,9 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { 
   Scale, 
-  Users, 
   Award, 
   Building, 
-  Target, 
-  Shield, 
-  Briefcase, 
   GraduationCap,
-  Clock,
   ArrowRight,
   CheckCircle,
   MapPin,
@@ -27,34 +22,11 @@ const AboutPage = () => {
     window.location.href = "/#contact";
   };
 
-  const values = [
-    {
-      icon: Shield,
-      title: "Ética e Transparência",
-      description: "Atuamos com absoluta transparência e ética profissional, mantendo nossos clientes sempre informados sobre o andamento de seus processos."
-    },
-    {
-      icon: Target,
-      title: "Foco em Resultados",
-      description: "Nossa abordagem é orientada para resultados, buscando sempre as melhores soluções jurídicas para cada caso específico."
-    },
-    {
-      icon: Users,
-      title: "Atendimento Personalizado",
-      description: "Cada cliente é único e recebe atenção individualizada, com estratégias jurídicas desenvolvidas especificamente para suas necessidades."
-    },
-    {
-      icon: Clock,
-      title: "Agilidade e Eficiência",
-      description: "Comprometemo-nos com prazos e atuamos com agilidade, sem comprometer a qualidade técnica de nossos serviços."
-    }
-  ];
-
   const expertise = [
     {
       area: "Direito Trabalhista",
       description: "Atuação preventiva e contenciosa em questões trabalhistas, com foco na proteção dos direitos de empregados e empregadores.",
-      experience: "500+ casos resolvidos"
+      experience: "R$ 270 mi+ em prejuízos evitados"
     },
     {
       area: "Direito Tributário",
@@ -72,14 +44,14 @@ const AboutPage = () => {
       experience: "200+ contratos elaborados"
     },
     {
-      area: "Direito de Família",
-      description: "Mediação e representação em divórcios, guarda, pensão alimentícia e sucessões.",
-      experience: "300+ famílias atendidas"
+      area: "Direito Civil",
+      description: "Gestão de contratos, responsabilidade civil e disputas patrimoniais com atuação estratégica em todas as fases processuais.",
+      experience: "400+ demandas solucionadas"
     },
     {
-      area: "Direito Consumerista",
-      description: "Defesa dos direitos do consumidor e assessoria para empresas em compliance consumerista.",
-      experience: "150+ ações vitoriosas"
+      area: "Direito Penal",
+      description: "Defesa técnica em investigações e processos criminais, com atuação ágil em medidas cautelares e compliance penal.",
+      experience: "80+ casos acompanhados"
     }
   ];
 
@@ -100,8 +72,7 @@ const AboutPage = () => {
                 M. Peixoto Advogados Associados
               </h1>
               <p className="text-xl text-primary-foreground/90 leading-relaxed max-w-3xl mx-auto">
-                Há mais de 15 anos transformando desafios jurídicos em soluções estratégicas 
-                para empresas e pessoas físicas no Rio de Janeiro.
+                Há mais de 25 anos oferecendo soluções jurídicas seguras, estratégicas e inovadoras em todo o Brasil.
               </p>
             </div>
           </div>
@@ -120,65 +91,21 @@ const AboutPage = () => {
               
               <div className="prose prose-lg max-w-none text-muted-foreground">
                 <p className="mb-6 leading-relaxed">
-                  O escritório <strong className="text-primary">M. Peixoto Advogados Associados</strong> foi fundado com a missão de 
-                  oferecer serviços jurídicos de excelência, combinando experiência consolidada com uma 
-                  abordagem moderna e eficiente do Direito.
-                </p>
-                
-                <p className="mb-6 leading-relaxed">
-                  Com mais de <strong className="text-primary">15 anos de atuação</strong> no mercado jurídico, construímos nossa 
-                  reputação através de um trabalho sério, ético e comprometido com os resultados de nossos 
-                  clientes. Nossa equipe é formada por profissionais altamente qualificados, com especialização 
-                  nas principais áreas do Direito.
+                  O <strong className="text-primary">M. Peixoto Advogados Associados</strong> nasceu com a missão de entregar soluções jurídicas de excelência, unindo tradição, inovação e compromisso com resultados. Com mais de 25 anos de atuação no mercado, consolidamos uma reputação de confiança, seriedade e eficiência, sempre pautada na ética e na proximidade com nossos clientes.
                 </p>
 
                 <p className="mb-6 leading-relaxed">
-                  Estrategicamente localizado no <strong className="text-primary">centro do Rio de Janeiro</strong>, nosso escritório 
-                  está próximo aos principais tribunais e órgãos públicos, facilitando o acompanhamento 
-                  processual e a resolução ágil das demandas de nossos clientes.
+                  Nossa equipe é formada por <strong className="text-primary">mais de 30 advogados altamente qualificados</strong>, preparados para atuar nas principais áreas do Direito, com visão estratégica e foco em soluções eficazes. Trabalhamos de forma preventiva e contenciosa, assegurando tanto a redução de riscos quanto a defesa firme dos interesses de nossos clientes.
+                </p>
+
+                <p className="mb-6 leading-relaxed">
+                  Localizado estrategicamente no <strong className="text-primary">centro do Rio de Janeiro</strong>, próximo aos principais tribunais e órgãos públicos, nosso escritório garante agilidade no acompanhamento processual e nas interações institucionais. Essa posição privilegiada, somada ao uso de tecnologia de ponta, jurimetria e inteligência artificial, nos permite oferecer um serviço moderno, preciso e em sintonia com as necessidades de um mercado em constante transformação.
                 </p>
 
                 <p className="leading-relaxed">
-                  Acreditamos que o Direito deve ser um instrumento de transformação positiva na vida das 
-                  pessoas e das empresas. Por isso, atuamos de forma <strong className="text-primary">preventiva e contenciosa</strong>, 
-                  sempre buscando as melhores soluções jurídicas para cada situação específica.
+                  Mais do que representar juridicamente, buscamos ser <strong className="text-primary">parceiros estratégicos</strong> de nossos clientes, sejam empresas ou pessoas físicas, oferecendo segurança, previsibilidade e soluções que fazem a diferença.
                 </p>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Nossos Valores */}
-        <section className="py-20 bg-secondary/30">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
-                Nossos Valores
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Os princípios que norteiam nossa atuação e definem nossa identidade
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-              {values.map((value, index) => {
-                const IconComponent = value.icon;
-                return (
-                  <Card key={index} className="border-border hover:shadow-card-hover transition-all duration-300">
-                    <CardContent className="p-6 text-center">
-                      <div className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                        <IconComponent className="h-8 w-8 text-accent" />
-                      </div>
-                      <h3 className="text-lg font-serif font-semibold text-primary mb-3">
-                        {value.title}
-                      </h3>
-                      <p className="text-sm text-muted-foreground leading-relaxed">
-                        {value.description}
-                      </p>
-                    </CardContent>
-                  </Card>
-                );
-              })}
             </div>
           </div>
         </section>
@@ -251,34 +178,28 @@ const AboutPage = () => {
                   
                   <div className="space-y-6 text-muted-foreground">
                     <p className="leading-relaxed">
-                      No <strong className="text-primary">M. Peixoto Advogados Associados</strong>, entendemos que cada 
-                      cliente possui necessidades únicas e merece atenção individualizada. Nossa abordagem 
-                      combina conhecimento técnico aprofundado com uma compreensão genuína dos desafios 
-                      enfrentados por nossos clientes.
-                    </p>
-                    
-                    <p className="leading-relaxed">
-                      Comprometemo-nos a oferecer não apenas serviços jurídicos, mas verdadeiras 
-                      <strong className="text-primary"> parcerias estratégicas</strong>, onde o sucesso de nossos clientes é 
-                      nossa principal motivação. Atuamos com transparência total, mantendo nossos clientes 
-                      sempre informados sobre o andamento de seus casos.
+                      Na <strong className="text-primary">M. Peixoto Advogados Associados</strong>, cada cliente é único. Nosso compromisso é oferecer não apenas soluções jurídicas, mas confiança, clareza e dedicação em cada etapa do caminho.
                     </p>
 
                     <p className="leading-relaxed">
-                      Nossa equipe trabalha de forma integrada, combinando diferentes especialidades para 
-                      oferecer soluções completas e eficazes. Investimos continuamente em atualização 
-                      profissional e tecnologia para garantir que nossos clientes recebam o que há de 
-                      mais moderno em assessoria jurídica.
+                      Atuamos com ética, transparência e responsabilidade, construindo relações sólidas e entregando resultados que fazem a diferença na vida de pessoas e empresas.
                     </p>
                   </div>
 
                   <div className="mt-8 text-center">
                     <Button 
-                      onClick={handleContactClick}
+                      asChild
                       size="lg"
                       className="bg-accent hover:bg-accent-dark text-accent-foreground font-semibold"
                     >
-                      Entre em Contato
+                      <a
+                        href="https://wa.me/552120186198"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Conversar com a M. Peixoto Advogados pelo WhatsApp"
+                      >
+                        Entre em Contato
+                      </a>
                     </Button>
                   </div>
                 </CardContent>
@@ -300,8 +221,8 @@ const AboutPage = () => {
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <Card className="border-border">
+              <div className="flex justify-center">
+                <Card className="border-border w-full max-w-md">
                   <CardContent className="p-6">
                     <div className="flex items-center mb-4">
                       <Building className="h-6 w-6 text-accent mr-3" />
@@ -317,30 +238,6 @@ const AboutPage = () => {
                   </CardContent>
                 </Card>
 
-                <Card className="border-border">
-                  <CardContent className="p-6">
-                    <div className="flex items-center mb-4">
-                      <Briefcase className="h-6 w-6 text-accent mr-3" />
-                      <h3 className="text-lg font-serif font-semibold text-primary">
-                        Vantagens da Localização
-                      </h3>
-                    </div>
-                    <ul className="space-y-2 text-muted-foreground">
-                      <li className="flex items-start">
-                        <span className="text-accent mr-2">•</span>
-                        Próximo aos principais tribunais
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-accent mr-2">•</span>
-                        Fácil acesso por transporte público
-                      </li>
-                      <li className="flex items-start">
-                        <span className="text-accent mr-2">•</span>
-                        Região com ampla infraestrutura
-                      </li>
-                    </ul>
-                  </CardContent>
-                </Card>
               </div>
 
               <div className="mt-8 text-center">
@@ -369,17 +266,24 @@ const AboutPage = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button 
-                  onClick={handleContactClick}
+                  asChild
                   size="lg"
                   className="bg-accent hover:bg-accent-dark text-accent-foreground font-semibold"
                 >
-                  Agende uma Consulta
+                  <a
+                    href="https://wa.me/552120186198"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Agendar consulta pelo WhatsApp"
+                  >
+                    Agende uma Consulta
+                  </a>
                 </Button>
                 <Button 
                   variant="outline" 
                   size="lg"
-                  onClick={() => window.location.href = "/services"}
-                  className="border-2 border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary"
+                  onClick={() => (window.location.href = "/services")}
+                  className="border-2 border-primary-foreground/70 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 hover:text-primary"
                 >
                   Conheça Nossos Serviços
                 </Button>

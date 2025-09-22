@@ -110,7 +110,7 @@ export const Footer = () => {
         <div className="border-t border-primary-foreground/20 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center text-sm">
             <p className="text-primary-foreground/60 mb-4 md:mb-0">
-              © 2024 MP Advogados Associados. Todos os direitos reservados.
+              © 2025 MP Advogados Associados. Todos os direitos reservados.
             </p>
             <p className="text-primary-foreground/60">
               As chamadas podem ser gravadas para fins de qualidade e treinamento.

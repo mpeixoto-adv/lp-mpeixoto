@@ -31,10 +31,13 @@ const DireitoTributario = () => {
                 Direito Tributário
               </h1>
               <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                Uma assessoria tributária eficiente pode beneficiar empresas, mas também pessoas físicas, 
-                otimizando suas obrigações fiscais e financeiras. Com mais de 15 anos de experiência, 
-                oferecemos soluções estratégicas em planejamento tributário, contestação de multas, 
-                recuperação de créditos e consultoria fiscal especializada.
+                O ambiente tributário brasileiro é complexo e desafiador, exigindo acompanhamento técnico 
+                especializado para garantir conformidade, reduzir riscos e identificar oportunidades.
+                experiência consolidada e recursos tecnológicos para entregar soluções precisas e eficazes. 
+                Nossa atuação vai desde o planejamento tributário preventivo até a defesa em autuações fiscais,
+                passando pela recuperação de créditos, contestação de cobranças indevidas e consultoria
+                estratégica para empresas e pessoas físicas. O objetivo é proporcionar segurança jurídica,
+                otimização fiscal e maior previsibilidade nos negócios.
               </p>
               <Button 
                 onClick={handleContactClick}
@@ -57,15 +60,17 @@ const DireitoTributario = () => {
                     Direito Tributário: Otimizando Suas Obrigações Fiscais
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Nossa atuação em Direito Tributário abrange desde o planejamento fiscal estratégico até a 
-                    defesa em processos administrativos e judiciais. Auxiliamos empresas e pessoas físicas a 
-                    otimizar sua carga tributária dentro da legalidade, identificando oportunidades de economia 
-                    fiscal e garantindo o cumprimento adequado das obrigações tributárias.
+                    Nossa atuação em Direito Tributário vai além do cumprimento das obrigações fiscais. 
+                    Oferecemos suporte completo para empresas e pessoas físicas, desde o planejamento 
+                    estratégico até a defesa em processos administrativos e judiciais.
+                    Identificamos oportunidades de economia dentro da legalidade, reduzimos riscos e garantimos
+                    maior previsibilidade na gestão tributária, sempre com soluções claras, objetivas e alinhadas às
+                    necessidades de cada cliente.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex items-center space-x-3">
                       <TrendingUp className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Planejamento Estratégico</span>
+                      <span className="text-sm font-medium text-muted-foreground">Planejamento tributário estratégico</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <PiggyBank className="h-6 w-6 text-accent" />
@@ -73,11 +78,11 @@ const DireitoTributario = () => {
                     </div>
                     <div className="flex items-center space-x-3">
                       <Shield className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Defesa Tributária</span>
+                      <span className="text-sm font-medium text-muted-foreground">Defesa em autuações</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Briefcase className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Consultoria Completa</span>
+                      <span className="text-sm font-medium text-muted-foreground">Consultoria completa e contínua</span>
                     </div>
                   </div>
                 </div>
@@ -120,7 +125,7 @@ const DireitoTributario = () => {
               {/* Grid Layout for Cards */}
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
                 
-                {/* Planejamento Tributário */}
+                {/* Planejamento Tributário Estratégico */}
                 <Card className="hover:shadow-card-hover transition-all duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
@@ -128,19 +133,18 @@ const DireitoTributario = () => {
                         <TrendingUp className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Planejamento Tributário
+                        Planejamento Tributário Estratégico
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Desenvolvemos estratégias personalizadas de planejamento tributário, analisando a estrutura 
-                      do seu negócio para identificar as melhores alternativas fiscais. Nossa abordagem visa a 
-                      economia tributária lícita, através da escolha do regime tributário mais adequado, 
-                      aproveitamento de benefícios fiscais e reorganização societária quando necessário.
+                      Desenvolvemos estratégias sob medida para reduzir a carga tributária de forma lícita e eficiente, 
+                      avaliando o regime mais adequado, benefícios fiscais aplicáveis e reorganizações societárias 
+                      quando necessárias.
                     </p>
                   </CardContent>
                 </Card>
 
-                {/* Contestação de Multas */}
+                {/* Defesa em Autuações e Multas */}
                 <Card className="hover:shadow-card-hover transition-all duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
@@ -148,19 +152,18 @@ const DireitoTributario = () => {
                         <Shield className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Contestação de Multas
+                        Defesa em Autuações e Multas
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Atuamos na defesa administrativa e judicial contra autuações fiscais, analisando 
-                      minuciosamente cada caso para identificar vícios e irregularidades. Nossa equipe 
-                      especializada elabora defesas técnicas robustas, recursos administrativos e ações 
-                      judiciais quando necessário, sempre buscando a anulação ou redução das penalidades.
+                      Atuamos em processos administrativos e judiciais, elaborando defesas técnicas contra 
+                      autuações fiscais, recursos administrativos e ações judiciais, sempre com foco na redução ou 
+                      anulação de penalidades.
                     </p>
                   </CardContent>
                 </Card>
 
-                {/* Recuperação de Créditos */}
+                {/* Recuperação de Créditos Tributários */}
                 <Card className="hover:shadow-card-hover transition-all duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
@@ -168,19 +171,18 @@ const DireitoTributario = () => {
                         <PiggyBank className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Recuperação de Créditos
+                        Recuperação de Créditos Tributários
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Identificamos e recuperamos créditos tributários através de análise detalhada dos últimos 
-                      5 anos de recolhimentos. Atuamos na recuperação de PIS, COFINS, ICMS, e outros tributos 
-                      pagos indevidamente, através de compensação administrativa ou restituição judicial, 
-                      maximizando o retorno financeiro para nossos clientes.
+                      Identificamos e recuperamos tributos pagos indevidamente ou a maior, como PIS, COFINS, ICMS 
+                      e contribuições previdenciárias, garantindo o retorno financeiro por meio de compensações 
+                      administrativas ou ações judiciais.
                     </p>
                   </CardContent>
                 </Card>
 
-                {/* Consultoria Fiscal */}
+                {/* Consultoria Fiscal Contínua */}
                 <Card className="hover:shadow-card-hover transition-all duration-300 h-full">
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
@@ -188,14 +190,13 @@ const DireitoTributario = () => {
                         <Briefcase className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Consultoria Fiscal
+                        Consultoria Fiscal Contínua
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Oferecemos consultoria fiscal contínua para garantir o cumprimento adequado das obrigações 
-                      tributárias e evitar contingências. Nossa assessoria inclui orientação sobre legislação 
-                      tributária, análise de operações, revisão de procedimentos fiscais e acompanhamento de 
-                      mudanças legislativas que impactem seu negócio.
+                      Prestamos suporte permanente para análise de operações, revisão de procedimentos fiscais e 
+                      acompanhamento de mudanças legislativas, garantindo previsibilidade e segurança na gestão 
+                      tributária.
                     </p>
                   </CardContent>
                 </Card>
@@ -212,11 +213,8 @@ const DireitoTributario = () => {
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Garantimos o cumprimento integral das obrigações tributárias acessórias, incluindo SPED Fiscal, 
-                      SPED Contábil, EFD-Reinf, DCTFWeb, e outras declarações obrigatórias. Nossa equipe mantém-se 
-                      constantemente atualizada sobre as mudanças na legislação, assegurando que sua empresa esteja 
-                      sempre em conformidade com as exigências fiscais, evitando multas e penalidades por descumprimento 
-                      de obrigações acessórias.
+                      Asseguramos que empresas estejam sempre em conformidade com exigências fiscais, incluindo
+                      SPED, EFD-Reinf, DCTFWeb e demais declarações, evitando multas e riscos por descumprimento.
                     </p>
                   </CardContent>
                 </Card>
@@ -238,24 +236,24 @@ const DireitoTributario = () => {
                     <div className="space-y-4">
                       <div className="flex items-center space-x-2 mb-3">
                         <Calculator className="h-5 w-5 text-accent" />
-                        <h3 className="font-semibold text-primary text-lg">Impostos e Contribuições</h3>
+                        <h3 className="font-semibold text-primary text-lg">Impostos e Conformidade Fiscal</h3>
                       </div>
                       <ul className="space-y-2.5 text-sm text-muted-foreground">
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Planejamento e economia de IRPJ e CSLL</span>
+                          <span>Planejamento e redução lícita de IRPJ e CSLL</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Recuperação de PIS e COFINS</span>
+                          <span>Recuperação de créditos de PIS, COFINS e contribuições previdenciárias</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Revisão de ICMS e substituição tributária</span>
+                          <span>Revisão de ICMS, substituição tributária e benefícios fiscais</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Otimização de ISS para prestadores de serviços</span>
+                          <span>Gestão de ISS para prestadores de serviços</span>
                         </li>
                       </ul>
                     </div>
@@ -263,24 +261,24 @@ const DireitoTributario = () => {
                     <div className="space-y-4">
                       <div className="flex items-center space-x-2 mb-3">
                         <Shield className="h-5 w-5 text-accent" />
-                        <h3 className="font-semibold text-primary text-lg">Defesa e Regularização</h3>
+                        <h3 className="font-semibold text-primary text-lg">Defesa e Regularização Tributária</h3>
                       </div>
                       <ul className="space-y-2.5 text-sm text-muted-foreground">
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Defesa em autuações da Receita Federal</span>
+                          <span>Defesa em autuações fiscais administrativas e judiciais</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Parcelamentos especiais e REFIS</span>
+                          <span>Negociação de parcelamentos especiais (REFIS e similares)</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Regularização de pendências fiscais</span>
+                          <span>Regularização de pendências fiscais e obrigações acessórias</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Certidões negativas de débitos</span>
+                          <span>Obtenção de certidões negativas de débitos (CNDs)</span>
                         </li>
                       </ul>
                     </div>
@@ -305,10 +303,10 @@ const DireitoTributario = () => {
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
                         <FileText className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-2">Diagnóstico Fiscal</h3>
+                      <h3 className="font-semibold text-primary mb-2">Diagnóstico Tributário Avançado</h3>
                       <p className="text-sm text-muted-foreground">
-                        Análise completa da situação tributária, identificando oportunidades 
-                        de economia e pontos de atenção.
+                        Análise detalhada da situação fiscal, identificando riscos, oportunidades de economia e pontos 
+                        de atenção que podem impactar diretamente o negócio.
                       </p>
                     </div>
                     
@@ -318,8 +316,8 @@ const DireitoTributario = () => {
                       </div>
                       <h3 className="font-semibold text-primary mb-2">Estratégia Personalizada</h3>
                       <p className="text-sm text-muted-foreground">
-                        Desenvolvimento de soluções tributárias customizadas, 
-                        alinhadas aos objetivos do negócio.
+                        Desenvolvimento de soluções tributárias sob medida, alinhadas ao setor de atuação e aos 
+                        objetivos estratégicos de cada cliente.
                       </p>
                     </div>
                     
@@ -327,10 +325,10 @@ const DireitoTributario = () => {
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
                         <Calculator className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-2">Implementação Segura</h3>
+                      <h3 className="font-semibold text-primary mb-2">Execução com Tecnologia e Segurança</h3>
                       <p className="text-sm text-muted-foreground">
-                        Execução das estratégias com total segurança jurídica, 
-                        acompanhamento contínuo e suporte especializado.
+                        Implementação das estratégias com total respaldo jurídico, apoio de ferramentas tecnológicas
+                        e dashboards de acompanhamento, garantindo previsibilidade e resultados consistentes.
                       </p>
                     </div>
                   </div>

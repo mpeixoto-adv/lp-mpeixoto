@@ -37,15 +37,15 @@ const ServicesPage = () => {
       ]
     },
     {
-      title: "Direito Consumerista",
-      description: "Proteção efetiva dos direitos do consumidor em todas as esferas.",
+      title: "Direito Penal",
+      description: "Defesa técnica e atuação preventiva em investigações e processos criminais.",
       details: [
-        "Defesa contra práticas abusivas",
-        "Ações de indenização por danos morais e materiais",
-        "Revisão de contratos de consumo",
-        "Negociação com fornecedores",
-        "Ações coletivas de consumidores",
-        "Consultoria preventiva para empresas"
+        "Acompanhamento em delegacias e audiências de custódia",
+        "Habeas corpus, medidas cautelares e acordos penais",
+        "Defesas em crimes empresariais, tributários e ambientais",
+        "Compliance penal para empresas e executivos",
+        "Investigações internas e colaboração premiada",
+        "Monitoramento 24h para situações emergenciais"
       ]
     }
   ];

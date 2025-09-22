@@ -53,9 +53,9 @@ const teamMembers: TeamMember[] = [
     position: "Advogada",
     education: "UFF",
     oab: "OAB/RJ 456.789",
-    specialties: ["Direito Consumerista", "Direito Digital"],
+    specialties: ["Direito Penal", "Direito Digital"],
     image: anaImg, // Placeholder até ter imagem real
-    description: "Jovem talento especializada em direito digital e defesa do consumidor, com foco em inovação jurídica."
+    description: "Jovem talento especializada em direito penal empresarial e inovação jurídica, com foco em compliance e tecnologia."
   }
 ];
 

@@ -62,10 +62,10 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
 
   const servicesItems = [
     { name: "Direito Civil", href: "/direito-civil" },
-    { name: "Direito Consumerista", href: "/direito-consumerista" },
+    { name: "Direito Trabalhista", href: "/direito-trabalhista" },
     { name: "Direito Empresarial", href: "/direito-empresarial" },
     { name: "Direito Imobiliário", href: "/direito-imobiliario" },
-    { name: "Direito Trabalhista", href: "/direito-trabalhista" },
+    { name: "Direito Penal", href: "/direito-penal" },
     { name: "Direito Tributário", href: "/direito-tributario" },
   ];
 

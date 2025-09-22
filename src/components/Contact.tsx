@@ -41,7 +41,7 @@ const contactInfo = [
 const practiceAreas = [
   "Área Familiar & Orfanológico",
   "Cível",
-  "Consumerista",
+  "Penal",
   "Empresarial",
   "Imobiliário",
   "Trabalhista",

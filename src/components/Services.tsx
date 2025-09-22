@@ -57,7 +57,7 @@ const services = [
     ],
     backgroundImage: "https://images.unsplash.com/photo-1555374018-13a8994ab246?q=80&w=2070", // Justice hammer image
     backgroundPosition: "center",
-    link: "/services"
+    link: "/direito-penal"
   },
   {
     icon: Building2,
@@ -84,7 +84,14 @@ export const Services = () => {
 
   const handleServiceClick = (link: string) => {
     // Se a página existe, navega para ela, senão vai para /services
-    if (link === "/direito-civil" || link === "/direito-tributario") {
+    if ([
+      "/direito-civil",
+      "/direito-tributario",
+      "/direito-trabalhista",
+      "/direito-empresarial",
+      "/direito-imobiliario",
+      "/direito-penal"
+    ].includes(link)) {
       navigate(link);
     } else {
       navigate("/services");

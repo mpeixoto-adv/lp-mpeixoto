@@ -50,18 +50,26 @@ export const Hero = ({ onContactClick }: HeroProps) => {
 
             <div className="flex flex-col items-center gap-4 mb-8 sm:mb-12">
               <Button 
-                onClick={onContactClick}
+                asChild
                 size="lg"
                 className="bg-accent hover:bg-accent-dark text-accent-foreground font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg shadow-accent-glow w-full sm:w-auto max-w-xs"
               >
-                Consulta Gratuita
+                <a
+                  href="https://wa.me/552120186198"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Falar com a equipe pelo WhatsApp"
+                >
+                  Consulta Gratuita
+                </a>
               </Button>
               <Button 
                 variant="outline" 
                 size="lg"
                 className="border-2 border-accent text-accent hover:bg-accent hover:text-accent-foreground bg-transparent font-semibold px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg w-full sm:w-auto max-w-xs transition-all duration-300"
+                onClick={() => window.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
               >
-                Veja Mais
+                Veja Nossos Serviços
               </Button>
             </div>
 

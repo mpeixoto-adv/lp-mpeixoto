@@ -12,13 +12,15 @@ import {
   Clock,
   Users
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const penalImage = "https://images.unsplash.com/photo-1453945619913-79ec89a82c51?q=80&w=2070";
 
 const DireitoPenal = () => {
+  const navigate = useNavigate();
+
   const handleContactClick = () => {
-    const contactSection = document.getElementById("contact");
-    contactSection?.scrollIntoView({ behavior: "smooth" });
+    navigate("/contato");
   };
 
   return (

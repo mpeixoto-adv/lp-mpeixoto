@@ -14,13 +14,15 @@ import {
   Scale,
   Handshake
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const imobiliarioImage = "https://images.unsplash.com/photo-1560520653-9e0e4c89eb11?q=80&w=2070";
 
 const DireitoImobiliario = () => {
+  const navigate = useNavigate();
+
   const handleContactClick = () => {
-    const contactSection = document.getElementById("contact");
-    contactSection?.scrollIntoView({ behavior: "smooth" });
+    navigate("/contato");
   };
 
   return (

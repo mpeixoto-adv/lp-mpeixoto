@@ -15,11 +15,13 @@ import {
 } from "lucide-react";
 import { Footer } from "@/components/Footer";
 import { TeamCarousel } from "@/components/TeamCarousel";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AboutPage = () => {
+  const navigate = useNavigate();
+
   const handleContactClick = () => {
-    window.location.href = "/#contact";
+    navigate("/contato");
   };
 
   const expertise = [

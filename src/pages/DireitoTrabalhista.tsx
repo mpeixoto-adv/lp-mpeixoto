@@ -12,13 +12,15 @@ import {
   Handshake,
   Scale
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const trabalhistaImage = "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2070";
 
 const DireitoTrabalhista = () => {
+  const navigate = useNavigate();
+
   const handleContactClick = () => {
-    const contactSection = document.getElementById("contact");
-    contactSection?.scrollIntoView({ behavior: "smooth" });
+    navigate("/contato");
   };
 
   return (

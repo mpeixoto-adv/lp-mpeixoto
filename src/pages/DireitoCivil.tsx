@@ -4,11 +4,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, Scale, FileText, Handshake, Shield, Users } from "lucide-react";
 import justiceScalesImage from "@/assets/justice-scales.jpg";
+import { useNavigate } from "react-router-dom";
 
 const DireitoCivil = () => {
+  const navigate = useNavigate();
+
   const handleContactClick = () => {
-    const contactSection = document.getElementById('contact');
-    contactSection?.scrollIntoView({ behavior: 'smooth' });
+    navigate("/contato");
   };
 
   return (

@@ -128,7 +128,7 @@ const ArticlePage = () => {
   }
 
   const handleContactClick = () => {
-    window.location.href = "/#contact";
+    navigate("/contato");
   };
 
   const handleShareClick = async () => {

@@ -4,11 +4,13 @@ import { Footer } from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, Scale, Users, Award } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const ServicesPage = () => {
+  const navigate = useNavigate();
+
   const handleContactClick = () => {
-    window.location.href = "/#contact";
+    navigate("/contato");
   };
 
   const serviceDetails = [

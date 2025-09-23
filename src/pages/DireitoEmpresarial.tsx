@@ -13,13 +13,15 @@ import {
   Scale,
   Handshake
 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const empresarialImage = "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070";
 
 const DireitoEmpresarial = () => {
+  const navigate = useNavigate();
+
   const handleContactClick = () => {
-    const contactSection = document.getElementById("contact");
-    contactSection?.scrollIntoView({ behavior: "smooth" });
+    navigate("/contato");
   };
 
   return (

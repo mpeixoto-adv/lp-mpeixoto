@@ -20,7 +20,7 @@ const ArticlesPage = () => {
   const [remoteArticles, setRemoteArticles] = useState<LegacyArticle[]>(articles);
 
   const handleContactClick = () => {
-    window.location.href = "/#contact";
+    navigate("/contato");
   };
 
   useEffect(() => {

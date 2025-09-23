@@ -162,7 +162,7 @@ const RedacaoPage = () => {
   }
 
   const handleContactClick = () => {
-    navigate('/#contact')
+    navigate('/contato')
   }
 
   const renderLista = () => (

@@ -173,12 +173,14 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
             </div>
             
             {/* Contato */}
-            <a
-              href="#contact"
-              className="text-foreground hover:text-accent transition-colors duration-300 font-medium"
+            <Link
+              to="/contato"
+              className={`text-foreground hover:text-accent transition-colors duration-300 font-medium ${
+                location.pathname === '/contato' ? 'text-accent' : ''
+              }`}
             >
               Contato
-            </a>
+            </Link>
             
             {/* Newsletter */}
             <Link
@@ -331,13 +333,15 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                     </div>
                     
                     {/* Contato */}
-                    <a
-                      href="#contact"
-                      className="block text-2xl font-medium text-foreground hover:text-accent transition-colors py-2"
+                    <Link
+                      to="/contato"
+                      className={`block text-2xl font-medium text-foreground hover:text-accent transition-colors py-2 ${
+                        location.pathname === '/contato' ? 'font-semibold' : 'font-medium'
+                      }`}
                       onClick={handleMenuItemClick}
                     >
                       Contato
-                    </a>
+                    </Link>
                     
                     {/* Newsletter */}
                     <Link

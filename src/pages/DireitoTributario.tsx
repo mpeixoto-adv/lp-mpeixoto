@@ -4,11 +4,13 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Phone, Mail, Calculator, FileText, TrendingUp, Shield, Briefcase, PiggyBank } from "lucide-react";
 import justiceScalesImage from "@/assets/direito-tributario.jpg";
+import { useNavigate } from "react-router-dom";
 
 const DireitoTributario = () => {
+  const navigate = useNavigate();
+
   const handleContactClick = () => {
-    const contactSection = document.getElementById('contact');
-    contactSection?.scrollIntoView({ behavior: 'smooth' });
+    navigate("/contato");
   };
 
   return (

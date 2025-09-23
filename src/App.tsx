@@ -18,6 +18,7 @@ import Articles from "./pages/Articles";
 import Article from "./pages/Article";
 import Redacao from "./pages/Redacao";
 import NotFound from "./pages/NotFound";
+import ContactPage from "./pages/Contact";
 
 const queryClient = new QueryClient();
 
@@ -54,6 +55,7 @@ const App = () => (
             <Route path="/artigo/:slug" element={<Article />} />
             <Route path="/artigos/:slug" element={<Article />} />
             <Route path="/redacao" element={<Redacao />} />
+            <Route path="/contato" element={<ContactPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

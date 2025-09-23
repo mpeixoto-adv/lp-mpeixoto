@@ -3,14 +3,12 @@ import { ArticleMetadata, Article } from './types';
 import * as direitos_consumidor_compras_online from './content/direitos-consumidor-compras-online';
 import * as lgpd_o_que_sua_empresa_precisa_saber from './content/lgpd-o-que-sua-empresa-precisa-saber';
 import * as reforma_tributaria_impactos_pequenas_empresas from './content/reforma-tributaria-impactos-pequenas-empresas';
-import * as testedeartigo2025 from './content/testedeartigo2025';
 
 // Mapa estático de conteúdos (gerado automaticamente)
 const STATIC_CONTENT_MAP: Record<string, string> = {
     'direitos-consumidor-compras-online': direitos_consumidor_compras_online.articleContent.content,
     'lgpd-o-que-sua-empresa-precisa-saber': lgpd_o_que_sua_empresa_precisa_saber.articleContent.content,
-    'reforma-tributaria-impactos-pequenas-empresas': reforma_tributaria_impactos_pequenas_empresas.articleContent.content,
-    'testedeartigo2025': testedeartigo2025.articleContent.content
+    'reforma-tributaria-impactos-pequenas-empresas': reforma_tributaria_impactos_pequenas_empresas.articleContent.content
 };
 
 // SISTEMA HÍBRIDO DEFINITIVO - NÃO MODIFICAR

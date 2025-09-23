@@ -101,3 +101,7 @@ src/
 - ✅ Newsletter signup
 - ✅ SEO otimizado
 - ✅ Performance otimizada
+
+## 📚 Documentação técnica
+
+- Consulte `docs/README.md` para detalhes de arquitetura, fluxos de autenticação e contratos da API serverless.

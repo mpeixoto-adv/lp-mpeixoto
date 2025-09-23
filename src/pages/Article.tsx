@@ -10,6 +10,7 @@ import { githubStorageV2 } from "@/services/github-storage-v2";
 import type { Article as ArticleApi } from "@/data/articles/types";
 import { getCachedArticles, setCachedArticles } from "@/utils/articles-cache";
 import { getCachedArticle, setCachedArticle } from "@/utils/article-content-cache";
+import { toast } from "@/components/ui/use-toast";
 
 const ArticlePage = () => {
   const { slug } = useParams();
@@ -130,6 +131,44 @@ const ArticlePage = () => {
     window.location.href = "/#contact";
   };
 
+  const handleShareClick = async () => {
+    if (!article) {
+      return;
+    }
+
+    const shareUrl = window.location.href;
+    const shareData = {
+      title: article.title,
+      text: article.excerpt ?? "Confira este artigo do escritório M.Peixoto.",
+      url: shareUrl
+    };
+
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+        toast({ description: "Compartilhamento aberto no dispositivo." });
+        return;
+      } catch (error) {
+        if ((error as DOMException)?.name === "AbortError") {
+          return;
+        }
+        console.error("Erro ao compartilhar artigo com Web Share API:", error);
+      }
+    }
+
+    try {
+      if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(shareUrl);
+        toast({ description: "Link do artigo copiado para a área de transferência." });
+        return;
+      }
+    } catch (error) {
+      console.error("Erro ao copiar link do artigo:", error);
+    }
+
+    window.prompt("Copie o link do artigo: (Ctrl+C / Cmd+C)", shareUrl);
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation onContactClick={handleContactClick} />
@@ -207,7 +246,7 @@ const ArticlePage = () => {
                     <p className="text-sm text-muted-foreground mb-2">Categoria</p>
                     <span className="text-accent font-medium">{article.category}</span>
                   </div>
-                  <Button variant="outline" size="sm">
+                  <Button variant="outline" size="sm" onClick={handleShareClick}>
                     <Share2 className="h-4 w-4 mr-2" />
                     Compartilhar
                   </Button>

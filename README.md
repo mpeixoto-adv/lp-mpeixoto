@@ -55,7 +55,7 @@ Sem esses valores, as funções retornarão erro (por exemplo, `Erro ao carregar
 
 1. Inicie o backend: `npx vercel dev` (porta 3000).
 2. Inicie o frontend apontando para o backend: `VITE_API_BASE_URL=http://localhost:3000 npm run dev` (porta 8085).
-3. Acesse `http://localhost:8085/redacao` e faça login com `adv` + a senha cujo hash está em `AUTH_PASSWORD_HASH`.
+3. Acesse `http://localhost:8085/redacao` e faça login com usuário `adv` e a senha configurada pelo administrador (o hash correspondente deve estar em `AUTH_PASSWORD_HASH`).
 npm run dev          # Inicia o servidor de desenvolvimento
 npm run build        # Cria a build de produção
 npm run preview      # Visualiza a build de produção

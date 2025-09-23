@@ -1,9 +1,31 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
 export function setCors(req: VercelRequest, res: VercelResponse) {
-  const origin = process.env.CORS_ORIGIN || req.headers.origin || '*'
-  res.setHeader('Access-Control-Allow-Origin', origin)
-  res.setHeader('Access-Control-Allow-Credentials', 'true')
+  const configuredOrigins = (process.env.CORS_ORIGIN || '')
+    .split(',')
+    .map(origin => origin.trim())
+    .filter(Boolean)
+
+  const requestOrigin = req.headers.origin
+  let originToSend = requestOrigin
+
+  if (configuredOrigins.length > 0) {
+    if (requestOrigin && configuredOrigins.includes(requestOrigin)) {
+      originToSend = requestOrigin
+    } else {
+      // fall back to the first configured origin so preflight succeeds
+      originToSend = configuredOrigins[0]
+    }
+  }
+
+  if (!originToSend) {
+    originToSend = configuredOrigins[0] || ''
+  }
+
+  if (originToSend) {
+    res.setHeader('Access-Control-Allow-Origin', originToSend)
+    res.setHeader('Access-Control-Allow-Credentials', 'true')
+  }
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS')
 }

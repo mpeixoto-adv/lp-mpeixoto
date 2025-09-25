@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Award, Users, Target, Zap } from "lucide-react";
+import { Award, ShieldCheck, Map, Zap } from "lucide-react";
 import { TeamCarouselCompact } from "@/components/TeamCarouselCompact";
 import { OfficeCarousel } from "@/components/OfficeCarousel";
 
@@ -12,13 +12,13 @@ const stats = [
   },
   {
     title: "Resultados Concretos",
-    description: "R$ 270 mi+ em prejuízos evitados para nossos clientes",
-    icon: Target,
+    description: "R$ 300 mi+ em prejuízos evitados para nossos clientes",
+    icon: ShieldCheck,
   },
   {
-    title: "Equipe Nacional",
-    description: "30+ Advogados em todo o Brasil",
-    icon: Users,
+    title: "100%",
+    description: "Atuação em território nacional",
+    icon: Map,
   },
   {
     title: "Tecnologia e Inovação",
@@ -52,7 +52,7 @@ export const About = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6 uppercase tracking-wide">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold text-primary mb-6 tracking-wide">
             Sobre Nós
           </h2>
           <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed">
@@ -146,16 +146,6 @@ export const About = () => {
           </div>
         </div>
 
-        {/* Mission Statement */}
-        <div className="bg-gradient-primary rounded-2xl p-8 md:p-12 text-center">
-          <h3 className="text-3xl md:text-4xl font-serif font-bold text-primary-foreground mb-6">
-            Nossa Missão
-          </h3>
-          <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-            Oferecer serviços jurídicos de excelência, combinando conhecimento técnico, experiência prática e 
-            comprometimento total com os resultados, sempre priorizando os interesses e objetivos de nossos clientes.
-          </p>
-        </div>
       </div>
     </section>
   );

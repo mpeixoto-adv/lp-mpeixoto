@@ -82,30 +82,6 @@ export const Testimonials = () => {
           ))}
         </div>
 
-        {/* Trust Indicators */}
-        <div className="text-center">
-          <div className="inline-flex items-center space-x-6 bg-card/60 backdrop-blur-sm rounded-2xl p-6 border border-border">
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">R$ 270 mi+</div>
-              <div className="text-sm text-muted-foreground">Prejuízo Evitado</div>
-            </div>
-            <div className="w-px h-8 bg-border"></div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">Todo o Brasil</div>
-              <div className="text-sm text-muted-foreground">Atuação em todo território nacional</div>
-            </div>
-            <div className="w-px h-8 bg-border"></div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">25+</div>
-              <div className="text-sm text-muted-foreground">Anos de experiência</div>
-            </div>
-            <div className="w-px h-8 bg-border"></div>
-            <div className="text-center">
-              <div className="text-2xl font-bold text-primary">30+</div>
-              <div className="text-sm text-muted-foreground">Advogados especializados</div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

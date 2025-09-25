@@ -70,8 +70,8 @@ const AboutPage = () => {
                 <ArrowRight className="h-4 w-4 mr-2" />
                 Voltar ao Início
               </Link>
-              <h1 className="text-4xl md:text-6xl font-serif font-bold text-primary-foreground mb-6">
-                M. Peixoto Advogados Associados
+              <h1 className="text-4xl md:text-6xl font-serif font-bold text-primary-foreground mb-6 uppercase">
+                Sobre Nós
               </h1>
               <p className="text-xl text-primary-foreground/90 leading-relaxed max-w-3xl mx-auto">
                 Há mais de 25 anos oferecendo soluções jurídicas seguras, estratégicas e inovadoras em todo o Brasil.

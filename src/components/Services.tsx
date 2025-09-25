@@ -22,7 +22,7 @@ const services = [
     icon: Scale,
     title: "Civil",
     description: "Atuação abrangente em responsabilidade civil, contratos, obrigações e negócios jurídicos, com soluções eficazes e personalizadas.",
-    features: ["Responsabilidade civil e indenizações por danos materiais e morais", "Elaboração, revisão e rescisão de contratos", "Reparação por falhas em produtos, serviços e relações jurídicas", "Inventários, partilhas e planejamento sucessório", "Validade e anulação de negócios jurídicos", "Assessoria em negociações patrimoniais e comerciais"],
+    features: ["Responsabilidade civil e indenizações por danos materiais e morais", "Elaboração, revisão e rescisão de contratos", "Reparação por falhas em produtos, serviços e relações jurídicas", "Inventários, partilhas e planejamento sucessório",],
     backgroundImage: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=2070", // Legal/civil law image
     backgroundPosition: "center",
     link: "/direito-civil"

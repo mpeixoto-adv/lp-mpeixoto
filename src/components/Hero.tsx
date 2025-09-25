@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Scale, Users, Award, Clock } from "lucide-react";
+import { Scale, ShieldCheck, Map, Clock } from "lucide-react";
 
 interface HeroProps {
   onContactClick: () => void;
@@ -34,10 +34,10 @@ export const Hero = ({ onContactClick }: HeroProps) => {
           <div className="max-w-4xl w-full text-center">
             <div className="mb-8 sm:mb-12">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-serif font-bold text-primary-foreground mb-4 sm:mb-6 leading-tight">
-                Abordagem{" "}
-                <span className="text-accent">Especializada</span>,{" "}
-                <span className="text-accent">Advogados</span>{" "}
-                <span className="text-primary-foreground">Dedicados</span>
+                Experiência que gera{" "}
+                <span className="text-accent">Confiança</span>.{" "}
+                <span className="text-accent"> Estratégias</span>{" "}
+                <span className="text-primary-foreground">que geram resultados</span>
               </h1>
               <div className="flex justify-center">
                 <p className="text-sm sm:text-base md:text-lg lg:text-xl text-primary-foreground/90 mb-6 sm:mb-8 max-w-3xl leading-relaxed">
@@ -84,17 +84,17 @@ export const Hero = ({ onContactClick }: HeroProps) => {
               </div>
               <div className="text-center">
                 <div className="flex justify-center mb-2">
-                  <Users className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
+                  <ShieldCheck className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
                 </div>
-                <div className="text-2xl sm:text-3xl font-bold text-primary-foreground">500+</div>
-                <div className="text-primary-foreground/80 text-xs sm:text-sm">Casos Resolvidos</div>
+                <div className="text-2xl sm:text-3xl font-bold text-primary-foreground">R$300mi +</div>
+                <div className="text-primary-foreground/80 text-xs sm:text-sm">Prejuízos evitados</div>
               </div>
               <div className="text-center">
                 <div className="flex justify-center mb-2">
-                  <Award className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
+                  <Map className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
                 </div>
-                <div className="text-2xl sm:text-3xl font-bold text-primary-foreground">98%</div>
-                <div className="text-primary-foreground/80 text-xs sm:text-sm">Taxa de Sucesso em todo territorio nacional</div>
+                <div className="text-2xl sm:text-3xl font-bold text-primary-foreground">100%</div>
+                <div className="text-primary-foreground/80 text-xs sm:text-sm">Atuação em território nacional</div>
               </div>
               <div className="text-center">
                 <div className="flex justify-center mb-2">

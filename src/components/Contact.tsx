@@ -26,7 +26,7 @@ const contactInfo = [
     icon: Mail,
     title: "E-mail",
     details: [
-      "contato@mpeixotoadvogados.com.br"
+      "advs.mp@mpeixotoadvogados.com.br"
     ]
   },
   {

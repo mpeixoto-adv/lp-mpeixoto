@@ -55,10 +55,10 @@ export const Footer = () => {
               <div className="flex items-start">
                 <Mail className="h-4 w-4 mt-0.5 mr-2 text-accent flex-shrink-0" />
                 <a 
-                  href="mailto:contato@mpeixotoadvogados.com.br"
+                  href="mailto:advs.mp@mpeixotoadvogados.com.br"
                   className="hover:text-accent transition-colors break-all sm:break-words leading-tight"
                 >
-                  contato@mpeixotoadvogados.com.br
+                  advs.mp@mpeixotoadvogados.com.br
                 </a>
               </div>
               <div className="flex items-center">

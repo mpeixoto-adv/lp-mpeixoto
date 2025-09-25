@@ -78,7 +78,7 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
             <div className="flex items-center space-x-6">
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
-                <span>contato@mpeixotoadvogados.com.br</span>
+                <span>advs.mp@mpeixotoadvogados.com.br</span>
               </div>
               <div className="hidden md:flex items-center space-x-2">
                 <MapPin className="h-4 w-4" />
@@ -370,10 +370,10 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                     
                     <div className="space-y-3 text-foreground/70">
                       <a 
-                        href="mailto:contato@mpeixotoadvogados.com.br"
+                        href="mailto:advs.mp@mpeixotoadvogados.com.br"
                         className="text-sm hover:text-accent transition-colors break-all sm:break-words block leading-tight"
                       >
-                        contato@mpeixotoadvogados.com.br
+                        advs.mp@mpeixotoadvogados.com.br
                       </a>
                       <p className="text-sm">Rua do Mercado, 11 - 16º andar - Centro/RJ</p>
                     </div>

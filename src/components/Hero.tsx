@@ -18,9 +18,9 @@ export const Hero = ({ onContactClick }: HeroProps) => {
           className="absolute inset-0 w-full h-full object-cover"
           preload="metadata"
         >
-          <source 
-            src="https://mpeixotoadvogados.com.br/wp-content/uploads/2023/11/video_hero.mp4" 
-            type="video/mp4" 
+          <source
+            src="https://qjw9jvwxqyatvm22.public.blob.vercel-storage.com/video_hero.mp4"
+            type="video/mp4"
           />
         </video>
         {/* Dark overlay for better text readability */}

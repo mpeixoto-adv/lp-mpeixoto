@@ -11,7 +11,8 @@ import {
   Shield,
   BarChart3,
   Scale,
-  Handshake
+  Handshake,
+  Landmark
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -43,9 +44,11 @@ const DireitoEmpresarial = () => {
                 Direito Empresarial
               </h1>
               <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                Oferecemos suporte jurídico completo para empresas em todas as fases do negócio. Estruturamos
-                operações societárias, elaboramos contratos estratégicos, conduzimos negociações complexas e
-                atuamos em litígios empresariais, sempre com visão de negócio, agilidade e governança.
+                Oferecemos suporte jurídico completo para empresas em todas as etapas do negócio, desde a
+                constituição societária à elaboração de contratos, negociações estratégicas, resolução de
+                conflitos e processos de M&A. Atuamos de forma próxima e personalizada, transformando
+                desafios em soluções seguras que impulsionam crescimento, protegem decisões e fortalecem
+                a atuação empresarial no mercado.
               </p>
               <Button
                 onClick={handleContactClick}
@@ -68,10 +71,10 @@ const DireitoEmpresarial = () => {
                     Estratégia Jurídica para Impulsionar Negócios
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Atuamos lado a lado com a liderança para viabilizar projetos, mitigar riscos e assegurar
-                    conformidade regulatória. Nossa equipe combina experiência em operações empresariais com
-                    visão prática, apoiando desde a concepção da empresa, passando por fusões e aquisições, até
-                    a resolução de conflitos societários.
+                    Atuamos lado a lado com a liderança para impulsionar negócios, reduzir riscos e garantir
+                    segurança jurídica em todas as decisões estratégicas. Nossa atuação abrange desde a
+                    constituição e estruturação de empresas até complexas operações societárias, fusões e
+                    aquisições, sempre com foco em eficiência, governança e geração de valor sustentável.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex items-center space-x-3">
@@ -80,7 +83,7 @@ const DireitoEmpresarial = () => {
                     </div>
                     <div className="flex items-center space-x-3">
                       <FileText className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Contratos estratégicos</span>
+                      <span className="text-sm font-medium text-muted-foreground">Negociações e Estruturação de Operações</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Shield className="h-6 w-6 text-accent" />
@@ -88,7 +91,7 @@ const DireitoEmpresarial = () => {
                     </div>
                     <div className="flex items-center space-x-3">
                       <BarChart3 className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Expansão e captação</span>
+                      <span className="text-sm font-medium text-muted-foreground">Processos de M&A</span>
                     </div>
                   </div>
                 </div>
@@ -121,8 +124,8 @@ const DireitoEmpresarial = () => {
                   Áreas de Atuação em Direito Empresarial
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  Suporte jurídico completo para operações societárias, contratos estratégicos e proteção
-                  patrimonial do negócio.
+                  Assessoria completa em operações societárias, governança corporativa e estruturação jurídica
+                  de negócios, desde o planejamento até a execução.
                 </p>
                 <div className="w-24 h-1 bg-accent mx-auto mt-4" />
               </div>
@@ -135,8 +138,10 @@ const DireitoEmpresarial = () => {
                       <h3 className="text-xl font-serif font-bold text-primary">Estruturação Societária</h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Constituição de empresas, acordos de sócios, reorganizações societárias, sucessão familiar
-                      e planejamento patrimonial corporativo.
+                      Acompanhamos todo o ciclo de vida da empresa: desde a constituição e estruturação
+                      societária até reorganizações complexas. Atuamos na elaboração de acordos de sócios,
+                      planejamento sucessório e patrimonial, cisões, incorporações e reorganizações corporativas,
+                      sempre alinhados à estratégia do negócio e à segurança jurídica.
                     </p>
                   </CardContent>
                 </Card>
@@ -148,8 +153,10 @@ const DireitoEmpresarial = () => {
                       <h3 className="text-xl font-serif font-bold text-primary">Contratos Empresariais</h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Elaboração e revisão de contratos comerciais, joint ventures, acordos de distribuição,
-                      tecnologia e prestação de serviços com segurança jurídica.
+                      Desenvolvemos, negociamos e revisamos contratos estratégicos que sustentam as operações
+                      empresariais, incluindo contratos comerciais, joint ventures, parcerias estratégicas, prestação
+                      de serviços, distribuição e tecnologia, garantindo clareza, mitigação de riscos e máxima
+                      proteção aos interesses da empresa.
                     </p>
                   </CardContent>
                 </Card>
@@ -161,8 +168,10 @@ const DireitoEmpresarial = () => {
                       <h3 className="text-xl font-serif font-bold text-primary">Governança e Compliance</h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Implementação de políticas internas, gestão de riscos, LGPD e treinamentos para assegurar
-                      integridade corporativa e conformidade regulatória.
+                      Implementamos políticas corporativas, programas de integridade e estruturas de governança
+                      alinhadas às melhores práticas do mercado. Atuamos na gestão de riscos, conformidade
+                      regulatória, proteção de dados (LGPD) e criação de mecanismos internos para fortalecer a
+                      transparência e a tomada de decisão estratégica.
                     </p>
                   </CardContent>
                 </Card>
@@ -171,11 +180,13 @@ const DireitoEmpresarial = () => {
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
                       <BarChart3 className="h-5 w-5 text-accent" />
-                      <h3 className="text-xl font-serif font-bold text-primary">Fusões, Aquisições e Investimentos</h3>
+                      <h3 className="text-xl font-serif font-bold text-primary">M&A — Fusões e Aquisições</h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Due diligence, negociação de contratos de investimento, estruturação financeira e suporte
-                      pós-transação para integração de negócios.
+                      Assessoria completa em operações de M&A, desde a due diligence e estruturação jurídica e
+                      financeira até a negociação de contratos e suporte pós-transação. Conduzimos processos de
+                      aquisição, venda e reorganização societária com foco em maximizar valor, mitigar riscos e
+                      viabilizar a integração dos negócios.
                     </p>
                   </CardContent>
                 </Card>
@@ -192,80 +203,104 @@ const DireitoEmpresarial = () => {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-4">
-                      <div className="flex items-center space-x-2 mb-3">
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
                         <FileText className="h-5 w-5 text-accent" />
-                        <h3 className="font-semibold text-primary text-lg">Rotinas Societárias e Contratos</h3>
+                        <h3 className="font-semibold text-primary text-lg">Estrutura Societária e Contratos</h3>
                       </div>
                       <ul className="space-y-2.5 text-sm text-muted-foreground">
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Alterações societárias, entrada e saída de sócios</span>
+                          <span>Constituição e reorganização societária (cisões, incorporações e entrada/saída de sócios).</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Contratos de distribuição, franquia e representação comercial</span>
+                          <span>Elaboração e revisão de alterações contratuais, contratos empresariais, comerciais e estratégicos.</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Proteção de propriedade intelectual e segredos industriais</span>
+                          <span>Acordos de sócios, joint ventures e parcerias corporativas.</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Estruturação de consórcios e parcerias estratégicas</span>
+                          <span>Realização de Assembleias Gerais Ordinárias e Extraordinárias.</span>
                         </li>
                       </ul>
                     </div>
 
-                    <div className="space-y-6">
-                      <div>
-                        <div className="flex items-center space-x-2 mb-3">
-                          <Shield className="h-5 w-5 text-accent" />
-                          <h3 className="font-semibold text-primary text-lg">Contencioso e Compliance</h3>
-                        </div>
-                        <ul className="space-y-2.5 text-sm text-muted-foreground">
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Disputas societárias e responsabilidade de administradores</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Litígios contratuais e recuperação de créditos</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Investigações internas e programas de integridade</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Conformidade regulatória e relações com órgãos de controle</span>
-                          </li>
-                        </ul>
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
+                        <Shield className="h-5 w-5 text-accent" />
+                        <h3 className="font-semibold text-primary text-lg">Contencioso Societário e Compliance</h3>
                       </div>
-                      <div>
-                        <div className="flex items-center space-x-2 mb-3">
-                          <Handshake className="h-5 w-5 text-accent" />
-                          <h3 className="font-semibold text-primary text-lg">Fusões, Aquisições e Investimentos</h3>
-                        </div>
-                        <ul className="space-y-2.5 text-sm text-muted-foreground">
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Due diligence jurídica e financeira</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Estruturação de investimentos e contratos de M&A</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Negociação de earn-outs, garantias e cláusulas de saída</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Integração pós-transação e reorganização societária</span>
-                          </li>
-                        </ul>
+                      <ul className="space-y-2.5 text-sm text-muted-foreground">
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Disputas societárias e conflitos entre sócios e administradores</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Litígios contratuais e responsabilidade civil empresarial</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Investigações internas, programas de integridade e compliance regulatório</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Relação com órgãos de fiscalização e defesa em processos administrativos</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
+                        <Landmark className="h-5 w-5 text-accent" />
+                        <h3 className="font-semibold text-primary text-lg">Estratégias de Governança e Expansão</h3>
                       </div>
+                      <ul className="space-y-2.5 text-sm text-muted-foreground">
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Planejamento sucessório e proteção patrimonial empresarial</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Estruturação de conselhos, políticas de governança e compliance interno</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Estruturação de investimentos e captação de recursos</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Suporte jurídico em operações de expansão nacional e internacional</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
+                        <Handshake className="h-5 w-5 text-accent" />
+                        <h3 className="font-semibold text-primary text-lg">M&A — Fusões, Aquisições e Investimentos</h3>
+                      </div>
+                      <ul className="space-y-2.5 text-sm text-muted-foreground">
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Due diligence jurídica e financeira em operações de M&A</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Estruturação e negociação de contratos de compra e venda de participação societária</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Elaboração de earn-outs, garantias e acordos de transição</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Assessoria em integração pós-transação e reorganizações corporativas</span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </CardContent>
@@ -287,8 +322,9 @@ const DireitoEmpresarial = () => {
                       </div>
                       <h3 className="font-semibold text-primary mb-2">Diagnóstico Estratégico</h3>
                       <p className="text-sm text-muted-foreground">
-                        Mapeamento jurídico-financeiro para compreender o contexto do negócio e definir
-                        prioridades de atuação.
+                        Analisamos profundamente a estrutura societária, contratos, riscos regulatórios e
+                        oportunidades de crescimento do seu negócio, traçando um plano jurídico alinhado aos
+                        objetivos empresariais e ao mercado em que você atua.
                       </p>
                     </div>
 
@@ -296,10 +332,11 @@ const DireitoEmpresarial = () => {
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
                         <Handshake className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-2">Equipe Multidisciplinar</h3>
+                      <h3 className="font-semibold text-primary mb-2">Estruturação Integrada de Operações</h3>
                       <p className="text-sm text-muted-foreground">
-                        Integração entre especialistas em societário, tributário, trabalhista e contencioso para
-                        soluções completas.
+                        Nossa atuação vai além do jurídico tradicional: integramos especialistas em societário, M&A,
+                        tributário e compliance para desenhar estruturas robustas, seguras e eficientes, desde a
+                        constituição da empresa até a expansão e reorganizações complexas.
                       </p>
                     </div>
 
@@ -307,10 +344,11 @@ const DireitoEmpresarial = () => {
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
                         <Scale className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-2">Execução com Governança</h3>
+                      <h3 className="font-semibold text-primary mb-2">Governança e Performance Jurídica</h3>
                       <p className="text-sm text-muted-foreground">
-                        Processos controlados, relatórios periódicos e acompanhamento contínuo para manter o
-                        negócio seguro e competitivo.
+                        Implementamos processos de governança societária, controles internos e relatórios
+                        estratégicos que fortalecem a tomada de decisão, garantem conformidade e impulsionam a
+                        competitividade do negócio no longo prazo.
                       </p>
                     </div>
                   </div>

@@ -12,7 +12,8 @@ import {
   Layers,
   Building2,
   Scale,
-  Handshake
+  Handshake,
+  Landmark
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -44,8 +45,11 @@ const DireitoImobiliario = () => {
                 Direito Imobiliário
               </h1>
               <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                Atuação completa em operações imobiliárias, regularização de imóveis, incorporações e resolução
-                de disputas. Trabalhamos para dar segurança a transações e proteger o patrimônio de nossos clientes.
+                Soluções jurídicas estratégicas para proteger e valorizar seu patrimônio.
+                Atuamos em todas as etapas das operações imobiliárias, desde a aquisição, due diligence e
+                regularização de imóveis até incorporações, locações, contratos complexos e resolução de
+                disputas. Nossa missão é garantir segurança jurídica em cada transação e preservar o valor dos
+                ativos dos nossos clientes.
               </p>
               <Button
                 onClick={handleContactClick}
@@ -65,30 +69,30 @@ const DireitoImobiliario = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
-                    Segurança Jurídica em Cada Etapa da Operação Imobiliária
+                    Segurança Jurídica em Cada Etapa do Mercado Imobiliário
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Cuidamos de operações imobiliárias residenciais, comerciais e industriais, garantindo que os
-                    contratos sejam sólidos, a documentação esteja regular e eventuais litígios sejam tratados com
-                    rapidez. Aliamos análise técnica minuciosa e experiência prática para proteger investimentos e
-                    viabilizar projetos.
+                    Atuamos em todas as fases das operações imobiliárias, desde a estruturação contratual à
+                    regularização documental, com foco na proteção patrimonial e na concretização segura de
+                    negócios. Nosso trabalho une análise técnica minuciosa e experiência prática para mitigar
+                    riscos, evitar litígios e impulsionar projetos residenciais, comerciais e industriais.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex items-center space-x-3">
                       <FileText className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Contratos completos e seguros</span>
+                      <span className="text-sm font-medium text-muted-foreground">Contratos sob medida e blindagem jurídica</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <MapPin className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Regularização documental</span>
+                      <span className="text-sm font-medium text-muted-foreground">Due diligence e regularização de imóveis</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Shield className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Mitigação de riscos</span>
+                      <span className="text-sm font-medium text-muted-foreground">Gestão de riscos e prevenção de litígios</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Building2 className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Suporte a incorporações</span>
+                      <span className="text-sm font-medium text-muted-foreground">Suporte estratégico em incorporações e empreendimentos</span>
                     </div>
                   </div>
                 </div>
@@ -132,11 +136,12 @@ const DireitoImobiliario = () => {
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
                       <Home className="h-5 w-5 text-accent" />
-                      <h3 className="text-xl font-serif font-bold text-primary">Transações Imobiliárias</h3>
+                      <h3 className="text-xl font-serif font-bold text-primary">Transações e Contratos Imobiliários</h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Elaboração e revisão de contratos de compra e venda, locação, built to suit, sale & leaseback
-                      e garantias reais, assegurando equilíbrio e clareza.
+                      Elaboração e revisão de contratos de compra e venda, locação comercial e residencial, built to
+                      suit, sale & leaseback, permutas e garantias reais, assegurando equilíbrio jurídico e segurança
+                      patrimonial em cada operação.
                     </p>
                   </CardContent>
                 </Card>
@@ -145,11 +150,12 @@ const DireitoImobiliario = () => {
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
                       <MapPin className="h-5 w-5 text-accent" />
-                      <h3 className="text-xl font-serif font-bold text-primary">Regularização e Due Diligence</h3>
+                      <h3 className="text-xl font-serif font-bold text-primary">Due Diligence e Regularização de Imóveis</h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Auditoria imobiliária completa, levantamento de matrícula, certidões, questões ambientais e
-                      tributárias para reduzir riscos em investimentos.
+                      Auditoria jurídica completa, levantamento e saneamento de matrícula, identificação de
+                      passivos ambientais, fiscais e urbanísticos, regularização fundiária e registral, além de análise
+                      de riscos em aquisições e investimentos.
                     </p>
                   </CardContent>
                 </Card>
@@ -158,11 +164,12 @@ const DireitoImobiliario = () => {
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
                       <Layers className="h-5 w-5 text-accent" />
-                      <h3 className="text-xl font-serif font-bold text-primary">Condomínios e Incorporações</h3>
+                      <h3 className="text-xl font-serif font-bold text-primary">Incorporações, Condomínios e Estruturação de Projetos</h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Estruturação jurídica de incorporações, loteamentos, convenções condominiais, assembleias e
-                      relacionamento com adquirentes.
+                      Assessoria integral em incorporações imobiliárias, loteamentos e condomínios edilícios,
+                      elaboração de convenções e regimentos, representação em assembleias, estruturação de SPEs
+                      e relacionamento com adquirentes.
                     </p>
                   </CardContent>
                 </Card>
@@ -171,11 +178,12 @@ const DireitoImobiliario = () => {
                   <CardContent className="p-6">
                     <div className="flex items-start space-x-3 mb-4">
                       <Shield className="h-5 w-5 text-accent" />
-                      <h3 className="text-xl font-serif font-bold text-primary">Litígios Imobiliários</h3>
+                      <h3 className="text-xl font-serif font-bold text-primary">Contencioso e Solução de Conflitos Imobiliários</h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Atuação em disputas possessórias, renovatórias, despejos, vícios construtivos e cobrança de
-                      aluguéis, buscando soluções rápidas e eficientes.
+                      Atuação em ações possessórias, renovatórias e revisionais, disputas por vícios construtivos,
+                      cobrança de aluguéis e encargos, retomada de imóveis, despejos e contenciosos complexos
+                      envolvendo direitos reais e registrais.
                     </p>
                   </CardContent>
                 </Card>
@@ -192,80 +200,104 @@ const DireitoImobiliario = () => {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-4">
-                      <div className="flex items-center space-x-2 mb-3">
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
                         <FileText className="h-5 w-5 text-accent" />
                         <h3 className="font-semibold text-primary text-lg">Transações e Contratos</h3>
                       </div>
                       <ul className="space-y-2.5 text-sm text-muted-foreground">
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Compra e venda de imóveis residenciais, comerciais e industriais</span>
+                          <span>Compra e venda de imóveis residenciais, comerciais, industriais e rurais.</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Locações comerciais, built to suit e contratos de shopping center</span>
+                          <span>Estruturação e negociação de contratos built to suit, sale & leaseback e locações complexas.</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Garantias reais, alienação fiduciária e securitização de recebíveis</span>
+                          <span>Constituição de garantias reais, alienação fiduciária e cessão de recebíveis imobiliários.</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Regularização de imóveis perante cartórios e órgãos públicos</span>
+                          <span>Estruturação de contratos de promessa de compra e venda e operações com permuta.</span>
                         </li>
                       </ul>
                     </div>
 
-                    <div className="space-y-6">
-                      <div>
-                        <div className="flex items-center space-x-2 mb-3">
-                          <Shield className="h-5 w-5 text-accent" />
-                          <h3 className="font-semibold text-primary text-lg">Disputas e Regularização</h3>
-                        </div>
-                        <ul className="space-y-2.5 text-sm text-muted-foreground">
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Litígios possessórios, usucapião e reintegração de posse</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Ações de despejo, inadimplência e cobrança de aluguéis</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Problemas construtivos, vícios e responsabilidade de incorporadoras</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Regularização fundiária e questões registrárias complexas</span>
-                          </li>
-                        </ul>
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
+                        <Shield className="h-5 w-5 text-accent" />
+                        <h3 className="font-semibold text-primary text-lg">Contencioso, Regularização e Disputas</h3>
                       </div>
-                      <div>
-                        <div className="flex items-center space-x-2 mb-3">
-                          <Layers className="h-5 w-5 text-accent" />
-                          <h3 className="font-semibold text-primary text-lg">Incorporação e Desenvolvimento</h3>
-                        </div>
-                        <ul className="space-y-2.5 text-sm text-muted-foreground">
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Constituição de SPEs e estruturação de projetos imobiliários</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Registro de incorporação e gestão de contratos com adquirentes</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Negociações com órgãos públicos e licenciamentos</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Planejamento fiscal e estruturação de fundos imobiliários</span>
-                          </li>
-                        </ul>
+                      <ul className="space-y-2.5 text-sm text-muted-foreground">
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Ações possessórias, reintegração de posse, usucapião e reivindicatórias.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Litígios envolvendo vícios construtivos, inadimplemento contratual e responsabilidade de incorporadoras.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Cobrança de aluguéis, revisional, renovatória e despejo.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Regularização fundiária, saneamento de matrículas e solução de conflitos registrais complexos.</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
+                        <Landmark className="h-5 w-5 text-accent" />
+                        <h3 className="font-semibold text-primary text-lg">Estruturação Patrimonial e Investimentos</h3>
                       </div>
+                      <ul className="space-y-2.5 text-sm text-muted-foreground">
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Due diligence imobiliária e análise de riscos para aquisição de ativos.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Estruturação de fundos imobiliários e planejamento tributário de operações.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Negociação e formalização de contratos com investidores e adquirentes.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Operações complexas de securitização, alienação de ativos e reestruturação patrimonial.</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
+                        <Layers className="h-5 w-5 text-accent" />
+                        <h3 className="font-semibold text-primary text-lg">Incorporações, Condomínios e Desenvolvimento</h3>
+                      </div>
+                      <ul className="space-y-2.5 text-sm text-muted-foreground">
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Constituição de SPEs e estruturação de empreendimentos imobiliários.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Elaboração e registro de convenções de condomínio e regulamentos internos.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Assessoria em aprovação de projetos e obtenção de licenças e alvarás.</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Negociações com órgãos públicos, aprovação urbanística e licenciamentos ambientais.</span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </CardContent>

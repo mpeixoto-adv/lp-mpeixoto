@@ -34,9 +34,10 @@ export const Hero = ({ onContactClick }: HeroProps) => {
           <div className="max-w-4xl w-full text-center">
             <div className="mb-8 sm:mb-12">
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-serif font-bold text-primary-foreground mb-4 sm:mb-6 leading-tight">
-                Experiência que gera{" "}
-                <span className="text-accent">Confiança</span>.{" "}
-                <span className="text-accent"> Estratégias</span>{" "}
+                <span className="text-accent">Experiência</span>{" "}
+                que gera{" "}
+                <span className="text-primary-foreground">Confiança</span>.{" "}
+                <span className="text-accent">Estratégias</span>{" "}
                 <span className="text-primary-foreground">que geram resultados</span>
               </h1>
               <div className="flex justify-center">

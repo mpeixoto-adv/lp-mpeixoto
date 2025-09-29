@@ -10,7 +10,8 @@ import {
   Shield,
   Users,
   Handshake,
-  Scale
+  Scale,
+  Landmark
 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
@@ -42,10 +43,9 @@ const DireitoTrabalhista = () => {
                 Direito Trabalhista
               </h1>
               <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                Um ambiente trabalhista saudável exige prevenção, estratégia e respostas rápidas a litígios.
-                Atuamos assessorando empresas e profissionais em todas as frentes – desde a construção de
-                políticas internas e negociações coletivas até a defesa em reclamações trabalhistas – sempre
-                com foco na segurança jurídica, redução de riscos e preservação das relações de trabalho.
+                Transformamos desafios trabalhistas em estratégias que fortalecem empresas e protegem
+                pessoas. Atuamos para garantir segurança jurídica, prevenir litígios e criar soluções que 
+                preservam o ambiente corporativo.
               </p>
               <Button
                 onClick={handleContactClick}
@@ -65,13 +65,13 @@ const DireitoTrabalhista = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
-                    Soluções Integradas em Direito do Trabalho
+                    Soluções Estratégicas em Relações Trabalhistas
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Atuamos preventivamente para evitar passivos e judicialmente para resolver demandas com
-                    eficiência. Ajudamos empresas a estruturarem políticas internas, realizamos auditorias para
-                    identificar fragilidades e conduzimos defesas estratégicas em reclamações individuais ou
-                    coletivas, sempre alinhados à legislação vigente e às melhores práticas de compliance.
+                    Relações de trabalho bem estruturadas são essenciais para o crescimento e a proteção do seu
+                    negócio. Atuamos de forma integrada para <strong>prevenir riscos, resolver conflitos e fortalecer
+                    vínculos profissionais</strong>, oferecendo suporte jurídico completo, desde a criação de políticas
+                    internas à condução de negociações e disputas judiciais.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex items-center space-x-3">
@@ -121,8 +121,9 @@ const DireitoTrabalhista = () => {
                   Áreas de Atuação em Direito Trabalhista
                 </h2>
                 <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                  Atendimento completo para prevenir conflitos, responder a demandas urgentes e estruturar
-                  rotinas trabalhistas sólidas.
+                  Atendimento completo para prevenir riscos, resolver litígios e estruturar relações de trabalho
+                  sólidas e seguras. Nossa atuação cobre todas as frentes trabalhistas com soluções práticas,
+                  estratégicas e alinhadas à legislação. 
                 </p>
                 <div className="w-24 h-1 bg-accent mx-auto mt-4" />
               </div>
@@ -135,12 +136,14 @@ const DireitoTrabalhista = () => {
                         <Briefcase className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Consultoria Preventiva e Compliance
+                        Consultoria Preventiva e Compliance Trabalhista
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Estruturamos políticas internas, contratos e manuais de conduta, alinhando o negócio às
-                      normas trabalhistas e evitando contingências futuras.
+                      •	Elaboração e revisão de contratos de trabalho, políticas internas e manuais corporativos.<br />
+                      •	Criação de programas de compliance trabalhista e treinamentos para gestores e RH.<br />
+                      •	Adequação às normas da CLT, LGPD e regulamentações do eSocial.<br />
+                      •	Gestão de passivos e auditorias preventivas para evitar autuações e litígios.
                     </p>
                   </CardContent>
                 </Card>
@@ -152,12 +155,14 @@ const DireitoTrabalhista = () => {
                         <Shield className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Defesa em Reclamações Trabalhistas
+                        Defesa em Reclamações Trabalhistas e Contencioso
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Atuação estratégica na esfera judicial ou administrativa, com produção de provas,
-                      acordos e recursos focados na redução de impactos financeiros.
+                      •	Atuação judicial e administrativa em ações individuais e coletivas.<br />
+                      •	Elaboração de estratégias processuais e produção de provas técnicas e documentais.<br />
+                      •	Recursos e defesas perante todas as instâncias da Justiça do Trabalho.<br />
+                      •	Representação em fiscalizações, autos de infração e TACs perante o MPT.<br />
                     </p>
                   </CardContent>
                 </Card>
@@ -169,12 +174,14 @@ const DireitoTrabalhista = () => {
                         <Handshake className="h-5 w-5 text-accent" />
                       </div>
                       <h3 className="text-xl font-serif font-bold text-primary">
-                        Negociações Coletivas e Sindicais
+                        Negociações Coletivas e Relações Sindicais
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Conduzimos negociações com sindicatos, acompanhamos assembleias e elaboramos acordos
-                      coletivos equilibrados para ambas as partes.
+                      •	Condução de negociações com sindicatos e participação em assembleias.<br />
+                      •	Elaboração e revisão de acordos e convenções coletivas.<br />
+                      •	Mediação de conflitos coletivos e acompanhamento em dissídios.<br />
+                      •	Estratégias para relações sindicais e redução de riscos em greves e movimentos coletivos.
                     </p>
                   </CardContent>
                 </Card>
@@ -190,8 +197,10 @@ const DireitoTrabalhista = () => {
                       </h3>
                     </div>
                     <p className="text-sm text-muted-foreground leading-relaxed">
-                      Realizamos diagnósticos completos para avaliar riscos em rotinas de RH, operações de M&A e
-                      contratos de terceiros, apontando correções e boas práticas.
+                      •	Diagnóstico completo de riscos trabalhistas em operações de M&A.<br />
+                      •	Avaliação de passivos ocultos, contingências e exposição finance.<br />
+                      •	Revisão de contratos de terceiros, prestadores e modelos de contratação.<br />
+                      •	Relatórios estratégicos para tomada de decisão empresarial.
                     </p>
                   </CardContent>
                 </Card>
@@ -208,80 +217,104 @@ const DireitoTrabalhista = () => {
                   </div>
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="space-y-4">
-                      <div className="flex items-center space-x-2 mb-3">
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
                         <FileText className="h-5 w-5 text-accent" />
                         <h3 className="font-semibold text-primary text-lg">Gestão Contratual e Rotinas de RH</h3>
                       </div>
                       <ul className="space-y-2.5 text-sm text-muted-foreground">
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Elaboração de contratos de trabalho, PJ e terceirização</span>
+                          <span>Elaboração e revisão de contratos CLT, PJ, terceirização e temporários</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Programas de remuneração variável e benefícios</span>
+                          <span>Criação de políticas internas, manuais de conduta e regulamentos internos</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Revisão de políticas internas e códigos de conduta</span>
+                          <span>Programas de remuneração variável, benefícios e planos de cargos e salários</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Procedimentos de desligamento e acordos negociados</span>
+                          <span>Procedimentos de admissão, desligamento e acordos de rescisão personalizados</span>
                         </li>
                       </ul>
                     </div>
 
-                    <div className="space-y-6">
-                      <div>
-                        <div className="flex items-center space-x-2 mb-3">
-                          <Shield className="h-5 w-5 text-accent" />
-                          <h3 className="font-semibold text-primary text-lg">Contencioso e Defesa</h3>
-                        </div>
-                        <ul className="space-y-2.5 text-sm text-muted-foreground">
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Reclamações individuais e coletivas</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Responsabilidade subsidiária e solidária em terceirizações</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Assédio moral, dano existencial e reparação por doenças ocupacionais</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Fiscalizações do Ministério do Trabalho e auditorias do MPT</span>
-                          </li>
-                        </ul>
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
+                        <Shield className="h-5 w-5 text-accent" />
+                        <h3 className="font-semibold text-primary text-lg">Contencioso Trabalhista e Litígios Judiciais</h3>
                       </div>
-                      <div>
-                        <div className="flex items-center space-x-2 mb-3">
-                          <Users className="h-5 w-5 text-accent" />
-                          <h3 className="font-semibold text-primary text-lg">Relacionamento com Sindicatos</h3>
-                        </div>
-                        <ul className="space-y-2.5 text-sm text-muted-foreground">
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Negociação e renovação de acordos coletivos</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Mediação de conflitos coletivos e greves</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Representação em assembleias e comissões de fábrica</span>
-                          </li>
-                          <li className="flex items-start">
-                            <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Planos de incentivo e PPR/PLR</span>
-                          </li>
-                        </ul>
+                      <ul className="space-y-2.5 text-sm text-muted-foreground">
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Defesa em reclamações individuais e ações coletivas</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Responsabilidade subsidiária e solidária em terceirizações</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Assédio moral, dano existencial e reparação por doenças ocupacionais</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Recursos, sustentações orais e acompanhamento em todas as instâncias</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
+                        <Landmark className="h-5 w-5 text-accent" />
+                        <h3 className="font-semibold text-primary text-lg">Fiscalizações, Auditorias e Atuação perante Órgãos Públicos</h3>
                       </div>
+                      <ul className="space-y-2.5 text-sm text-muted-foreground">
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Defesa em autos de infração e atuação estratégica junto ao MPT e Ministério do Trabalho</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Negociação e assinatura de Termos de Ajustamento de Conduta (TAC)</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Auditorias internas e externas para prevenção de passivos trabalhistas</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Adequação à legislação vigente e acompanhamento de inspeções in loco</span>
+                        </li>
+                      </ul>
+                    </div>
+
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-2">
+                        <Users className="h-5 w-5 text-accent" />
+                        <h3 className="font-semibold text-primary text-lg">Negociações Coletivas e Relações Sindicais</h3>
+                      </div>
+                      <ul className="space-y-2.5 text-sm text-muted-foreground">
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Negociação, revisão e renovação de acordos e convenções coletivas</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Mediação de conflitos coletivos e estratégias em casos de greve</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Representação em assembleias, comissões e mesas de negociação</span>
+                        </li>
+                        <li className="flex items-start">
+                          <span className="text-accent mr-2 mt-1">•</span>
+                          <span>Estruturação de planos de incentivo, PLR e programas de participação nos resultados</span>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </CardContent>
@@ -304,10 +337,11 @@ const DireitoTrabalhista = () => {
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
                         <FileText className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-2">Diagnóstico Completo</h3>
+                      <h3 className="font-semibold text-primary mb-2">Análise Estratégica e Diagnóstico Profundo</h3>
                       <p className="text-sm text-muted-foreground">
-                        Levantamento detalhado de contratos, políticas e histórico de litígios para mapear
-                        riscos e oportunidades.
+                        Mapeamos detalhadamente contratos, políticas internas e histórico de demandas para
+                        identificar riscos, oportunidades e passivos ocultos. Esse levantamento técnico é o primeiro
+                        passo para construir estratégias sólidas e seguras, alinhadas à realidade do seu negócio.
                       </p>
                     </div>
 
@@ -315,10 +349,11 @@ const DireitoTrabalhista = () => {
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
                         <Handshake className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-2">Estratégias Colaborativas</h3>
+                      <h3 className="font-semibold text-primary mb-2">Parceria Estratégica e Soluções Personalizadas</h3>
                       <p className="text-sm text-muted-foreground">
-                        Trabalhamos lado a lado com RH e liderança para construir soluções viáveis e sustentáveis
-                        no longo prazo.
+                        Trabalhamos lado a lado com departamentos de RH e gestores para desenvolver soluções sob
+                        medida, prevenir litígios e estruturar relações trabalhistas mais eficientes e sustentáveis.
+                        Cada estratégia é pensada para reduzir impactos e maximizar resultados no longo prazo.
                       </p>
                     </div>
 
@@ -326,10 +361,12 @@ const DireitoTrabalhista = () => {
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
                         <Scale className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-2">Resultados Mensuráveis</h3>
+                      <h3 className="font-semibold text-primary mb-2">Resultados Concretos e Performance Comprovada</h3>
                       <p className="text-sm text-muted-foreground">
-                        Indicadores de performance e relatórios periódicos para acompanhar impactos e
-                        aperfeiçoar as práticas trabalhistas.
+                        Acompanhamos de perto todos os indicadores, apresentando relatórios claros e objetivos para
+                        medir o impacto das ações adotadas. Nossa atuação já garantiu <strong>mais de R$ 270 milhões em
+                        economia trabalhista</strong> aos nossos clientes — reflexo direto de uma metodologia que une
+                        técnica, estratégia e resultado.
                       </p>
                     </div>
                   </div>

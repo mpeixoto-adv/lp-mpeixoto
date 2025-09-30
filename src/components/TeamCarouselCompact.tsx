@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import mauricioImg from "@/assets/team/mauricio-peixoto.jpg";
+import mauricioImg from "@/assets/team/marcelo-peixoto-socio-diretor.jpg";
 import anaImg from "@/assets/team/ana-silva.jpg";
 
 interface TeamMember {
@@ -14,7 +14,7 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: "Dr. Mauricio Peixoto",
+    name: "Dr. Marcelo Peixoto",
     position: "Sócio Fundador",
     image: mauricioImg
   },

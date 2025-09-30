@@ -2,7 +2,7 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, GraduationCap, Award, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import mauricioImg from "@/assets/team/mauricio-peixoto.jpg";
+import mauricioImg from "@/assets/team/marcelo-peixoto-socio-diretor.jpg";
 import anaImg from "@/assets/team/ana-silva.jpg";
 
 interface TeamMember {

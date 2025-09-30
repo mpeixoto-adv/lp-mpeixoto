@@ -11,25 +11,35 @@ interface OfficeSlide {
 
 const officeSlides: OfficeSlide[] = [
   {
-    image: "https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1920&auto=format&fit=crop",
+    image: "/office/recepcao.jpeg",
     title: "Recepção",
     description: "Ambiente acolhedor para receber nossos clientes com conforto e discrição.",
   },
   {
-    image: "https://images.unsplash.com/photo-1505691723518-36a5ac3be353?q=80&w=1920&auto=format&fit=crop",
+    image: "/office/sala-reuniao.jpeg",
     title: "Sala de Reuniões",
     description: "Estrutura moderna equipada para encontros presenciais e virtuais.",
   },
   {
-    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1920&auto=format&fit=crop",
+    image: "/office/area-trabalho.jpeg",
     title: "Área de Trabalho",
     description: "Equipe multidisciplinar atuando com tecnologia de ponta.",
   },
   {
-    image: "https://images.unsplash.com/photo-1431540015161-0bf868a2d407?q=80&w=1920&auto=format&fit=crop",
+    image: "/office/vista-centro.jpeg",
     title: "Vista do Centro",
     description: "Localização estratégica no coração do Rio de Janeiro.",
   },
+  {
+    image: "/office/mercado-11.jpeg",
+    title: "Edifício Mercado 11",
+    description: "Entrada principal em frente à praça com acesso fácil para clientes.",
+  },  
+  {
+    image: "/office/corredor.jpeg",
+    title: "Corredor das Salas Privativas",
+    description: "Ambiente reservado que conecta nossas salas de reunião e atendimentos individuais, garantindo privacidade e conforto aos clientes.",
+  },    
 ];
 
 export const OfficeCarousel = () => {

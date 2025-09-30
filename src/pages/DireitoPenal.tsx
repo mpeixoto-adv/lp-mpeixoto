@@ -42,9 +42,11 @@ const DireitoPenal = () => {
                 Direito Penal
               </h1>
               <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-                Atuação rápida, discreta e estratégica em investigações, processos criminais e medidas de
-                urgência. Defendemos pessoas físicas e jurídicas com análise minuciosa de provas, construção de
-                teses robustas e assistência em compliance penal para prevenir riscos.
+                Protegemos a liberdade e os interesses de pessoas físicas e jurídicas com uma atuação
+                estratégica, técnica e sigilosa. Atuamos desde a fase investigativa até o julgamento, com 
+                análise minuciosa de provas, elaboração de teses consistentes e defesa firme em processos
+                criminais. Também oferecemos assessoria preventiva em <strong>compliance penal e investigação
+                interna</strong>, reduzindo riscos e fortalecendo a segurança jurídica dos nossos clientes.
               </p>
               <Button
                 onClick={handleContactClick}
@@ -64,30 +66,30 @@ const DireitoPenal = () => {
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
                   <h2 className="text-3xl md:text-4xl font-serif font-bold text-primary mb-6">
-                    Defesa Penal Técnica e Personalizada
+                    Defesa Penal Completa e Estratégica
                   </h2>
                   <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                    Cuidamos de cada etapa do processo penal – do acompanhamento na delegacia à fase recursal –
-                    trabalhando em estreita colaboração com o cliente para assegurar uma defesa eficiente. Com
-                    atuação preventiva, investigativa e contenciosa, buscamos resultados concretos com sigilo e
-                    dedicação absoluta.
+                    Oferecemos suporte jurídico completo em todas as fases do processo penal: acompanhamos
+                    investigações, realizamos defesas em primeira instância, atuamos em recursos e garantimos
+                    presença em situações emergenciais 24h por dia. Com uma abordagem técnica, preventiva e
+                    estratégica, construímos soluções eficazes para casos complexos e de alta sensibilidade.
                   </p>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="flex items-center space-x-3">
                       <Shield className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Defesa especializada</span>
+                      <span className="text-sm font-medium text-muted-foreground">Defesa Técnica e Especializada</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Clock className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Resposta imediata</span>
+                      <span className="text-sm font-medium text-muted-foreground">Atuação em Situações de Urgência</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Scale className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Estratégia processual</span>
+                      <span className="text-sm font-medium text-muted-foreground">Estratégia Processual Personalizada</span>
                     </div>
                     <div className="flex items-center space-x-3">
                       <Users className="h-6 w-6 text-accent" />
-                      <span className="text-sm font-medium text-muted-foreground">Atendimento 24/7 em urgências</span>
+                      <span className="text-sm font-medium text-muted-foreground">Prevenção e Compliance Penal</span>
                     </div>
                   </div>
                 </div>
@@ -198,19 +200,19 @@ const DireitoPenal = () => {
                       <ul className="space-y-2.5 text-sm text-muted-foreground">
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Crimes contra a administração pública, ordem tributária e sistema financeiro</span>
+                          <span>Atuação em crimes contra a administração pública, tributários, financeiros e licitatórios.</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Investigações em delegacias, CPIs e procedimentos internos</span>
+                          <span>Defesa em crimes corporativos, ambientais, concorrenciais e societários.</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Defesas em crimes ambientais e empresariais</span>
+                          <span>Representação em inquéritos policiais, CPIs, investigações internas e procedimentos administrativos sancionadores.</span>
                         </li>
                         <li className="flex items-start">
                           <span className="text-accent mr-2 mt-1">•</span>
-                          <span>Representação da vítima em processos criminais</span>
+                          <span>Patrocínio da assistência à acusação em nome de vítimas em processos criminais complexos.</span>
                         </li>
                       </ul>
                     </div>
@@ -219,48 +221,48 @@ const DireitoPenal = () => {
                       <div>
                         <div className="flex items-center space-x-2 mb-3">
                           <Clock className="h-5 w-5 text-accent" />
-                          <h3 className="font-semibold text-primary text-lg">Medidas Urgentes</h3>
+                          <h3 className="font-semibold text-primary text-lg">Medidas Urgentes e Garantias</h3>
                         </div>
                         <ul className="space-y-2.5 text-sm text-muted-foreground">
                           <li className="flex items-start">
                             <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Pedidos de liberdade provisória, relaxamento de prisões e revogações de cautelares</span>
+                            <span>Elaboração de pedidos de liberdade provisória, relaxamento de prisão e revogação de medidas cautelares.</span>
                           </li>
                           <li className="flex items-start">
                             <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Habeas corpus preventivos e liberatórios</span>
+                            <span>Impetração de habeas corpus preventivos e liberatórios em instâncias superiores.</span>
                           </li>
                           <li className="flex items-start">
                             <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Negociações de acordos de colaboração e ANPP</span>
+                            <span>Negociação e estruturação de acordos de não persecução penal (ANPP) e colaborações premiadas.</span>
                           </li>
                           <li className="flex items-start">
                             <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Defesa em medidas de busca e apreensão, bloqueio de bens e quebras de sigilo</span>
+                            <span>Defesa em medidas de busca e apreensão, bloqueio de ativos, quebras de sigilo bancário e fiscal.</span>
                           </li>
                         </ul>
                       </div>
                       <div>
                         <div className="flex items-center space-x-2 mb-3">
                           <Users className="h-5 w-5 text-accent" />
-                          <h3 className="font-semibold text-primary text-lg">Compliance e Prevenção</h3>
+                          <h3 className="font-semibold text-primary text-lg">Compliance e Prevenção Criminal</h3>
                         </div>
                         <ul className="space-y-2.5 text-sm text-muted-foreground">
                           <li className="flex items-start">
                             <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Treinamentos e protocolos para executivos e colaboradores</span>
+                            <span>Desenvolvimento de programas de integridade penal e protocolos internos para empresas e gestores.</span>
                           </li>
                           <li className="flex items-start">
                             <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Gestão de riscos criminais em empresas e entidades sem fins lucrativos</span>
+                            <span>Mapeamento e mitigação de riscos criminais no ambiente corporativo e terceiro setor.</span>
                           </li>
                           <li className="flex items-start">
                             <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Conformidade com legislação anticorrupção e lavagem de dinheiro</span>
+                            <span>Consultoria em conformidade com leis anticorrupção, lavagem de dinheiro e responsabilidade penal da pessoa jurídica.</span>
                           </li>
                           <li className="flex items-start">
                             <span className="text-accent mr-2 mt-1">•</span>
-                            <span>Planos de resposta a incidentes e crises reputacionais</span>
+                            <span>Estruturação de planos de resposta a crises reputacionais e incidentes com potencial criminal.</span>
                           </li>
                         </ul>
                       </div>
@@ -283,9 +285,10 @@ const DireitoPenal = () => {
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
                         <FileText className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-2">Análise Minuciosa de Provas</h3>
+                      <h3 className="font-semibold text-primary mb-2">Investigação e Provas Estratégicas</h3>
                       <p className="text-sm text-muted-foreground">
-                        Revisão técnica do inquérito e do processo para construir teses consistentes e baseadas em dados.
+                        Análise minuciosa de inquéritos, relatórios e provas técnicas para construir teses sólidas,
+                        identificar nulidades e definir a melhor linha de defesa desde as primeiras fases do processo.
                       </p>
                     </div>
 
@@ -293,9 +296,11 @@ const DireitoPenal = () => {
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
                         <Shield className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-2">Resposta Imediata</h3>
+                      <h3 className="font-semibold text-primary mb-2">Atuação Imediata e Contenção de Danos</h3>
                       <p className="text-sm text-muted-foreground">
-                        Atendimento emergencial para atuar em prisões em flagrante, audiências e diligências urgentes.
+                        Resposta ágil em situações críticas, como prisões em flagrante, medidas cautelares e 
+                        audiências urgentes, com foco na preservação de direitos e redução de riscos reputacionais e
+                        patrimoniais.
                       </p>
                     </div>
 
@@ -303,9 +308,11 @@ const DireitoPenal = () => {
                       <div className="p-4 rounded-full bg-accent/10 w-fit mx-auto mb-4">
                         <Scale className="h-8 w-8 text-accent" />
                       </div>
-                      <h3 className="font-semibold text-primary mb-2">Estratégia e Transparência</h3>
+                      <h3 className="font-semibold text-primary mb-2">Planejamento Jurídico e Condução Tática</h3>
                       <p className="text-sm text-muted-foreground">
-                        Comunicação clara, planejamento conjunto e acompanhamento constante do processo penal.
+                        Estratégia jurídica personalizada, comunicação transparente e acompanhamento constante do
+                        processo penal, da investigação à execução, garantindo previsibilidade e controle em cada
+                        etapa. 
                       </p>
                     </div>
                   </div>

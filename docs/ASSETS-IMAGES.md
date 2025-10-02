@@ -26,8 +26,15 @@ image: novaImg
 src/
 ├── assets/
 │   ├── team/                    # Fotos da equipe
-│   │   ├── mauricio-peixoto.jpg
-│   │   ├── ana-silva.jpg
+│   │   ├── marcelo-peixoto.jpg
+│   │   ├── ana-paula-freire.jpg
+│   │   ├── andre-ricardo.jpg
+│   │   ├── bianca-casini.jpg
+│   │   ├── angelo-maxwchelly-bezerra-braz-advogado.jpg
+│   │   ├── jose-de-brasil-pereira-gonzalez-advogado.jpg
+│   │   ├── juliana-cerqueira-advogada.jpg
+│   │   ├── rafaela-barucke-siqueira-de-aguiar-advogada.jpg
+│   │   ├── roberto-souza-rodrigues-advogado.jpg
 │   │   └── [nova-imagem.jpg]
 │   └── direito-tributario.jpg   # Outras imagens
 

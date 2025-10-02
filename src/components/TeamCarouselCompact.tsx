@@ -1,8 +1,15 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import mauricioImg from "@/assets/team/marcelo-peixoto-socio-diretor.jpg";
-import anaImg from "@/assets/team/ana-silva.jpg";
+import marceloImg from "@/assets/team/marcelo-peixoto.jpg";
+import anaPaulaImg from "@/assets/team/ana-paula-freire.jpg";
+import andreImg from "@/assets/team/andre-ricardo.jpg";
+import biancaImg from "@/assets/team/bianca-casini.jpg";
+import angeloImg from "@/assets/team/angelo-maxwchelly-bezerra-braz-advogado.jpg";
+import joseImg from "@/assets/team/jose-de-brasil-pereira-gonzalez-advogado.jpg";
+import julianaImg from "@/assets/team/juliana-cerqueira-advogada.jpg";
+import rafaelaImg from "@/assets/team/rafaela-barucke-siqueira-de-aguiar-advogada.jpg";
+import robertoImg from "@/assets/team/roberto-souza-rodrigues-advogado.jpg";
 
 interface TeamMember {
   id: number;
@@ -16,25 +23,55 @@ const teamMembers: TeamMember[] = [
     id: 1,
     name: "Dr. Marcelo Peixoto",
     position: "Sócio Fundador",
-    image: mauricioImg
+    image: marceloImg
   },
   {
     id: 2,
-    name: "Dra. Ana Silva Santos",
-    position: "Sócia",
-    image: anaImg
+    name: "Dra. Ana Paula Freire",
+    position: "Advogada",
+    image: anaPaulaImg
   },
   {
     id: 3,
-    name: "Dr. Carlos Eduardo Lima",
-    position: "Advogado Senior",
-    image: mauricioImg // Placeholder até ter imagem real
+    name: "Dr. Andre Ricardo",
+    position: "Advogado",
+    image: andreImg
   },
   {
     id: 4,
-    name: "Dra. Beatriz Costa",
+    name: "Dra. Bianca Casini",
     position: "Advogada",
-    image: anaImg // Placeholder até ter imagem real
+    image: biancaImg
+  },
+  {
+    id: 5,
+    name: "Dr. Angelo Braz",
+    position: "Advogado",
+    image: angeloImg
+  },
+  {
+    id: 6,
+    name: "Dr. Jose Gonzalez",
+    position: "Advogado",
+    image: joseImg
+  },
+  {
+    id: 7,
+    name: "Dra. Juliana Cerqueira",
+    position: "Advogada",
+    image: julianaImg
+  },
+  {
+    id: 8,
+    name: "Dra. Rafaela Barucke",
+    position: "Advogada",
+    image: rafaelaImg
+  },
+  {
+    id: 9,
+    name: "Dr. Roberto Souza",
+    position: "Advogado",
+    image: robertoImg
   }
 ];
 

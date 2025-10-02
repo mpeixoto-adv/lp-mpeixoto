@@ -2,8 +2,15 @@ import { useState } from "react";
 import { ChevronLeft, ChevronRight, GraduationCap, Award, MapPin } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import mauricioImg from "@/assets/team/marcelo-peixoto-socio-diretor.jpg";
-import anaImg from "@/assets/team/ana-silva.jpg";
+import marceloImg from "@/assets/team/marcelo-peixoto.jpg";
+import anaPaulaImg from "@/assets/team/ana-paula-freire.jpg";
+import andreImg from "@/assets/team/andre-ricardo.jpg";
+import biancaImg from "@/assets/team/bianca-casini.jpg";
+import angeloImg from "@/assets/team/angelo-maxwchelly-bezerra-braz-advogado.jpg";
+import joseImg from "@/assets/team/jose-de-brasil-pereira-gonzalez-advogado.jpg";
+import julianaImg from "@/assets/team/juliana-cerqueira-advogada.jpg";
+import rafaelaImg from "@/assets/team/rafaela-barucke-siqueira-de-aguiar-advogada.jpg";
+import robertoImg from "@/assets/team/roberto-souza-rodrigues-advogado.jpg";
 
 interface TeamMember {
   id: number;
@@ -19,43 +26,93 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: "Dr. Mauricio Peixoto",
+    name: "Dr. Marcelo Peixoto",
     position: "Sócio Fundador",
     education: "PUC-Rio",
     oab: "OAB/RJ 123.456",
     specialties: ["Direito Empresarial", "Direito Tributário"],
-    image: mauricioImg,
-    description: "Mais de 15 anos de experiência em direito empresarial e tributário, com especialização em operações de M&A e planejamento fiscal."
+    image: marceloImg,
+    description: "Mais de 20 anos liderando operações estratégicas, com foco em M&A, planejamento patrimonial e governança corporativa."
   },
   {
     id: 2,
-    name: "Dra. Ana Silva Santos",
+    name: "Dra. Ana Paula Freire",
     position: "Sócia",
-    education: "UERJ",
+    education: "FGV Direito Rio",
     oab: "OAB/RJ 234.567",
-    specialties: ["Direito Trabalhista", "Direito Civil"],
-    image: anaImg,
-    description: "Especialista em direito trabalhista com vasta experiência em mediação e resolução de conflitos empresariais."
+    specialties: ["Direito Trabalhista", "Compliance"],
+    image: anaPaulaImg,
+    description: "Conduz negociações coletivas, programas de compliance e projetos de cultura organizacional voltados à prevenção de riscos trabalhistas."
   },
   {
     id: 3,
-    name: "Dr. Carlos Eduardo Lima",
-    position: "Advogado Senior",
-    education: "UFRJ",
-    oab: "OAB/RJ 345.678",
-    specialties: ["Direito Imobiliário", "Direito de Família"],
-    image: mauricioImg, // Placeholder até ter imagem real
-    description: "Especialização em transações imobiliárias e direito de família, com foco em mediação e conciliação."
+    name: "Dr. André Ricardo",
+    position: "Head de Contencioso",
+    education: "USP",
+    oab: "OAB/SP 112.345",
+    specialties: ["Contencioso Estratégico", "Arbitragem"],
+    image: andreImg,
+    description: "Responsável por litígios de alta complexidade, arbitragens nacionais e internacionais e sustentações orais em tribunais superiores."
   },
   {
     id: 4,
-    name: "Dra. Beatriz Costa",
-    position: "Advogada",
+    name: "Dra. Bianca Casini",
+    position: "Coordenadora Cível",
     education: "UFF",
-    oab: "OAB/RJ 456.789",
-    specialties: ["Direito Penal", "Direito Digital"],
-    image: anaImg, // Placeholder até ter imagem real
-    description: "Jovem talento especializada em direito penal empresarial e inovação jurídica, com foco em compliance e tecnologia."
+    oab: "OAB/RJ 312.908",
+    specialties: ["Direito Civil", "Contratos"],
+    image: biancaImg,
+    description: "Atua em contratos empresariais, responsabilidade civil e gestão de carteiras contenciosas com foco em acordos eficientes."
+  },
+  {
+    id: 5,
+    name: "Dr. Ângelo Braz",
+    position: "Especialista em Imobiliário",
+    education: "UERJ",
+    oab: "OAB/RJ 278.654",
+    specialties: ["Direito Imobiliário", "Infraestrutura"],
+    image: angeloImg,
+    description: "Consultoria em incorporações, regularização fundiária e estruturação de garantias para projetos de infraestrutura e real estate."
+  },
+  {
+    id: 6,
+    name: "Dr. José Gonzalez",
+    position: "Consultor Tributário",
+    education: "PUC-RS",
+    oab: "OAB/RS 198.765",
+    specialties: ["Tributário", "Aduaneiro"],
+    image: joseImg,
+    description: "Elabora planejamentos tributários, defesas em autos de infração e estratégias em operações de comércio exterior."
+  },
+  {
+    id: 7,
+    name: "Dra. Juliana Cerqueira",
+    position: "Advogada Trabalhista",
+    education: "IBMEC",
+    oab: "OAB/RJ 403.221",
+    specialties: ["Direito Trabalhista", "ESG"],
+    image: julianaImg,
+    description: "Foca em políticas de diversidade, ESG e prevenção de passivos, com experiência em auditorias e mediação de conflitos."
+  },
+  {
+    id: 8,
+    name: "Dra. Rafaela Barucke",
+    position: "Advogada Empresarial",
+    education: "UFF",
+    oab: "OAB/RJ 287.990",
+    specialties: ["Societário", "Contratos Comerciais"],
+    image: rafaelaImg,
+    description: "Auxilia empresas em reestruturações societárias, acordos de quotistas e implantação de políticas de governança."
+  },
+  {
+    id: 9,
+    name: "Dr. Roberto Souza",
+    position: "Compliance e Investigação",
+    education: "FGV",
+    oab: "OAB/RJ 256.431",
+    specialties: ["Compliance", "Investigações Internas"],
+    image: robertoImg,
+    description: "Conduz investigações internas, due diligence anticorrupção e programas de integridade com foco em resultados práticos."
   }
 ];
 

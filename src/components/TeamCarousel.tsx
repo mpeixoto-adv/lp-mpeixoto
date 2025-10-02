@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronLeft, ChevronRight, GraduationCap, Award, MapPin } from "lucide-react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import marceloImg from "@/assets/team/marcelo-peixoto.jpg";
@@ -16,11 +16,7 @@ interface TeamMember {
   id: number;
   name: string;
   position: string;
-  education: string;
-  oab: string;
-  specialties: string[];
   image: string;
-  description: string;
 }
 
 const teamMembers: TeamMember[] = [
@@ -28,91 +24,55 @@ const teamMembers: TeamMember[] = [
     id: 1,
     name: "Dr. Marcelo Peixoto",
     position: "Sócio Fundador",
-    education: "PUC-Rio",
-    oab: "OAB/RJ 123.456",
-    specialties: ["Direito Empresarial", "Direito Tributário"],
-    image: marceloImg,
-    description: "Mais de 20 anos liderando operações estratégicas, com foco em M&A, planejamento patrimonial e governança corporativa."
+    image: marceloImg
   },
   {
     id: 2,
     name: "Dra. Ana Paula Freire",
     position: "Advogada",
-    education: "FGV Direito Rio",
-    oab: "OAB/RJ 234.567",
-    specialties: ["Direito Trabalhista", "Compliance"],
-    image: anaPaulaImg,
-    description: "Conduz negociações coletivas, programas de compliance e projetos de cultura organizacional voltados à prevenção de riscos trabalhistas."
+    image: anaPaulaImg
   },
   {
     id: 3,
     name: "Dr. André Ricardo",
-    position: "Head de Contencioso",
-    education: "USP",
-    oab: "OAB/SP 112.345",
-    specialties: ["Contencioso Estratégico", "Arbitragem"],
-    image: andreImg,
-    description: "Responsável por litígios de alta complexidade, arbitragens nacionais e internacionais e sustentações orais em tribunais superiores."
+    position: "Advogado",
+    image: andreImg
   },
   {
     id: 4,
     name: "Dra. Bianca Casini",
-    position: "Coordenadora Cível",
-    education: "UFF",
-    oab: "OAB/RJ 312.908",
-    specialties: ["Direito Civil", "Contratos"],
-    image: biancaImg,
-    description: "Atua em contratos empresariais, responsabilidade civil e gestão de carteiras contenciosas com foco em acordos eficientes."
+    position: "Advogada",
+    image: biancaImg
   },
   {
     id: 5,
     name: "Dr. Ângelo Braz",
-    position: "Especialista em Imobiliário",
-    education: "UERJ",
-    oab: "OAB/RJ 278.654",
-    specialties: ["Direito Imobiliário", "Infraestrutura"],
-    image: angeloImg,
-    description: "Consultoria em incorporações, regularização fundiária e estruturação de garantias para projetos de infraestrutura e real estate."
+    position: "Advogado",
+    image: angeloImg
   },
   {
     id: 6,
     name: "Dr. José Gonzalez",
-    position: "Consultor Tributário",
-    education: "PUC-RS",
-    oab: "OAB/RS 198.765",
-    specialties: ["Tributário", "Aduaneiro"],
-    image: joseImg,
-    description: "Elabora planejamentos tributários, defesas em autos de infração e estratégias em operações de comércio exterior."
+    position: "Advogado",
+    image: joseImg
   },
   {
     id: 7,
     name: "Dra. Juliana Cerqueira",
-    position: "Advogada Trabalhista",
-    education: "IBMEC",
-    oab: "OAB/RJ 403.221",
-    specialties: ["Direito Trabalhista", "ESG"],
-    image: julianaImg,
-    description: "Foca em políticas de diversidade, ESG e prevenção de passivos, com experiência em auditorias e mediação de conflitos."
+    position: "Advogada",
+    image: julianaImg
   },
   {
     id: 8,
     name: "Dra. Rafaela Barucke",
-    position: "Advogada Empresarial",
-    education: "UFF",
-    oab: "OAB/RJ 287.990",
-    specialties: ["Societário", "Contratos Comerciais"],
-    image: rafaelaImg,
-    description: "Auxilia empresas em reestruturações societárias, acordos de quotistas e implantação de políticas de governança."
+    position: "Advogada",
+    image: rafaelaImg
   },
   {
     id: 9,
     name: "Dr. Roberto Souza",
-    position: "Compliance e Investigação",
-    education: "FGV",
-    oab: "OAB/RJ 256.431",
-    specialties: ["Compliance", "Investigações Internas"],
-    image: robertoImg,
-    description: "Conduz investigações internas, due diligence anticorrupção e programas de integridade com foco em resultados práticos."
+    position: "Advogado",
+    image: robertoImg
   }
 ];
 
@@ -201,43 +161,12 @@ export const TeamCarousel = () => {
               </div>
 
               {/* Content */}
-              <div className="p-6">
-                <div className="mb-4">
-                  <h3 className="text-xl font-serif font-bold text-primary mb-1">
-                    {member.name}
-                  </h3>
-                  <p className="text-accent font-medium">
-                    {member.position}
-                  </p>
-                </div>
-
-                <div className="space-y-3 mb-4">
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <GraduationCap className="h-4 w-4 mr-2 text-accent" />
-                    {member.education}
-                  </div>
-                  <div className="flex items-center text-sm text-muted-foreground">
-                    <Award className="h-4 w-4 mr-2 text-accent" />
-                    {member.oab}
-                  </div>
-                </div>
-
-                <div className="mb-4">
-                  <h4 className="text-sm font-semibold text-primary mb-2">Especialidades:</h4>
-                  <div className="flex flex-wrap gap-1">
-                    {member.specialties.map((specialty, index) => (
-                      <span
-                        key={index}
-                        className="inline-block px-2 py-1 text-xs bg-accent/10 text-accent rounded-full"
-                      >
-                        {specialty}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  {member.description}
+              <div className="p-6 text-center">
+                <h3 className="text-xl font-serif font-bold text-primary mb-1">
+                  {member.name}
+                </h3>
+                <p className="text-accent font-medium">
+                  {member.position}
                 </p>
               </div>
             </CardContent>

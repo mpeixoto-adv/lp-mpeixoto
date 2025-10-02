@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, Mail, MapPin, Facebook, Twitter, Instagram, ChevronDown } from "lucide-react";
+import { Menu, X, Phone, Mail, MapPin, Instagram, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 // Removido imports do DropdownMenu - agora usando hover customizado
 import logoMP from "@/assets/logo-mp.jpg";
@@ -85,19 +85,15 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                 <span>Rua do Mercado, 11 - 16° andar - Centro/RJ</span>
               </div>
             </div>
-            <div className="flex items-center space-x-4">
+            <div className="flex items-center space-x-2">
               <span className="hidden md:inline">Siga-nos:</span>
-              <div className="flex space-x-2">
-                <a href="#" className="hover:text-accent transition-colors">
-                  <Facebook className="h-4 w-4" />
-                </a>
-                <a href="#" className="hover:text-accent transition-colors">
-                  <Twitter className="h-4 w-4" />
-                </a>
-                <a href="#" className="hover:text-accent transition-colors">
-                  <Instagram className="h-4 w-4" />
-                </a>
-              </div>
+              <a
+                href="https://www.instagram.com/mpeixotoadvogados"
+                className="hover:text-accent transition-colors"
+                aria-label="Instagram do escritório"
+              >
+                <Instagram className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </div>
@@ -380,17 +376,13 @@ export const Navigation = ({ onContactClick }: NavigationProps) => {
                     
                     <div>
                       <p className="text-foreground/70 text-sm mb-4">Siga-nos:</p>
-                      <div className="flex space-x-6">
-                        <a href="#" className="text-foreground/70 hover:text-accent transition-colors">
-                          <Facebook className="h-6 w-6" />
-                        </a>
-                        <a href="#" className="text-foreground/70 hover:text-accent transition-colors">
-                          <Twitter className="h-6 w-6" />
-                        </a>
-                        <a href="#" className="text-foreground/70 hover:text-accent transition-colors">
-                          <Instagram className="h-6 w-6" />
-                        </a>
-                      </div>
+                      <a
+                        href="https://www.instagram.com/mpeixotoadvogados"
+                        className="inline-flex items-center text-foreground/70 hover:text-accent transition-colors"
+                        aria-label="Instagram do escritório"
+                      >
+                        <Instagram className="h-6 w-6" />
+                      </a>
                     </div>
                   </div>
                 </div>

@@ -37,7 +37,7 @@ const teamMembers: TeamMember[] = [
   {
     id: 2,
     name: "Dra. Ana Paula Freire",
-    position: "Sócia",
+    position: "Advogada",
     education: "FGV Direito Rio",
     oab: "OAB/RJ 234.567",
     specialties: ["Direito Trabalhista", "Compliance"],

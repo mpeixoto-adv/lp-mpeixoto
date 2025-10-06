@@ -11,6 +11,12 @@ import joseImg from "@/assets/team/jose-de-brasil-pereira-gonzalez-advogado.jpg"
 import julianaImg from "@/assets/team/juliana-cerqueira-advogada.jpg";
 import rafaelaImg from "@/assets/team/rafaela-barucke-siqueira-de-aguiar-advogada.jpg";
 import robertoImg from "@/assets/team/roberto-souza-rodrigues-advogado.jpg";
+import benitaImg from "@/assets/team/benita-guedes-associada.jpg";
+import julioImg from "@/assets/team/julio-cesar-oliveira-godinho-associado.jpg";
+import lucasImg from "@/assets/team/lucas-dunlop-fernandes-coachman-associado.jpg";
+import raphaelImg from "@/assets/team/raphael-queiroz-socio-de-capital.jpg";
+import victorImg from "@/assets/team/victor-bastos-associado.jpg";
+import yanImg from "@/assets/team/yan-de-hollanda-cavalcanti-fonseca-associado.jpg";
 
 interface TeamMember {
   id: number;
@@ -73,6 +79,42 @@ const teamMembers: TeamMember[] = [
     name: "Dr. Roberto Souza",
     position: "Advogado",
     image: robertoImg
+  },
+  {
+    id: 10,
+    name: "Dra. Benita Guedes",
+    position: "Associada",
+    image: benitaImg
+  },
+  {
+    id: 11,
+    name: "Dr. Julio Cesar Oliveira Godinho",
+    position: "Associado",
+    image: julioImg
+  },
+  {
+    id: 12,
+    name: "Dr. Lucas Dunlop Fernandes Coachman",
+    position: "Associado",
+    image: lucasImg
+  },
+  {
+    id: 13,
+    name: "Dr. Raphael Queiroz",
+    position: "Sócio de Capital",
+    image: raphaelImg
+  },
+  {
+    id: 14,
+    name: "Dr. Victor Bastos",
+    position: "Associado",
+    image: victorImg
+  },
+  {
+    id: 15,
+    name: "Dr. Yan de Hollanda Cavalcanti Fonseca",
+    position: "Associado",
+    image: yanImg
   }
 ];
 

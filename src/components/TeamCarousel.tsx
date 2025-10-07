@@ -88,13 +88,13 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 11,
-    name: "Dr. Julio Cesar Oliveira Godinho",
+    name: "Dr. Julio Godinho",
     position: "Associado",
     image: julioImg
   },
   {
     id: 12,
-    name: "Dr. Lucas Dunlop Fernandes Coachman",
+    name: "Dr. Lucas Coachman",
     position: "Associado",
     image: lucasImg
   },
@@ -112,7 +112,7 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 15,
-    name: "Dr. Yan de Hollanda Cavalcanti Fonseca",
+    name: "Dr. Yan Fonseca",
     position: "Associado",
     image: yanImg
   }
